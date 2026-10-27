@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Static QR Code Generator — No Expiration, No Signup</title>
+<meta name="description" content="Create a free permanent QR code that never expires. Static QR codes generated in your browser — no account, no upload, no tracking. Download PNG or SVG.">
+<meta name="keywords" content="qr code generator free no expiration, static qr code, permanent qr code, free forever qr, no signup qr code, static qr vs dynamic">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://spook2406.github.io/qr-no-expire/">
+<meta property="og:title" content="Free Static QR Code Generator — Never Expires">
+<meta property="og:description" content="Generate permanent static QR codes in your browser. Free forever. No signup. No data uploaded.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://spook2406.github.io/qr-no-expire/">
+<link rel="stylesheet" href="css/style.css">
+<!--
+  Google AdSense placeholder — replace ca-pub-XXXXXXXX with your publisher ID after approval:
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX"
+    crossorigin="anonymous"></script>
+-->
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="#generator">Generator</a>
+    <a href="guides/">Guides</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+
+<section class="hero">
+  <h1>Free Static QR Code Generator — No Expiration</h1>
+  <p>Create a permanent QR code that never expires and never asks you to sign up. Everything runs in your browser — your link, WiFi password, or text never leaves your device.</p>
+  <div class="badge-row">
+    <span class="badge">✓ Free forever</span>
+    <span class="badge">✓ No account</span>
+    <span class="badge">✓ No expiration</span>
+    <span class="badge">✓ Client-side only</span>
+  </div>
+</section>
+
+<div class="container" id="generator">
+  <div class="ad-slot">
+    <!-- AdSense slot: homepage-top — insert ins.adsbygoogle unit here after approval -->
+    <span>Advertisement placeholder (top banner)</span>
+  </div>
+
+  <div class="generator">
+    <div class="panel">
+      <h2>1. Choose content</h2>
+      <div class="tabs" role="tablist">
+        <button type="button" class="tab active" data-type="url">URL</button>
+        <button type="button" class="tab" data-type="text">Text</button>
+        <button type="button" class="tab" data-type="wifi">WiFi</button>
+        <button type="button" class="tab" data-type="email">Email</button>
+        <button type="button" class="tab" data-type="phone">Phone</button>
+      </div>
+
+      <div id="panel-url">
+        <div class="field">
+          <label for="input-url">Website URL</label>
+          <input id="input-url" type="url" placeholder="https://example.com" autocomplete="url">
+          <p class="hint">Tip: use a stable URL you control — static QR codes cannot be edited later.</p>
+        </div>
+      </div>
+
+      <div id="panel-text" hidden>
+        <div class="field">
+          <label for="input-text">Plain text</label>
+          <textarea id="input-text" placeholder="Any text, note, or message"></textarea>
+        </div>
+      </div>
+
+      <div id="panel-wifi" hidden>
+        <div class="field">
+          <label for="wifi-ssid">Network name (SSID)</label>
+          <input id="wifi-ssid" type="text" placeholder="MyHomeWiFi" autocomplete="off">
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="wifi-enc">Encryption</label>
+            <select id="wifi-enc">
+              <option value="WPA">WPA/WPA2</option>
+              <option value="WEP">WEP</option>
+              <option value="nopass">None</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="wifi-pass">Password</label>
+            <input id="wifi-pass" type="text" placeholder="password" autocomplete="off">
+          </div>
+        </div>
+        <div class="field">
+          <label><input id="wifi-hidden" type="checkbox"> Hidden network</label>
+        </div>
+      </div>
+
+      <div id="panel-email" hidden>
+        <div class="field">
+          <label for="email-to">To</label>
+          <input id="email-to" type="email" placeholder="hello@example.com">
+        </div>
+        <div class="field">
+          <label for="email-subject">Subject (optional)</label>
+          <input id="email-subject" type="text" placeholder="Hello">
+        </div>
+        <div class="field">
+          <label for="email-body">Body (optional)</label>
+          <textarea id="email-body" placeholder="Message body"></textarea>
+        </div>
+      </div>
+
+      <div id="panel-phone" hidden>
+        <div class="field">
+          <label for="input-phone">Phone number</label>
+          <input id="input-phone" type="tel" placeholder="+1 555 123 4567">
+        </div>
+      </div>
+
+      <h2>2. Style</h2>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-size">Size (px)</label>
+          <select id="opt-size">
+            <option value="256">256</option>
+            <option value="320" selected>320</option>
+            <option value="512">512</option>
+            <option value="1024">1024</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-ecc">Error correction</label>
+          <select id="opt-ecc">
+            <option value="L">L — ~7%</option>
+            <option value="M" selected>M — ~15%</option>
+            <option value="Q">Q — ~25%</option>
+            <option value="H">H — ~30%</option>
+          </select>
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-margin">Quiet zone</label>
+          <select id="opt-margin">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-dark">Foreground</label>
+          <input id="opt-dark" type="color" value="#000000">
+        </div>
+      </div>
+      <div class="field">
+        <label for="opt-light">Background</label>
+        <input id="opt-light" type="color" value="#ffffff">
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn" id="generate-btn">Generate static QR</button>
+      </div>
+      <div class="error" id="form-error" role="alert"></div>
+      <div class="privacy-note">
+        Privacy: QR codes are generated entirely on your device with the MIT-licensed <code>qrcode</code> library. Nothing is uploaded to our servers.
+      </div>
+    </div>
+
+    <div class="panel preview-wrap">
+      <h2 style="align-self:flex-start;width:100%;margin:0 0 .5rem;">3. Preview &amp; download</h2>
+      <p class="preview-empty" id="preview-empty">Your static QR code will appear here. It encodes the data itself — no short link that can expire.</p>
+      <canvas id="qr-canvas" width="320" height="320" aria-label="QR code preview"></canvas>
+      <div class="actions">
+        <button type="button" class="btn" id="download-png" disabled>Download PNG</button>
+        <button type="button" class="btn secondary" id="download-svg" disabled>Download SVG</button>
+        <button type="button" class="btn secondary" id="copy-data" disabled>Copy payload</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot">
+    <!-- AdSense slot: homepage-mid -->
+    <span>Advertisement placeholder (mid)</span>
+  </div>
+
+  <h2 class="section-title">Why a static QR code?</h2>
+  <div class="feature-grid">
+    <article class="feature-card">
+      <h3>Never expires</h3>
+      <p>Dynamic QR services can shut down or start charging. A static QR embeds your data permanently in the image.</p>
+    </article>
+    <article class="feature-card">
+      <h3>No signup</h3>
+      <p>Generate and download instantly. No email, no plan, no “trial ends in 14 days”.</p>
+    </article>
+    <article class="feature-card">
+      <h3>Private by design</h3>
+      <p>Generation happens in your browser. We do not receive your URL, WiFi password, or text.</p>
+    </article>
+    <article class="feature-card">
+      <h3>Print-ready files</h3>
+      <p>Export PNG for social posts or SVG for crisp print materials and packaging.</p>
+    </article>
+  </div>
+
+  <h2 class="section-title">Guides</h2>
+  <div class="guide-grid">
+    <article class="guide-card">
+      <h3>Static QR codes that never expire</h3>
+      <p>How permanent QR codes work and when to choose them over dynamic links.</p>
+      <a href="guides/static-qr-no-expiration.html">Read guide →</a>
+    </article>
+    <article class="guide-card">
+      <h3>Free forever QR code — what to watch for</h3>
+      <p>Marketing traps from “free” QR tools and how to keep your code working for years.</p>
+      <a href="guides/free-forever-qr-code.html">Read guide →</a>
+    </article>
+    <article class="guide-card">
+      <h3>Static vs dynamic QR codes</h3>
+      <p>Editable links vs permanent payloads — pros, cons, and SEO-friendly tips.</p>
+      <a href="guides/static-vs-dynamic-qr.html">Read guide →</a>
+    </article>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRNoExpire — free static QR code generator. No account required.</div>
+    <div class="footer-links">
+      <a href="guides/">Guides</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/spook2406/qr-no-expire">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="vendor/qrcode.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
