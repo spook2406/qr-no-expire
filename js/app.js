@@ -47,10 +47,6 @@
     });
   });
 
-  function escapeWifi(value) {
-    return String(value || '').replace(/([\\;,\"])/g, '\\$1');
-  }
-
   function buildPayload() {
     if (type === 'url') {
       var url = (document.getElementById('input-url').value || '').trim();
@@ -64,15 +60,12 @@
       return text;
     }
     if (type === 'wifi') {
-      var ssid = (document.getElementById('wifi-ssid').value || '').trim();
-      var pass = document.getElementById('wifi-pass').value || '';
-      var enc = document.getElementById('wifi-enc').value || 'WPA';
-      var hidden = document.getElementById('wifi-hidden').checked;
-      if (!ssid) throw new Error('Enter a WiFi network name (SSID).');
-      var parts = ['WIFI:T:' + enc, 'S:' + escapeWifi(ssid)];
-      if (enc !== 'nopass') parts.push('P:' + escapeWifi(pass));
-      if (hidden) parts.push('H:true');
-      return parts.join(';') + ';;';
+      return WifiPayload.buildWifiPayload({
+        ssid: document.getElementById('wifi-ssid').value || '',
+        password: document.getElementById('wifi-pass').value || '',
+        encryption: document.getElementById('wifi-enc').value || 'WPA',
+        hidden: document.getElementById('wifi-hidden').checked
+      });
     }
     if (type === 'email') {
       var email = (document.getElementById('email-to').value || '').trim();

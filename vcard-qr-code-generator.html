@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free vCard / Business Card QR Code Generator — No Signup, Never Expires</title>
+<meta name="description" content="Create a static vCard QR code for business cards and badges. Name, phone, email, company—generated in your browser. No signup, no upload, never expires. PNG & SVG.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/vcard-qr-code-generator.html">
+<meta property="og:title" content="Free vCard / Business Card QR Code Generator — Never Expires">
+<meta property="og:description" content="Create a static vCard QR code for business cards and badges. Generated in your browser—no signup, no upload, never expires.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/vcard-qr-code-generator.html">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Does a vCard QR code expire?","acceptedAnswer":{"@type":"Answer","text":"A static vCard QR does not expire: contact fields live inside the image, so there is no trial clock or short-link server that can shut it off."}},
+    {"@type":"Question","name":"What happens if I change my phone number or email?","acceptedAnswer":{"@type":"Answer","text":"Generate and print a new QR. Static codes cannot be edited after creation—reprint when details change."}},
+    {"@type":"Question","name":"Is this business card QR generator free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Create and download PNG or SVG with no signup. Generation is client-side on your device."}},
+    {"@type":"Question","name":"Will phones save the contact when they scan?","acceptedAnswer":{"@type":"Answer","text":"Most modern iPhone and Android camera apps recognize a vCard (MECARD/vCard) payload and offer to add the contact. Behavior varies slightly by OS version."}},
+    {"@type":"Question","name":"How large should a vCard QR be on a business card?","acceptedAnswer":{"@type":"Answer","text":"More fields make a denser code. For a typical business card, aim for at least about 2 cm (roughly 0.8 in) on the shortest side, keep a quiet zone, and test a print before a large order."}},
+    {"@type":"Question","name":"Is my contact data uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. This page builds the vCard string and QR image in your browser. Nothing is sent to our servers."}}
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="index.html#generator">Generator</a>
+    <a href="guides/">Guides</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+
+<section class="hero">
+  <h1>Free vCard / Business Card QR Code Generator</h1>
+  <p>Let people save your contact with one scan—name, phone, email, company, and website in a standard vCard. This page builds a <strong>static</strong> QR in your browser: no account, no upload, and no expiration date.</p>
+  <div class="badge-row">
+    <span class="badge">✓ No signup</span>
+    <span class="badge">✓ Never expires</span>
+    <span class="badge">✓ Client-side only</span>
+    <span class="badge">✓ PNG &amp; SVG</span>
+  </div>
+</section>
+
+<div class="container" id="vcard-generator">
+  <h2 class="section-title">Generate your vCard QR code</h2>
+  <p style="color:var(--muted);max-width:52rem;margin:0 0 1rem;">Fill in the fields you want on the card. Everything runs locally: your contact details never leave this device.</p>
+  <p style="color:#c8d4eb;max-width:52rem;"><strong>Density tip:</strong> more fields make a denser QR. For business cards and name badges, keep only what you need and print at least about <strong>2&nbsp;cm</strong> (~0.8&nbsp;in) on the shortest side. If you change a number or email later, you must generate and reprint—static codes cannot be updated remotely.</p>
+
+  <div class="generator">
+    <div class="panel">
+      <h2>1. Contact details</h2>
+      <div class="row-2">
+        <div class="field">
+          <label for="vc-first">First name</label>
+          <input id="vc-first" type="text" placeholder="Alex" autocomplete="given-name">
+        </div>
+        <div class="field">
+          <label for="vc-last">Last name</label>
+          <input id="vc-last" type="text" placeholder="Rivera" autocomplete="family-name">
+        </div>
+      </div>
+      <div class="field">
+        <label for="vc-fn">Full name (optional override)</label>
+        <input id="vc-fn" type="text" placeholder="Alex Rivera" autocomplete="name">
+        <p class="hint">Leave blank to use first + last. Required if first/last are empty.</p>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="vc-org">Organization</label>
+          <input id="vc-org" type="text" placeholder="Acme Studio" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="vc-title">Job title</label>
+          <input id="vc-title" type="text" placeholder="Product designer" autocomplete="organization-title">
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="vc-phone">Phone</label>
+          <input id="vc-phone" type="tel" placeholder="+1 555 010 2000" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="vc-email">Email</label>
+          <input id="vc-email" type="email" placeholder="alex@example.com" autocomplete="email">
+        </div>
+      </div>
+      <div class="field">
+        <label for="vc-url">Website</label>
+        <input id="vc-url" type="url" placeholder="https://example.com" autocomplete="url">
+      </div>
+
+      <h2 style="margin-top:1rem;">Address (optional)</h2>
+      <div class="field">
+        <label for="vc-street">Street</label>
+        <input id="vc-street" type="text" placeholder="123 Market St" autocomplete="street-address">
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="vc-city">City</label>
+          <input id="vc-city" type="text" placeholder="San Francisco" autocomplete="address-level2">
+        </div>
+        <div class="field">
+          <label for="vc-region">State / region</label>
+          <input id="vc-region" type="text" placeholder="CA" autocomplete="address-level1">
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="vc-postal">Postal code</label>
+          <input id="vc-postal" type="text" placeholder="94103" autocomplete="postal-code">
+        </div>
+        <div class="field">
+          <label for="vc-country">Country</label>
+          <input id="vc-country" type="text" placeholder="United States" autocomplete="country-name">
+        </div>
+      </div>
+
+      <h2>2. Style</h2>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-size">Size (px)</label>
+          <select id="opt-size">
+            <option value="256">256</option>
+            <option value="320" selected>320</option>
+            <option value="512">512</option>
+            <option value="1024">1024</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-ecc">Error correction</label>
+          <select id="opt-ecc">
+            <option value="L">L — ~7%</option>
+            <option value="M" selected>M — ~15%</option>
+            <option value="Q">Q — ~25%</option>
+            <option value="H">H — ~30%</option>
+          </select>
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-margin">Quiet zone</label>
+          <select id="opt-margin">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-dark">Foreground</label>
+          <input id="opt-dark" type="color" value="#000000">
+        </div>
+      </div>
+      <div class="field">
+        <label for="opt-light">Background</label>
+        <input id="opt-light" type="color" value="#ffffff">
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn" id="generate-btn">Generate vCard QR</button>
+      </div>
+      <div class="error" id="form-error" role="alert"></div>
+      <div class="privacy-note">
+        Privacy: QR codes are generated entirely on your device. Your contact fields are not uploaded.
+      </div>
+    </div>
+
+    <div class="panel preview-wrap">
+      <h2 style="align-self:flex-start;width:100%;margin:0 0 .5rem;">3. Preview &amp; download</h2>
+      <p class="preview-empty" id="preview-empty">Your vCard QR code will appear here. It encodes a BEGIN:VCARD payload — no short link that can expire.</p>
+      <canvas id="qr-canvas" width="320" height="320" aria-label="vCard QR code preview"></canvas>
+      <div class="actions">
+        <button type="button" class="btn" id="download-png" disabled>Download PNG</button>
+        <button type="button" class="btn secondary" id="download-svg" disabled>Download SVG</button>
+      </div>
+    </div>
+  </div>
+
+  <p style="color:#c8d4eb;max-width:52rem;margin-top:1.25rem;">When you generate, the QR encodes a standard <strong>vCard 3.0</strong> text block (<code>BEGIN:VCARD</code> … <code>END:VCARD</code>). Phones that support contact QR scanning read that payload directly—there is no redirect server in the middle.</p>
+  <p style="color:#c8d4eb;max-width:52rem;">Download <strong>PNG</strong> for screen and social posts, or <strong>SVG</strong> for crisp print on business cards, badges, and letterhead.</p>
+  <p style="color:var(--muted);max-width:52rem;">Also available: the <a href="index.html">homepage generator</a> (URL, text, WiFi, email, phone) and the dedicated <a href="wifi-qr-code-generator.html">WiFi QR code generator</a>.</p>
+</div>
+
+<article class="prose">
+  <h2>Why a static vCard QR never expires</h2>
+  <p>Many “business card QR” tools create a <strong>dynamic</strong> code: the printed square points at a short URL on their servers, and that page later shows your contact card—or fails when the trial ends.</p>
+  <p>A <strong>static</strong> vCard QR is different. Your name, phone, email, and other fields are encoded <strong>inside the image</strong>. After you print or save it:</p>
+  <ul>
+    <li>No vendor account is required to keep it working.</li>
+    <li>No subscription renewal can turn it off.</li>
+    <li>There is no short link that can expire or change owners.</li>
+  </ul>
+  <p>That tradeoff is intentional: you cannot “edit” the printed code remotely. When a number or title changes, you generate a new QR and reprint. For badges, conference cards, and networking decks where permanence matters more than remote edits, that is usually the right choice.</p>
+  <p>Want the longer comparison? Read <a href="guides/static-vs-dynamic-qr.html">static vs dynamic QR codes</a> and <a href="guides/qr-code-that-never-expires.html">QR codes that never expire</a>.</p>
+
+  <h2>Print tips for business cards and badges</h2>
+  <ul>
+    <li>Prefer SVG for sharp edges at small sizes.</li>
+    <li>Keep a quiet zone (white margin) around the code—do not crop tightly.</li>
+    <li>More fields → denser modules → need a larger print. Drop unused address lines if the card is small.</li>
+    <li>Aim for at least ~2&nbsp;cm on a business card; test one print before ordering a batch.</li>
+    <li>Matte stock scans more reliably than glossy glare under event lighting.</li>
+  </ul>
+  <p>For size-by-distance guidance, see <a href="guides/qr-code-print-size-scan-distance.html">QR print size by scan distance</a>. Browse more permanent-QR tips in the <a href="guides/">guides index</a>.</p>
+
+  <h2>FAQ</h2>
+  <h3>Does a vCard QR code expire?</h3>
+  <p>A <strong>static</strong> vCard QR does not expire: contact fields live inside the image, so there is no trial clock or short-link server that can shut it off. Codes that “stop working” after a free trial were usually <strong>dynamic</strong> redirects. See <a href="guides/qr-code-that-never-expires.html">why QR codes expire</a>.</p>
+
+  <h3>What happens if I change my phone number or email?</h3>
+  <p>Generate and print a new QR. Static codes cannot be edited after creation—reprint when details change.</p>
+
+  <h3>Is this business card QR generator free?</h3>
+  <p>Yes. Create and download PNG or SVG with no signup. Generation is client-side on your device.</p>
+
+  <h3>Will phones save the contact when they scan?</h3>
+  <p>Most modern iPhone and Android camera apps recognize a vCard payload and offer to add the contact. Behavior varies slightly by OS version and camera app.</p>
+
+  <h3>How large should a vCard QR be on a business card?</h3>
+  <p>More fields make a denser code. For a typical business card, aim for at least about <strong>2&nbsp;cm</strong> (~0.8&nbsp;in) on the shortest side, keep a quiet zone, and test a print before a large order.</p>
+
+  <h3>Is my contact data uploaded?</h3>
+  <p>No. This page builds the vCard string and QR image in your browser. Nothing is sent to our servers.</p>
+
+  <hr>
+  <p><strong>Next steps:</strong> <a href="index.html">Create any static QR on the homepage</a> · <a href="wifi-qr-code-generator.html">WiFi QR generator</a> · <a href="guides/static-vs-dynamic-qr.html">Static vs dynamic QR codes</a> · <a href="guides/qr-code-that-never-expires.html">QR codes that never expire</a> · <a href="guides/">All guides</a></p>
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRNoExpire — free static QR code generator. No account required.</div>
+    <div class="footer-links">
+      <a href="index.html">Generator</a>
+      <a href="wifi-qr-code-generator.html">WiFi QR</a>
+      <a href="vcard-qr-code-generator.html">vCard QR</a>
+      <a href="guides/">Guides</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/spook2406/qr-no-expire">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script defer src="vendor/qrcode.min.js"></script>
+<script defer src="js/vcard-payload.js"></script>
+<script defer src="js/vcard-page.js"></script>
+</body>
+</html>

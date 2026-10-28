@@ -189,3 +189,96 @@ img { max-width: 100%; height: auto; }
 .footer-links { display: flex; flex-wrap: wrap; gap: .85rem; }
 .footer-links a { color: var(--muted); }
 .footer-links a:hover { color: var(--primary); }
+
+.prose table {
+  width: 100%; border-collapse: collapse; margin: 1.25rem 0;
+  font-size: .9rem; overflow-x: auto; display: block;
+}
+.prose thead { display: table-header-group; }
+.prose tbody { display: table-row-group; }
+.prose tr { display: table-row; }
+.prose th, .prose td {
+  display: table-cell; border: 1px solid var(--border);
+  padding: .55rem .7rem; text-align: left; vertical-align: top;
+  color: #c8d4eb;
+}
+.prose th { background: rgba(61,214,198,.08); color: var(--text); font-weight: 700; }
+.prose tbody th { background: transparent; color: var(--primary); white-space: nowrap; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+.prose h3 { margin-top: 1.4rem; font-size: 1.05rem; }
+
+/* --- eng polish (HTTPS wait): mobile + table scroll --- */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.25rem 0;
+  max-width: 100%;
+  border-radius: 10px;
+}
+.prose .table-scroll table {
+  display: table;
+  width: 100%;
+  min-width: 36rem;
+  margin: 0;
+  overflow: visible;
+}
+.prose .table-scroll thead { display: table-header-group; }
+.prose .table-scroll tbody { display: table-row-group; }
+.prose .table-scroll tr { display: table-row; }
+.prose .table-scroll th,
+.prose .table-scroll td { display: table-cell; }
+
+.field label:has(input[type="checkbox"]) {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  cursor: pointer;
+  color: var(--text);
+  font-size: .92rem;
+}
+.field input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--primary);
+  flex-shrink: 0;
+}
+.field input[type="color"] {
+  min-height: 44px;
+  padding: .25rem;
+  cursor: pointer;
+}
+
+@media (max-width: 860px) {
+  body { overflow-x: clip; }
+  .nav { padding: .75rem 1rem; gap: .65rem; }
+  .nav-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: .25rem .3rem;
+  }
+  .tab {
+    min-height: 44px;
+    padding: .55rem 1rem;
+  }
+  .btn {
+    min-height: 44px;
+    padding: .75rem 1.1rem;
+  }
+  .field input,
+  .field textarea,
+  .field select {
+    min-height: 44px;
+    font-size: 16px; /* avoid iOS input zoom */
+  }
+  .field input[type="checkbox"] {
+    min-height: auto;
+  }
+  .field label:has(input[type="checkbox"]) {
+    min-height: 44px;
+  }
+  .preview-wrap { min-height: 280px; }
+  .hero { padding: 1.75rem 1rem .75rem; }
+  .container { padding: 1rem 1rem 2.5rem; }
+  .prose { padding: 1.25rem 1rem 2.5rem; }
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free WiFi QR Code Generator — No Signup, Never Expires</title>
+<meta name="description" content="Create a WiFi QR code in your browser. Guests scan and connect—no signup, no upload, never expires. Download PNG or SVG.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/wifi-qr-code-generator.html">
+<meta property="og:title" content="Free WiFi QR Code Generator — No Signup, Never Expires">
+<meta property="og:description" content="Create a WiFi QR code in your browser. Guests scan and connect—no signup, no upload, never expires. Download PNG or SVG.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/wifi-qr-code-generator.html">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Does a WiFi QR code expire?","acceptedAnswer":{"@type":"Answer","text":"A static WiFi QR does not expire: the SSID and password live in the image, so there is no trial clock to run out. Free static generators that work this way keep working the same way. Codes that stop working after a free trial were usually dynamic redirects."}},
+    {"@type":"Question","name":"What if I change my WiFi password?","acceptedAnswer":{"@type":"Answer","text":"Generate and print a new QR. Static codes cannot be edited after creation. That is why guest networks with a password you are willing to rotate are often easier to manage."}},
+    {"@type":"Question","name":"Is this WiFi QR generator free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Create and download PNG or SVG with no signup. Generation is client-side on your device."}},
+    {"@type":"Question","name":"Do guests need an app?","acceptedAnswer":{"@type":"Answer","text":"Usually no. Current iPhone Camera and most Android Wi-Fi settings can scan WiFi QR codes."}},
+    {"@type":"Question","name":"Can I make a QR for an open network (no password)?","acceptedAnswer":{"@type":"Answer","text":"Yes. Set security to no password / nopass and leave the password blank. Still prefer a guest SSID if the network is public-facing."}},
+    {"@type":"Question","name":"WPA, WPA2, or WEP—which should I pick?","acceptedAnswer":{"@type":"Answer","text":"Use the same setting as your router. For almost all modern home routers with a password, choose WPA/WPA2."}},
+    {"@type":"Question","name":"Is it safe to put the QR on a front-desk card?","acceptedAnswer":{"@type":"Answer","text":"Safer if it is a guest network with limited access. Avoid encoding your primary home or office password on anything that strangers can photograph."}}
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="index.html#generator">Generator</a>
+    <a href="guides/">Guides</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+
+<section class="hero">
+  <h1>Free WiFi QR Code Generator</h1>
+  <p>Guests should not have to type a long password on a tiny keyboard. A WiFi QR code lets them scan once and join your network. This page explains how to make one that stays permanent—no account, no short link, and no expiration date.</p>
+  <div class="badge-row">
+    <span class="badge">✓ No signup</span>
+    <span class="badge">✓ Never expires</span>
+    <span class="badge">✓ Client-side only</span>
+    <span class="badge">✓ PNG &amp; SVG</span>
+  </div>
+</section>
+
+<div class="container" id="wifi-generator">
+  <h2 class="section-title">Generate your WiFi QR code</h2>
+  <p style="color:var(--muted);max-width:52rem;margin:0 0 1rem;">Use the generator below. Everything runs in your browser: your network name and password never leave your device.</p>
+  <p style="color:#c8d4eb;max-width:52rem;">You will fill in three fields:</p>
+  <ol style="color:#c8d4eb;max-width:52rem;">
+    <li><strong>SSID (network name)</strong> — The exact WiFi name shown on phones and laptops. Spelling and capitalization must match.</li>
+    <li><strong>Password</strong> — Leave blank only if the network has no password (open / <code>nopass</code>).</li>
+    <li><strong>Security type</strong> — Choose what your router actually uses:
+      <ul>
+        <li><strong>WPA / WPA2</strong> — Most home and small-office networks today. Prefer this when unsure and the network has a password.</li>
+        <li><strong>WEP</strong> — Older and less secure. Use only if the router is still set to WEP.</li>
+        <li><strong>No password (<code>nopass</code>)</strong> — Open networks with no passphrase.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <div class="generator">
+    <div class="panel">
+      <h2>1. WiFi details</h2>
+      <div class="field">
+        <label for="wifi-ssid">Network name (SSID)</label>
+        <input id="wifi-ssid" type="text" placeholder="MyHomeWiFi" autocomplete="off">
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="wifi-enc">Encryption</label>
+          <select id="wifi-enc">
+            <option value="WPA">WPA/WPA2</option>
+            <option value="WEP">WEP</option>
+            <option value="nopass">None</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="wifi-pass">Password</label>
+          <input id="wifi-pass" type="text" placeholder="password" autocomplete="off">
+        </div>
+      </div>
+      <div class="field">
+        <label><input id="wifi-hidden" type="checkbox"> Hidden network</label>
+      </div>
+
+      <h2>2. Style</h2>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-size">Size (px)</label>
+          <select id="opt-size">
+            <option value="256">256</option>
+            <option value="320" selected>320</option>
+            <option value="512">512</option>
+            <option value="1024">1024</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-ecc">Error correction</label>
+          <select id="opt-ecc">
+            <option value="L">L — ~7%</option>
+            <option value="M" selected>M — ~15%</option>
+            <option value="Q">Q — ~25%</option>
+            <option value="H">H — ~30%</option>
+          </select>
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-margin">Quiet zone</label>
+          <select id="opt-margin">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-dark">Foreground</label>
+          <input id="opt-dark" type="color" value="#000000">
+        </div>
+      </div>
+      <div class="field">
+        <label for="opt-light">Background</label>
+        <input id="opt-light" type="color" value="#ffffff">
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn" id="generate-btn">Generate WiFi QR</button>
+      </div>
+      <div class="error" id="form-error" role="alert"></div>
+      <div class="privacy-note">
+        Privacy: QR codes are generated entirely on your device. Your SSID and password are not uploaded.
+      </div>
+    </div>
+
+    <div class="panel preview-wrap">
+      <h2 style="align-self:flex-start;width:100%;margin:0 0 .5rem;">3. Preview &amp; download</h2>
+      <p class="preview-empty" id="preview-empty">Your WiFi QR code will appear here. It encodes the WIFI: payload itself — no short link that can expire.</p>
+      <canvas id="qr-canvas" width="320" height="320" aria-label="WiFi QR code preview"></canvas>
+      <div class="actions">
+        <button type="button" class="btn" id="download-png" disabled>Download PNG</button>
+        <button type="button" class="btn secondary" id="download-svg" disabled>Download SVG</button>
+      </div>
+    </div>
+  </div>
+
+  <p style="color:#c8d4eb;max-width:52rem;margin-top:1.25rem;">When you generate, the QR encodes a standard WiFi connection string (the familiar <code>WIFI:T:...;S:...;P:...;;</code> format). Phones that support WiFi QR scanning read that payload directly—there is no redirect server in the middle.</p>
+  <p style="color:#c8d4eb;max-width:52rem;">Download <strong>PNG</strong> for screen and social posts, or <strong>SVG</strong> for crisp print on cards, posters, and packaging.</p>
+  <p style="color:var(--muted);max-width:52rem;">You can also open the <a href="index.html">homepage generator</a>, switch to the <strong>WiFi</strong> tab, and create the same static code there.</p>
+</div>
+
+<article class="prose">
+  <h2>Why a static WiFi QR never expires</h2>
+  <p>Many online “WiFi QR” tools create a <strong>dynamic</strong> code: the printed square points at a short URL on their servers, and that URL later shows your WiFi details—or fails when the trial ends.</p>
+  <p>A <strong>static</strong> WiFi QR is different. The SSID, security type, and password are encoded <strong>inside the image</strong>. After you print or save it:</p>
+  <ul>
+    <li>No vendor account is required to keep it working.</li>
+    <li>No subscription renewal can turn it off.</li>
+    <li>There is no short link that can expire or change owners.</li>
+  </ul>
+  <p>That is why a static WiFi QR is a good fit for guest cards, Airbnb check-in packets, café tables, and office lobbies—places where you want the code to keep working for years.</p>
+  <p>Want the longer comparison? Read <a href="guides/static-vs-dynamic-qr.html">static vs dynamic QR codes</a> and <a href="guides/qr-code-that-never-expires.html">QR codes that never expire</a>.</p>
+
+  <h2>Keep it safe</h2>
+  <p>A WiFi QR is convenient—and it is also a compact copy of your password. Treat it like a written password taped under the router.</p>
+  <p><strong>Prefer a guest network.</strong> Most routers let you create a separate SSID for visitors. Put <em>that</em> network in the QR. Your main devices stay on the primary network; guests get internet without seeing printers, NAS drives, or cameras.</p>
+  <p><strong>Do not post the QR as a public photo.</strong> Uploading a clear photo of your WiFi QR to social media, review sites, or product listings can give strangers your password. Print for on-site use; share digitally only with people you trust.</p>
+  <p><strong>Remember: the password is in the code.</strong> Anyone who can scan it (or decode the image) can read the credentials. If the QR will sit in a semi-public space, guest WiFi with a limited password is safer than your primary home password.</p>
+  <p><strong>Rotate when needed.</strong> If a password leaks or a guest relationship ends, change the guest WiFi password on the router and print a new QR. Static codes cannot be “updated” remotely—you reprint instead. That tradeoff is intentional: no remote control also means no remote kill switch.</p>
+
+  <h2>How to print and test on iPhone and Android</h2>
+  <p><strong>Print tips</strong></p>
+  <ul>
+    <li>Use SVG when possible for sharp edges at any size.</li>
+    <li>Keep quiet zone (white margin) around the code—do not crop tightly.</li>
+    <li>Avoid glossy glare under bright lights; matte card stock scans more reliably.</li>
+    <li>Test one print before ordering a large batch of table tents or stickers.</li>
+  </ul>
+  <p><strong>iPhone</strong></p>
+  <ol>
+    <li>Open the Camera app (Control Center camera works too).</li>
+    <li>Point at the QR until the WiFi banner appears.</li>
+    <li>Tap to join and confirm when prompted.</li>
+    <li>On some iOS versions you may need Settings → Wi-Fi and the scan option if Camera does not offer the join banner.</li>
+  </ol>
+  <p><strong>Android</strong></p>
+  <ol>
+    <li>Open Settings → Network &amp; internet → Internet (wording varies by manufacturer).</li>
+    <li>Tap the QR / scan icon near Wi-Fi, or use Google Lens / Camera if your device supports it.</li>
+    <li>Confirm the network name and join.</li>
+  </ol>
+  <p><strong>Quick checklist before you laminate</strong></p>
+  <ul>
+    <li>SSID spelling matches the router exactly (including spaces).</li>
+    <li>Security type matches (WPA2 vs open).</li>
+    <li>Password typed correctly—one wrong character breaks the scan experience.</li>
+    <li>Tested on at least one iPhone <em>and</em> one Android device.</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <h3>Does a WiFi QR code expire?</h3>
+  <p>A <strong>static</strong> WiFi QR does not expire: the SSID and password live in the image, so there is no trial clock to run out. Free static generators that work this way keep working the same way. Codes that “stop working” after a free trial were usually <strong>dynamic</strong> redirects (a short link behind the square). See <a href="guides/qr-code-that-never-expires.html">why QR codes expire</a>.</p>
+
+  <h3>What if I change my WiFi password?</h3>
+  <p>Generate and print a new QR. Static codes cannot be edited after creation. That is why guest networks with a password you are willing to rotate are often easier to manage.</p>
+
+  <h3>Is this WiFi QR generator free?</h3>
+  <p>Yes. Create and download PNG or SVG with no signup. Generation is client-side on your device. Start from this page’s generator or the <a href="index.html">homepage WiFi tab</a>.</p>
+
+  <h3>Do guests need an app?</h3>
+  <p>Usually no. Current iPhone Camera and most Android Wi-Fi settings can scan WiFi QR codes. Older phones may need a system update or the manufacturer’s Wi-Fi scan tool.</p>
+
+  <h3>Can I make a QR for an open network (no password)?</h3>
+  <p>Yes. Set security to no password / <code>nopass</code> and leave the password blank. Still prefer a guest SSID if the network is public-facing.</p>
+
+  <h3>WPA, WPA2, or WEP—which should I pick?</h3>
+  <p>Use the same setting as your router. For almost all modern home routers with a password, choose <strong>WPA/WPA2</strong>. Use WEP only if the router is still configured for WEP. Use <code>nopass</code> only for open networks.</p>
+
+  <h3>Is it safe to put the QR on a front-desk card?</h3>
+  <p>Safer if it is a <strong>guest</strong> network with limited access. Avoid encoding your primary home or office password on anything that strangers can photograph.</p>
+
+  <hr>
+  <p><strong>Next steps:</strong> <a href="index.html">Create any static QR on the homepage</a> · <a href="vcard-qr-code-generator.html">vCard / business card QR</a> · <a href="guides/static-vs-dynamic-qr.html">Static vs dynamic QR codes</a> · <a href="guides/qr-code-that-never-expires.html">QR codes that never expire</a></p>
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRNoExpire — free static QR code generator. No account required.</div>
+    <div class="footer-links">
+      <a href="index.html">Generator</a>
+      <a href="wifi-qr-code-generator.html">WiFi QR</a>
+      <a href="vcard-qr-code-generator.html">vCard QR</a>
+      <a href="guides/">Guides</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/spook2406/qr-no-expire">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script defer src="vendor/qrcode.min.js"></script>
+<script defer src="js/wifi-payload.js"></script>
+<script defer src="js/wifi-page.js"></script>
+</body>
+</html>

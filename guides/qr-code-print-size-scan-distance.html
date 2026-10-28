@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR Code Print Size by Scan Distance</title>
+<meta name="description" content="Practical QR print sizes by scan distance—handheld cards, table tents, posters, and walls—plus quiet zone, contrast, and SVG vs PNG tips. Test before bulk print.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/guides/qr-code-print-size-scan-distance.html">
+<meta property="og:title" content="QR Code Print Size by Scan Distance">
+<meta property="og:description" content="Practical QR print sizes by scan distance—handheld cards, table tents, posters, and walls—plus quiet zone, contrast, and SVG vs PNG tips. Test before bulk print.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/guides/qr-code-print-size-scan-distance.html">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there one official size for all QR codes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No single everyday number covers cards, tents, and billboards. Use distance-based starting sizes, then proof-scan. Treat published “minimums” as guidance, not a substitute for a real camera test."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a QR be too large?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rarely a technical problem. Oversized codes still scan; the cost is layout space. Extremely large prints with low-resolution PNG sources can look soft—prefer SVG or a high-resolution export."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does error-correction level change the size I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Higher error correction stores more redundancy and can tolerate some damage or logos, but it does not replace adequate physical size or contrast. Size and quiet zone still come first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my phone scan the screen PDF but not the printed card?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common causes: the print is smaller than the on-screen preview suggested, margins were cropped, ink is low-contrast, or gloss glare. Reprint larger on matte stock with a white border."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "SVG or PNG for a 3 cm table-tent code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Either works at that size if the PNG is sharp. SVG is nicer if you might reuse the same asset on a poster later without re-exporting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do static and dynamic codes need different print sizes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Print geometry is the same. Dynamic codes fail when redirects die; that is unrelated to centimeters on paper. For permanence without a subscription, encode a static payload."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How big should a WiFi QR on a guest card be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Treat it like other handheld codes: about 2–2.5 cm minimum, with a clear quiet zone. Generate the payload on the WiFi QR page, then size for the card."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="../index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="../index.html#generator">Generator</a>
+    <a href="./">Guides</a>
+    <a href="../about.html">About</a>
+    <a href="../privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+<article class="prose">
+<h1>How large should a printed QR code be?</h1>
+<p>Too small and guests lean in while glare wins. Too large wastes card space and still fails if contrast or margins are wrong. Size tracks <strong>how far away</strong> people stand when they open the camera.</p>
+<p>Below: <strong>practical starting sizes by scan distance</strong>, plus quiet-zone, contrast, and file-format tips. These are everyday rules of thumb—not lab-certified ISO claims. Always <strong>test-scan a proof</strong> under real lighting before a bulk run. Create a free static QR with the <a href="../index.html">homepage generator</a>, then size the download for print.</p>
+
+<h2>Rule of thumb: distance drives minimum size</h2>
+<p>Measure the <strong>code square</strong> (modules only), not the whole flyer. Field rule of thumb: width roughly <strong>≥ one-tenth of expected scan distance</strong> (same units). At ~30&nbsp;cm (arm’s length), that suggests about <strong>3&nbsp;cm</strong>—not a thumbnail.</p>
+<div class="table-scroll">
+<table>
+<thead>
+<tr><th>Typical use</th><th>Approx. scan distance</th><th>Starting code size (width)</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td>Business card, badge, receipt</td><td>15–25 cm (handheld)</td><td><strong>2–2.5 cm</strong> (≈0.8–1 in)</td><td>Prefer ≥2 cm; tiny logos eat readability</td></tr>
+<tr><td>Table tent, menu insert, counter card</td><td>30–50 cm</td><td><strong>3–4 cm</strong> (≈1.2–1.6 in)</td><td>Guests sit or stand close</td></tr>
+<tr><td>Flyer, shelf talker, small poster</td><td>0.5–1 m</td><td><strong>5–8 cm</strong> (≈2–3 in)</td><td>Watch glare on laminate</td></tr>
+<tr><td>Window cling, door sign, wall poster</td><td>1–2 m</td><td><strong>10–15 cm</strong> (≈4–6 in)</td><td>Larger if outdoor or hurried traffic</td></tr>
+<tr><td>Trade-show banner, aisle signage</td><td>2–3 m+</td><td><strong>20 cm+</strong> (≈8 in+)</td><td>Re-test from the real walking line</td></tr>
+</tbody>
+</table>
+</div>
+<p>Bump one step larger for center logos, non-white backgrounds, dim/backlit rooms, or walking traffic. Shrink only after a successful proof scan—not to “fit the design” on the first try.</p>
+
+<h2>Quiet zone: leave a white margin</h2>
+<p>Cameras need an empty border—the <strong>quiet zone</strong>. Cropping flush to the black edge is why “it scans on screen but the sticker fails.”</p>
+<ul>
+<li>Leave a clear margin on all four sides (classic guidance is about four modules; do not hug the crop).</li>
+<li>No text, icons, or shapes inside that margin.</li>
+<li>On colored cards, place the QR on a <strong>white patch</strong> larger than the code alone.</li>
+</ul>
+
+<h2>Contrast and materials beat clever colors</h2>
+<p>High contrast wins: dark modules on a light background. Gray-on-kraft, red-on-black, and busy photos raise failure rates.</p>
+<ul>
+<li>Prefer <strong>matte</strong> stock; glare creates false bright modules.</li>
+<li>Do not stretch into a non-square.</li>
+<li>Brand only after a plain proof scans; leave finder patterns intact.</li>
+<li>Outdoor vinyl needs larger size and harder contrast than indoor cards.</li>
+</ul>
+
+<h2>SVG vs PNG for print</h2>
+<p>Both can be <strong>static</strong>—expiration risk comes from dynamic redirects, not file type. Choose for <strong>scale quality</strong>:</p>
+<div class="table-scroll">
+<table>
+<thead>
+<tr><th>Format</th><th>Best for</th><th>Watch-outs</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>SVG</strong></td><td>Posters, packaging, vinyl, any resize</td><td>Some shops want PDF/PNG—rasterize at high DPI if asked</td></tr>
+<tr><td><strong>PNG</strong></td><td>Screens, email, small cards, proofs</td><td>Do not upscale a tiny PNG; export large enough for final size</td></tr>
+</tbody>
+</table>
+</div>
+<p>Archive <strong>SVG</strong>, hold a large <strong>PNG</strong> proof, and send the printer what they specify—after you scan both. Generate either from the <a href="../index.html">static QR tool</a> once the payload is final.</p>
+
+<h2>Distance scenarios in plain language</h2>
+<p><strong>Handheld (cards, badges).</strong> 15–25&nbsp;cm away → start ~2–2.5&nbsp;cm wide. On business cards, cut copy before cutting the QR below ~2&nbsp;cm.</p>
+<p><strong>Table tent.</strong> ~0.5&nbsp;m seated → 3–4&nbsp;cm per code. Three codes (menu, WiFi, reviews) each need their own quiet zone—see <a href="cafe-table-tent-menu-wifi-review-qr.html">cafe table tent layout</a>.</p>
+<p><strong>Poster / wall.</strong> 1&nbsp;m+ → 10&nbsp;cm+; test from the farthest expected scan point.</p>
+<p><strong>Window / outdoor.</strong> Add size for reflections; prefer matte; verify when sun hits the glass.</p>
+
+<h2>Test before bulk print (non-negotiable)</h2>
+<ol>
+<li>Print <strong>one</strong> proof at the intended size.</li>
+<li>Scan with <strong>iPhone Camera</strong> and one <strong>Android</strong>.</li>
+<li>Test under <strong>venue lighting</strong>.</li>
+<li>Confirm the destination (URL / WiFi / review)—payload mistakes look like size problems.</li>
+<li>Only then order the run.</li>
+</ol>
+<p>If the proof fails, enlarge, restore quiet zone, or simplify styling. Sudden failures on old stickers may be type/redirect issues: <a href="static-or-dynamic-qr-how-to-tell.html">Is my QR static or dynamic?</a>, <a href="why-did-my-qr-code-stop-working.html">Why did my QR stop working?</a>. Soft note: regenerate static files via the client-side flow on <a href="https://qrstatic.app/">qrstatic.app</a> (or the live host linked here).</p>
+
+<h2>FAQ</h2>
+<h3>Is there one official size for all QR codes?</h3>
+<p>No single everyday number covers cards, tents, and billboards. Use distance-based starting sizes, then proof-scan. Treat published “minimums” as guidance, not a substitute for a real camera test.</p>
+<h3>Can a QR be too large?</h3>
+<p>Rarely a technical problem. Oversized codes still scan; the cost is layout space. Extremely large prints with low-resolution PNG sources can look soft—prefer SVG or a high-resolution export.</p>
+<h3>Does error-correction level change the size I need?</h3>
+<p>Higher error correction stores more redundancy and can tolerate some damage or logos, but it does not replace adequate physical size or contrast. Size and quiet zone still come first.</p>
+<h3>Why does my phone scan the screen PDF but not the printed card?</h3>
+<p>Common causes: the print is smaller than the on-screen preview suggested, margins were cropped, ink is low-contrast, or gloss glare. Reprint larger on matte stock with a white border.</p>
+<h3>SVG or PNG for a 3 cm table-tent code?</h3>
+<p>Either works at that size if the PNG is sharp. SVG is nicer if you might reuse the same asset on a poster later without re-exporting.</p>
+<h3>Do static and dynamic codes need different print sizes?</h3>
+<p>Print geometry is the same. Dynamic codes fail when <strong>redirects</strong> die; that is unrelated to centimeters on paper. For permanence without a subscription, encode a static payload—see <a href="static-vs-dynamic-qr.html">static vs dynamic</a>.</p>
+<h3>How big should a WiFi QR on a guest card be?</h3>
+<p>Treat it like other handheld codes: about <strong>2–2.5 cm</strong> minimum, with a clear quiet zone. Generate the payload on the <a href="../wifi-qr-code-generator.html">WiFi QR page</a>, then size for the card.</p>
+<hr>
+<p><strong>Related:</strong> <a href="../index.html">Create a static QR</a> · <a href="cafe-table-tent-menu-wifi-review-qr.html">Cafe table-tent layout</a> · <a href="static-or-dynamic-qr-how-to-tell.html">Static or dynamic?</a> · <a href="static-vs-dynamic-qr.html">Static vs dynamic</a> · <a href="qr-code-that-never-expires.html">Never-expire overview</a> · <a href="../wifi-qr-code-generator.html">WiFi QR</a> · <a href="why-did-my-qr-code-stop-working.html">Why QR stopped working</a></p>
+</article>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRNoExpire</div>
+    <div class="footer-links">
+      <a href="../index.html">Generator</a>
+      <a href="./">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

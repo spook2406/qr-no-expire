@@ -7,11 +7,11 @@
 <meta name="description" content="Create a free permanent QR code that never expires. Static QR codes generated in your browser — no account, no upload, no tracking. Download PNG or SVG.">
 <meta name="keywords" content="qr code generator free no expiration, static qr code, permanent qr code, free forever qr, no signup qr code, static qr vs dynamic">
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://spook2406.github.io/qr-no-expire/">
+<link rel="canonical" href="https://qrstatic.app/">
 <meta property="og:title" content="Free Static QR Code Generator — Never Expires">
 <meta property="og:description" content="Generate permanent static QR codes in your browser. Free forever. No signup. No data uploaded.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://spook2406.github.io/qr-no-expire/">
+<meta property="og:url" content="https://qrstatic.app/">
 <link rel="stylesheet" href="css/style.css">
 <!--
   Google AdSense placeholder — replace ca-pub-XXXXXXXX with your publisher ID after approval:
@@ -41,6 +41,7 @@
     <span class="badge">✓ No expiration</span>
     <span class="badge">✓ Client-side only</span>
   </div>
+  <p style="margin-top:1rem;color:var(--muted);font-size:.95rem;">Dedicated tools: <a href="wifi-qr-code-generator.html">free WiFi QR code generator</a> · <a href="vcard-qr-code-generator.html">vCard / business card QR generator</a>.</p>
 </section>
 
 <div class="container" id="generator">
@@ -224,6 +225,11 @@
       <p>Editable links vs permanent payloads — pros, cons, and SEO-friendly tips.</p>
       <a href="guides/static-vs-dynamic-qr.html">Read guide →</a>
     </article>
+    <article class="guide-card">
+      <h3>QR codes that never expire</h3>
+      <p>Why “expired” usually means a dead redirect—and how static codes stay permanent.</p>
+      <a href="guides/qr-code-that-never-expires.html">Read guide →</a>
+    </article>
   </div>
 </div>
 
@@ -231,6 +237,7 @@
   <div class="footer-inner">
     <div>© 2026 QRNoExpire — free static QR code generator. No account required.</div>
     <div class="footer-links">
+      <a href="index.html">Generator</a>
       <a href="guides/">Guides</a>
       <a href="about.html">About</a>
       <a href="privacy.html">Privacy</a>
@@ -239,7 +246,8 @@
   </div>
 </footer>
 
-<script src="vendor/qrcode.min.js"></script>
-<script src="js/app.js"></script>
+<script defer src="vendor/qrcode.min.js"></script>
+<script defer src="js/wifi-payload.js"></script>
+<script defer src="js/app.js"></script>
 </body>
 </html>

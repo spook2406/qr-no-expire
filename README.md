@@ -2,7 +2,7 @@
 
 English static site: generate **permanent QR codes with no expiration and no signup**. All generation is client-side.
 
-**Live:** https://spook2406.github.io/qr-no-expire/
+**Live:** https://qrstatic.app/
 
 ## Features
 - URL, text, WiFi, email, phone payloads

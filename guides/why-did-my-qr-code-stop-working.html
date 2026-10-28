@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why Did My QR Code Stop Working?</title>
+<meta name="description" content="Diagnose a dead QR: expired dynamic redirect, moved URL, WiFi password change, or print damage—and how to replace it with a static code.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/guides/why-did-my-qr-code-stop-working.html">
+<meta property="og:title" content="Why Did My QR Code Stop Working?">
+<meta property="og:description" content="Diagnose a dead QR: expired dynamic redirect, moved URL, WiFi password change, or print damage—and how to replace it with a static code.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/guides/why-did-my-qr-code-stop-working.html">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can a QR code stop working even if the sticker looks fine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Dynamic redirects, moved pages, and WiFi changes fail while the ink still looks perfect. Visual integrity ≠ destination health."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I tell static from dynamic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Scan and inspect the URL. Your full domain usually means static (or a direct encode). A vendor short domain that then redirects is dynamic. Comparison: static vs dynamic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do free QR codes always expire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Free static generators that put the payload in the image do not attach a vendor expiration clock. Free dynamic trials / short links often do stop resolving—that is a product policy, not a law of QR codes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My packaging QR failed years later—who is at fault?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often a manufacturer-chosen redirect service changed. Sometimes the support URL moved. Check the domain that opens. Replace future packaging codes with static URLs you control when you can."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will regenerating the same URL create a different-looking QR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Possibly (different error correction, colors, or library defaults). Functionally it should open the same place if the payload string matches. Retest anyway."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "iPhone works but Android does not (or the reverse)",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Update the OS/camera, try Google Lens or the system Wi-Fi scan for WiFi codes, and verify lighting. For WiFi, confirm security type. Persistent single-OS failures after updates may still be payload typos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I fix a dead vendor short link without reprinting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Almost never from the outside. If you still have login access to that vendor and the plan is active, you might reactivate there—check their Support docs. Otherwise reprint with a destination you own."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="../index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="../index.html#generator">Generator</a>
+    <a href="./">Guides</a>
+    <a href="../about.html">About</a>
+    <a href="../privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+<article class="prose">
+<h1>Why did my QR code stop working?</h1>
+<p>You scan a poster, packaging sticker, table tent, or WiFi card—and nothing useful happens. The phone shows an error, an expired-trial page, a 404, or a WiFi join that fails. It feels like the QR “broke.” In practice the square is usually still a valid barcode. Something <em>behind</em> it changed, or the print never scanned well.</p>
+<p>This troubleshooting guide walks through the common causes—<strong>dead dynamic redirects</strong>, <strong>moved URLs</strong>, <strong>WiFi password changes</strong>, and <strong>print damage</strong>—and how to fix or replace the code. If you need a permanent replacement, use a <a href="../index.html">free static QR generator</a> so the payload lives in the image, not on a trial short link.</p>
+<h2>Fast triage: what does the phone actually open?</h2>
+<ol>
+<li><strong>Scan and read the URL or prompt carefully.</strong><ul><li>Unfamiliar short domain → likely <strong>dynamic / vendor redirect</strong>.</li><li>Your own domain with a 404 → <strong>URL moved or deleted</strong>.</li><li>WiFi join banner then failure → <strong>credentials changed</strong> or wrong security type.</li><li>“No QR found” / intermittent detect → <strong>print or contrast</strong> problem.</li></ul></li>
+<li><strong>Try a second phone</strong> (iPhone and Android). If only one device fails, update the camera app / OS before blaming the code.</li>
+<li><strong>Try a different copy</strong> of the same design (another sticker, a digital PNG). If the file works but the sticker does not, you have physical damage or bad print settings.</li>
+</ol>
+<h2>Cause 1: Dynamic redirect or free trial died</h2>
+<p>Many “free QR” dashboards print a <strong>short URL</strong> owned by the vendor. Your real page sits behind that redirect. When the trial ends, the plan lapses, or the service changes policy, scanners still read the short URL—but the vendor no longer sends people onward.</p>
+<p>Symptoms:</p>
+<ul>
+<li>Browser opens a vendor domain you do not recognize.</li>
+<li>Message about expired code, upgrade, or inactive campaign.</li>
+<li>It worked for weeks, then failed everywhere at once (classic trial cliff).</li>
+</ul>
+<p>What to do:</p>
+<ul>
+<li>Check that product’s <strong>official Support / help center</strong> for trial and expiration terms (policies differ; do not assume).</li>
+<li>You generally <strong>cannot revive</strong> someone else’s short link from the outside.</li>
+<li>Replace printed materials with a <strong>static</strong> QR that encodes <em>your</em> URL directly—or move to a <strong>paid</strong> dynamic contract you trust and reprint once.</li>
+<li>Deep dive: <a href="qr-code-expired-after-free-trial.html">QR code expired after free trial</a> and <a href="qr-code-that-never-expires.html">QR codes that never expire</a>.</li>
+</ul>
+<p>Important: <strong>free static</strong> codes (payload in the image) do not share that trial clock. Do not conclude that “all free QR codes expire”—that narrative belongs to <strong>dynamic free trials and short-link failures</strong>.</p>
+<h2>Cause 2: The URL moved</h2>
+<p>A static URL QR is permanent as a barcode—but it still opens whatever address you encoded. If you deleted <code>/old-menu</code> without a redirect, guests get a 404. The QR did not expire; the page left.</p>
+<p>Fixes:</p>
+<ul>
+<li>Restore the page, or set a <strong>301/permanent redirect</strong> from the old path to the new one.</li>
+<li>For future codes, pick stable paths (<code>/menu</code>, <code>/support</code>) and update content in place.</li>
+<li>Restaurant operators: see <a href="restaurant-menu-qr-code-never-expires.html">menu QR codes that never expire</a>.</li>
+</ul>
+<h2>Cause 3: WiFi password or SSID changed</h2>
+<p>Static WiFi QRs embed the SSID, security type, and password from generation time. Change the router password and old cards fail until you print new ones.</p>
+<p>Fixes:</p>
+<ul>
+<li>Prefer a <strong>guest network</strong> you can rotate on purpose.</li>
+<li>Regenerate with the <a href="../wifi-qr-code-generator.html">WiFi QR code generator</a>.</li>
+<li>Confirm WPA/WPA2 vs open/<code>nopass</code> matches the router—wrong type looks like a “broken QR.”</li>
+</ul>
+<h2>Cause 4: Print damage, contrast, or quiet zone</h2>
+<p>Torn stickers, low-contrast ink on colored backgrounds, glossy glare, and cropped margins all reduce scan success. The data may still be in the image; the camera cannot read it cleanly.</p>
+<p>Fixes:</p>
+<ul>
+<li>Reprint from <strong>SVG</strong> at adequate size with a white quiet zone.</li>
+<li>Avoid stretching non-square; keep high contrast.</li>
+<li>Test under the real lighting of the venue or shelf.</li>
+</ul>
+<h2>Cause 5: Typos and https mistakes locked in</h2>
+<p>Static means no remote edit. A missing character in the URL, <code>http</code> vs <code>https</code> on a host that refuses insecure loads, or a wrong SSID space will fail forever until you reprint.</p>
+<p>Prevention: test the exact file you send to the printer—scan the proof, do not only eyeball the string.</p>
+<h2>How to replace a dead QR properly</h2>
+<ol>
+<li>Decide the <strong>final destination</strong> you control (or guest WiFi credentials you accept).</li>
+<li>Generate a <strong>static</strong> code with the <a href="../index.html">homepage tool</a>—URL, Text, WiFi, Email, or Phone—no signup.</li>
+<li>Download PNG/SVG, scan-test, then replace physical pieces in one sweep when possible.</li>
+<li>If you truly need remote edits and analytics, budget for paid dynamic deliberately—read <a href="static-vs-dynamic-qr.html">static vs dynamic QR codes</a> first.</li>
+</ol>
+<p>Soft note: the long-term home for this static workflow is <a href="https://qrstatic.app/">qrstatic.app</a>; use the live host when you generate.</p>
+<h2>FAQ</h2>
+<h3>Can a QR code stop working even if the sticker looks fine?</h3>
+<p>Yes. Dynamic redirects, moved pages, and WiFi changes fail while the ink still looks perfect. Visual integrity ≠ destination health.</p>
+<h3>How do I tell static from dynamic?</h3>
+<p>Scan and inspect the URL. Your full domain usually means static (or a direct encode). A vendor short domain that then redirects is dynamic. Comparison: <a href="static-vs-dynamic-qr.html">static vs dynamic</a>.</p>
+<h3>Do free QR codes always expire?</h3>
+<p>No. <strong>Free static</strong> generators that put the payload in the image do not attach a vendor expiration clock. <strong>Free dynamic trials / short links</strong> often do stop resolving—that is a product policy, not a law of QR codes.</p>
+<h3>My packaging QR failed years later—who is at fault?</h3>
+<p>Often a manufacturer-chosen redirect service changed. Sometimes the support URL moved. Check the domain that opens. Replace future packaging codes with static URLs you control when you can.</p>
+<h3>Will regenerating the same URL create a different-looking QR?</h3>
+<p>Possibly (different error correction, colors, or library defaults). Functionally it should open the same place if the payload string matches. Retest anyway.</p>
+<h3>iPhone works but Android does not (or the reverse)</h3>
+<p>Update the OS/camera, try Google Lens or the system Wi-Fi scan for WiFi codes, and verify lighting. For WiFi, confirm security type. Persistent single-OS failures after updates may still be payload typos.</p>
+<h3>Can I fix a dead vendor short link without reprinting?</h3>
+<p>Almost never from the outside. If you still have login access to that vendor and the plan is active, you might reactivate there—check their Support docs. Otherwise reprint with a destination you own.</p>
+<hr>
+<p><strong>Related:</strong> <a href="../index.html">Free static QR generator</a> · <a href="qr-code-expired-after-free-trial.html">Expired after free trial</a> · <a href="qr-code-that-never-expires.html">Never-expires guide</a> · <a href="static-vs-dynamic-qr.html">Static vs dynamic</a> · <a href="../wifi-qr-code-generator.html">WiFi QR</a> · <a href="restaurant-menu-qr-code-never-expires.html">Restaurant menu QR</a> · <a href="wedding-qr-code-static-no-signup.html">Wedding QR</a> · <a href="static-or-dynamic-qr-how-to-tell.html">Static or dynamic?</a> · <a href="qr-code-print-size-scan-distance.html">Print size by distance</a></p>
+</article>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRNoExpire</div>
+    <div class="footer-links">
+      <a href="../index.html">Generator</a>
+      <a href="./">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wedding QR Code Generator — Static, Free, No Signup</title>
+<meta name="description" content="Create static wedding QR codes for RSVP, registry, maps, and photo albums—no signup, no short-link trial, print-safe PNG or SVG.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/guides/wedding-qr-code-static-no-signup.html">
+<meta property="og:title" content="Wedding QR Code Generator — Static, Free, No Signup">
+<meta property="og:description" content="Create static wedding QR codes for RSVP, registry, maps, and photo albums—no signup, no short-link trial, print-safe PNG or SVG.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/guides/wedding-qr-code-static-no-signup.html">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need an account to make wedding QR codes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A client-side static generator lets you create and download PNG or SVG without signup. Accounts usually appear when a tool is selling dynamic redirects and dashboards."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my wedding QR expire after the big day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A static code does not expire because a generator trial ended. It keeps encoding the same URL. Whether that URL still works depends on your RSVP host, website, or album staying online."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I change the RSVP link after invitations are printed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not inside a static QR. Keep the same public URL and change where it points (redirect or edit the page). Otherwise you must reprint. That is the main reason to freeze URLs before the print deadline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should we use one QR or several?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One hub page is simplest on a crowded invite. Separate codes are fine on signs (WiFi vs album vs stream) so guests are not hunting menus on a phone at cocktail hour."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are colorful or logo QR codes OK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Light customization is fine if contrast stays high and the quiet zone remains. Over-designed marks fail in dim reception lighting—always test a physical proof."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we put a Google review request on a favor tag?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes—encode your Google review / Business Profile link as a static URL. See static Google review QR codes. Keep it optional and gracious; do not imply a Google partnership."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if our stationer already used a “free QR” tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ask what URL opens when you scan a proof. If it is a third-party short domain tied to a trial, replace it with a static code pointing at your real page before the final run."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="../index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="../index.html#generator">Generator</a>
+    <a href="./">Guides</a>
+    <a href="../about.html">About</a>
+    <a href="../privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+<article class="prose">
+<h1>Wedding QR codes without signup (static)</h1>
+<p>Save-the-dates, invitations, seating charts, and welcome signs often carry a QR to RSVP, directions, the registry, or a shared photo album. The last thing you want on the weekend is a square that opens an “upgrade your plan” page because a free dynamic trial ended after you ordered letterpress.</p>
+<p>A <strong>static</strong> wedding QR encodes the URL (or text) directly in the image. No account is required to keep it working. No vendor short link sits between the scan and your page. Generate once, download PNG or SVG, and print with confidence.</p>
+<p>This page explains what to encode for common wedding use cases, how to stay print-safe, and how to make codes with a free, no-signup static generator.</p>
+<h2>What to put in a wedding QR</h2>
+<p>Encode a <strong>stable link you control</strong> (or a trusted host you will not abandon before the event):</p>
+<div class="table-scroll">
+<table>
+<thead>
+<tr>
+<th>Use case</th>
+<th>Good static payload</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><strong>RSVP</strong></th>
+<td>Your RSVP form URL</td>
+<td>Prefer a form that stays live through the event + a buffer</td>
+</tr>
+<tr>
+<th scope="row"><strong>Wedding website</strong></th>
+<td>Homepage or <code>/weekend</code> itinerary</td>
+<td>One hub link beats five tiny codes on the invite</td>
+</tr>
+<tr>
+<th scope="row"><strong>Registry</strong></th>
+<td>Official registry URL</td>
+<td>Test that the link still works after retailer redesigns</td>
+</tr>
+<tr>
+<th scope="row"><strong>Maps / parking</strong></th>
+<td>Google Maps or Apple Maps share link, or a page you wrote</td>
+<td>Pin the venue, not a temporary event shortener</td>
+</tr>
+<tr>
+<th scope="row"><strong>Photo album</strong></th>
+<td>Shared album link (Google Photos, etc.)</td>
+<td>Check that guests can open it without a special app login wall if possible</td>
+</tr>
+<tr>
+<th scope="row"><strong>Live stream</strong></th>
+<td>Stream page URL</td>
+<td>Publish the page early; update the <em>page</em> if the stream URL changes</td>
+</tr>
+<tr>
+<th scope="row"><strong>WiFi for guests</strong></th>
+<td>Static WiFi QR on a guest SSID</td>
+<td>See the <a href="../wifi-qr-code-generator.html">WiFi QR generator</a>—do not put your home password on public signage</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You can make several static codes (RSVP vs album) or one hub page with buttons. Hubs are easier when invite space is tight.</p>
+<p>Avoid encoding a free <strong>dynamic</strong> short link from a trial dashboard. If that trial lapses between ordering stationery and the reception, every printed piece fails together. Background: <a href="qr-code-that-never-expires.html">QR codes that never expire</a> and <a href="qr-code-expired-after-free-trial.html">QR expired after free trial</a>.</p>
+<h2>Why static + no signup fits weddings</h2>
+<p>Weddings have a brutal reprint cost. Letterpress, foil, and acrylic signs are not “just print another batch” items.</p>
+<p><strong>Static</strong> means:</p>
+<ul>
+<li>The RSVP URL is in the image—no middleman trial clock.</li>
+<li>You can generate codes in a browser without creating yet another account in peak planning season.</li>
+<li>Offline-friendly payloads (WiFi, phone <code>tel:</code> for the day-of coordinator) work without a QR vendor being online.</li>
+</ul>
+<p><strong>Honest limits:</strong></p>
+<ul>
+<li>You cannot remotely swap the destination after invitations ship. Fix content on the <em>same URL</em>, or accept a reprint for a brand-new address.</li>
+<li>If your RSVP host deletes the form, the QR still opens a dead page—the barcode did not expire; the form did. Keep backups and stable paths.</li>
+</ul>
+<p>Compare options in <a href="static-vs-dynamic-qr.html">static vs dynamic QR codes</a>. Dynamic can still make sense for a large paid campaign with analytics—but for most couples, static URL codes are enough.</p>
+<h2>How to generate print-safe wedding QRs</h2>
+<ol>
+<li><strong>Finalize the destination URLs</strong> before you send files to the stationer. Typos lock in with static codes.</li>
+<li><strong>Open the <a href="../index.html">free static QR generator</a>.</strong> Choose URL (or Text / Phone / Email / WiFi as needed). No signup; generation runs on your device.</li>
+<li><strong>Download SVG for print</strong> when the designer will scale the mark. Use PNG for email, stories, and proofs.</li>
+<li><strong>Keep quiet zone and contrast.</strong> White margin around the square; dark modules on a light field. Do not stretch the code into a non-square shape.</li>
+<li><strong>Test on iPhone and Android</strong> under soft indoor light and brighter outdoor light (ceremony programs travel).</li>
+<li><strong>Share the SVG/PNG with your designer</strong> and keep a dated folder of “final encoded URLs” so day-of volunteers know what each code should open.</li>
+</ol>
+<p>Once the site moves fully to <a href="https://qrstatic.app/">qrstatic.app</a>, the same static, no-signup flow is the intended home—use whichever host is live when you generate.</p>
+<h2>Day-of and after-party extras</h2>
+<p><strong>Escort / seating.</strong> A static link to a searchable seating page beats reprinting every card when Uncle Ray switches tables—update the page, keep the sign QR.</p>
+<p><strong>Guest book alternative.</strong> Link to a short voice-note or message form on a URL you keep through the honeymoon.</p>
+<p><strong>Thank-you timing.</strong> Album QRs on favor tags should still work months later; static + a durable album link is ideal. If a dynamic trial already failed, replace it—see <a href="why-did-my-qr-code-stop-working.html">why did my QR code stop working</a>.</p>
+<p><strong>Privacy.</strong> Do not publish a QR that embeds a private home WiFi password on public wedding hashtag posts. Use guest WiFi or omit WiFi from social graphics.</p>
+<h2>FAQ</h2>
+<h3>Do I need an account to make wedding QR codes?</h3>
+<p>No. A client-side <a href="../index.html">static generator</a> lets you create and download PNG or SVG without signup. Accounts usually appear when a tool is selling dynamic redirects and dashboards.</p>
+<h3>Will my wedding QR expire after the big day?</h3>
+<p>A <strong>static</strong> code does not expire because a generator trial ended. It keeps encoding the same URL. Whether that URL still works depends on your RSVP host, website, or album staying online.</p>
+<h3>Can I change the RSVP link after invitations are printed?</h3>
+<p>Not inside a static QR. Keep the same public URL and change where it points (redirect or edit the page). Otherwise you must reprint. That is the main reason to freeze URLs before the print deadline.</p>
+<h3>Should we use one QR or several?</h3>
+<p>One hub page is simplest on a crowded invite. Separate codes are fine on signs (WiFi vs album vs stream) so guests are not hunting menus on a phone at cocktail hour.</p>
+<h3>Are colorful or logo QR codes OK?</h3>
+<p>Light customization is fine if contrast stays high and the quiet zone remains. Over-designed marks fail in dim reception lighting—always test a physical proof.</p>
+<h3>Can we put a Google review request on a favor tag?</h3>
+<p>Yes—encode your Google review / Business Profile link as a <strong>static</strong> URL. See <a href="google-review-qr-code-static.html">static Google review QR codes</a>. Keep it optional and gracious; do not imply a Google partnership.</p>
+<h3>What if our stationer already used a “free QR” tool?</h3>
+<p>Ask what URL opens when you scan a proof. If it is a third-party short domain tied to a trial, replace it with a static code pointing at your real page before the final run.</p>
+<hr>
+<p><strong>Related:</strong> <a href="../index.html">Free static QR generator</a> · <a href="../wifi-qr-code-generator.html">WiFi QR generator</a> · <a href="static-vs-dynamic-qr.html">Static vs dynamic</a> · <a href="qr-code-that-never-expires.html">Never-expires guide</a> · <a href="restaurant-menu-qr-code-never-expires.html">Restaurant menu QR</a> · <a href="google-review-qr-code-static.html">Google review QR</a> · <a href="why-did-my-qr-code-stop-working.html">Why QR stopped working</a></p>
+</article>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRNoExpire</div>
+    <div class="footer-links">
+      <a href="../index.html">Generator</a>
+      <a href="./">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR Code That Never Expires — How Permanent Static Codes Work</title>
+<meta name="description" content="Most “expired” QR codes were dynamic redirects. Learn how static codes stay permanent, and make one free with no signup.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/guides/qr-code-that-never-expires.html">
+<meta property="og:title" content="QR Code That Never Expires — How Permanent Static Codes Work">
+<meta property="og:description" content="Most “expired” QR codes were dynamic redirects. Learn how static codes stay permanent, and make one free with no signup.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/guides/qr-code-that-never-expires.html">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Do QR codes expire after a certain number of scans?","acceptedAnswer":{"@type":"Answer","text":"Static codes do not. Some dynamic plans throttle or disable codes when a free quota is hit—that is a vendor policy, not a property of QR technology."}},
+    {"@type":"Question","name":"Why did my product’s QR stop working years later?","acceptedAnswer":{"@type":"Answer","text":"Often the manufacturer used a dynamic/short-link service that later changed. Sometimes the support URL moved."}},
+    {"@type":"Question","name":"Do all free QR codes expire?","acceptedAnswer":{"@type":"Answer","text":"No. Free static codes—where the payload is written into the image—do not carry a vendor expiration clock. What often expires is a free dynamic trial or short-link plan."}},
+    {"@type":"Question","name":"Is no expiration the same as static?","acceptedAnswer":{"@type":"Answer","text":"When the tool embeds your data in the downloaded image, yes: there is no vendor kill switch on the code itself."}},
+    {"@type":"Question","name":"Can I make a QR that never expires for free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use a static generator that downloads an image encoding your data directly. No signup required for generation."}},
+    {"@type":"Question","name":"Will my static QR work offline?","acceptedAnswer":{"@type":"Answer","text":"WiFi, tel, mailto, and plain text can work without internet. Encoded https URLs need the destination site online."}},
+    {"@type":"Question","name":"Should restaurants use static or dynamic menu QR codes?","acceptedAnswer":{"@type":"Answer","text":"If you update one stable menu URL and reprint when needed, static is enough. If destinations change constantly, budget for reliable paid dynamic hosting."}},
+    {"@type":"Question","name":"How do I replace an expired dynamic QR?","acceptedAnswer":{"@type":"Answer","text":"Generate a static code pointing at a URL you own, or move to a paid dynamic vendor with clear terms—and reprint."}}
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="../index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="../index.html#generator">Generator</a>
+    <a href="./">Guides</a>
+    <a href="../about.html">About</a>
+    <a href="../privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+<article class="prose">
+  <h1>QR codes that never expire</h1>
+
+  <p>You scanned a poster, a product box, or a café table tent—and the phone said the code was invalid, expired, or the page was gone. It feels like the QR itself “died.” In most cases the square was fine. What failed was a <strong>redirect</strong> sitting between the scan and the real content.</p>
+  <p>This guide explains why QR codes appear to expire, how <strong>static</strong> codes stay permanent, what can still break even then, and how to make a free permanent QR with no signup.</p>
+
+  <h2>Why QR codes “expire” (spoiler: redirects)</h2>
+  <p>A QR code only stores data. Scanners read that data and act on it—open a URL, offer a WiFi join, start an email, and so on.</p>
+  <p><strong>Dynamic</strong> QR products usually store a <em>short URL</em> in the printed image. When you scan, your phone opens that short URL. The vendor’s servers then redirect you to the real landing page. That design is useful for editing destinations and counting scans. It also creates a single point of failure:</p>
+  <ul>
+    <li>The free trial ends and the short link stops resolving.</li>
+    <li>The subscription lapses.</li>
+    <li>The company rebrands, sells the domain, or shuts down.</li>
+    <li>The redirect target is deleted while the short link still exists.</li>
+  </ul>
+  <p>From the user’s point of view: “the QR expired.” From a technical point of view: the barcode still encodes yesterday’s short URL; the service behind it no longer cooperates.</p>
+  <p><strong>Static</strong> codes skip that layer. If you encode <code>https://example.com/manual</code> or a WiFi string directly, there is no vendor trial clock attached to the image.</p>
+  <p>For the full side-by-side, see <a href="static-vs-dynamic-qr.html">static vs dynamic QR codes</a>.</p>
+
+  <h2>Static = payload in the image</h2>
+  <p>A permanent QR is almost always a <strong>static</strong> QR: the payload you care about is written into the modules of the image at generation time.</p>
+  <p>That means:</p>
+  <ul>
+    <li><strong>No account is required</strong> to keep the code working after download.</li>
+    <li><strong>No renewal email</strong> can turn your packaging into a dead square.</li>
+    <li><strong>Offline-capable payloads</strong> (WiFi, telephone numbers, plain text) work without any QR vendor being online.</li>
+  </ul>
+  <p>URL-type static codes still need the <em>website</em> to be reachable—the QR does not host your page. But it also does not depend on a third-party shortener. If your site is up at the encoded address, the scan works.</p>
+  <p>Download formats matter for longevity of <em>print quality</em>, not for expiration:</p>
+  <ul>
+    <li><strong>PNG</strong> — Fine for screens, email, and smaller prints.</li>
+    <li><strong>SVG</strong> — Better when you will scale up for posters, packaging, or vinyl.</li>
+  </ul>
+  <p>Either format can be static. Expiration risk comes from <em>what you encode</em> and <em>whether a redirect vendor sits in the middle</em>—not from PNG vs SVG.</p>
+
+  <h2>What still can break</h2>
+  <p>“Never expires” is about the <strong>code and vendor relationship</strong>, not about the universe freezing your content forever. Honest failure modes remain:</p>
+  <p><strong>Your URL moves.</strong><br>
+  If the QR encodes <code>https://brand.com/old-path</code> and you delete that path without a redirect, scanners open a 404. The QR did not expire; the page left. Fix: keep stable URLs, or set permanent redirects on your server.</p>
+  <p><strong>WiFi password changes.</strong><br>
+  A static WiFi QR contains the password that existed when you generated it. Change the router password and the old card fails until you print a new one. Prefer a guest network you can rotate on purpose. Details: <a href="../wifi-qr-code-generator.html">WiFi QR code generator</a>.</p>
+  <p><strong>Typos locked forever.</strong><br>
+  Static means no remote edit. Double-check SSID spelling, https vs http, and trailing slashes before a bulk print.</p>
+  <p><strong>Physical damage.</strong><br>
+  Torn stickers, low contrast ink, and cropped quiet zones reduce scan success. That is print quality—not expiration.</p>
+  <p><strong>App or OS quirks.</strong><br>
+  Rarely, older phones need an update to handle WiFi QR joins. Test iPhone and Android once.</p>
+  <p>None of these are “the generator started charging.” They are ordinary content and print hygiene.</p>
+
+  <h2>Make a permanent QR in 3 steps</h2>
+  <ol>
+    <li><strong>Open the free static generator</strong><br>
+    Go to the <a href="../index.html">Free Static QR Code Generator</a>—no account, client-side generation.</li>
+    <li><strong>Encode something stable</strong>
+      <ul>
+        <li>Web: a URL you control and plan to keep.</li>
+        <li>WiFi: guest SSID + correct security type (<a href="../wifi-qr-code-generator.html">WiFi page</a>).</li>
+        <li>Contact: <code>tel:</code> / <code>mailto:</code> / short text you rarely change.</li>
+      </ul>
+    </li>
+    <li><strong>Download, test, then print</strong><br>
+    Save PNG or SVG. Scan with Camera (iPhone) and Wi-Fi settings or Lens (Android). Only then order table tents, packaging, or stickers.</li>
+  </ol>
+  <p>You now have a QR with no signup wall and no built-in expiration date. If you later need editable campaign tracking, graduate to a <strong>paid</strong> dynamic service deliberately—do not bake a free trial short link into anything hard to reprint.</p>
+
+  <h2>FAQ</h2>
+  <h3>Do QR codes expire after a certain number of scans?</h3>
+  <p>Static codes do not. Some dynamic plans throttle or disable codes when a free quota is hit—that is a vendor policy, not a property of QR technology.</p>
+
+  <h3>Why did my product’s QR stop working years later?</h3>
+  <p>Often the manufacturer used a dynamic/short-link service that later changed. Sometimes the support URL moved. Check whether the scan opens a third-party domain you do not recognize.</p>
+
+  <h3>Do all free QR codes expire?</h3>
+  <p>No. <strong>Free static</strong> codes—where the payload is written into the image—do not carry a vendor expiration clock. That is true of many free static generators, not only this site. What often expires is a <strong>free dynamic trial</strong> or short-link plan: the printed square still scans, but the redirect stops. Always check whether the code opens your URL directly or a third-party short domain.</p>
+
+  <h3>Is “no expiration” the same as “static”?</h3>
+  <p>When the tool embeds your data in the downloaded image, yes: there is no vendor kill switch on the code itself. Marketing that promises “never expires” while issuing short links is selling a dynamic redirect—read the fine print.</p>
+
+  <h3>Can I make a QR that never expires for free?</h3>
+  <p>Yes. Use a static generator that downloads an image encoding your data directly—such as the <a href="../index.html">homepage tool</a>. No signup required for generation.</p>
+
+  <h3>Will my static QR work offline?</h3>
+  <p>WiFi, tel, mailto, and plain text can work without internet (the phone still needs to complete WiFi association or place a call). Encoded <em>https</em> URLs need the destination site online.</p>
+
+  <h3>Should restaurants use static or dynamic menu QR codes?</h3>
+  <p>If you update one stable menu URL and reprint when needed, static is enough and has no monthly fee. If you refuse to reprint and change destinations constantly, budget for reliable paid dynamic hosting—see <a href="static-vs-dynamic-qr.html">static vs dynamic</a>.</p>
+
+  <h3>How do I replace an expired dynamic QR?</h3>
+  <p>Generate a <strong>static</strong> code pointing at a URL you own, or move to a paid dynamic vendor with clear terms—and reprint. You cannot “revive” a dead third-party short link from the outside.</p>
+
+  <hr>
+  <p><strong>Related:</strong> <a href="../index.html">Free static QR generator</a> · <a href="static-vs-dynamic-qr.html">Static vs dynamic QR codes</a> · <a href="../wifi-qr-code-generator.html">WiFi QR code generator</a> · <a href="../vcard-qr-code-generator.html">vCard / business card QR</a> · <a href="why-did-my-qr-code-stop-working.html">Why QR stopped working</a> · <a href="qr-code-expired-after-free-trial.html">Expired after free trial</a> · <a href="restaurant-menu-qr-code-never-expires.html">Restaurant menu QR</a> · <a href="static-or-dynamic-qr-how-to-tell.html">Static or dynamic?</a> · <a href="cafe-table-tent-menu-wifi-review-qr.html">Cafe table tent</a></p>
+</article>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRNoExpire</div>
+    <div class="footer-links">
+      <a href="../index.html">Generator</a>
+      <a href="./">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

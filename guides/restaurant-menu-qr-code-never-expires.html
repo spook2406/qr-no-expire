@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurant Menu QR Code That Never Expires (Static)</title>
+<meta name="description" content="Put a static menu URL in a free QR—no signup, no short-link trial. Update the page, keep the table tent working for years.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/guides/restaurant-menu-qr-code-never-expires.html">
+<meta property="og:title" content="Restaurant Menu QR Code That Never Expires (Static)">
+<meta property="og:description" content="Put a static menu URL in a free QR—no signup, no short-link trial. Update the page, keep the table tent working for years.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/guides/restaurant-menu-qr-code-never-expires.html">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do restaurant menu QR codes expire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Static menu QR codes—where your menu URL is encoded in the image—do not expire because of a generator trial. What expires is often a dynamic free trial or short-link plan behind the square. Keep a URL you control and the printed code stays valid."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I update prices without printing new QR codes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if the QR points at a stable URL and you edit that page or PDF. The barcode does not store the dish list; it stores the address."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a Google Drive or PDF link OK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes for static encoding, if the link remains reachable and you accept that sharing settings matter. Prefer a page on your own domain when you can. Do not wrap the Drive link in yet another free shortener."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use one QR per language?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually no. One multilingual menu page is easier to maintain. Multiple static codes are fine if your workflow already separates menus—just track which URL each tent uses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Static or dynamic for a café that changes the board daily?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If specials live on the same web menu you already update, static is enough. If you need the printed code to point at a brand-new URL every day with zero reprint, budget for paid dynamic—not a free trial."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will guests need an app to open my menu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Camera apps open ordinary https URLs. Avoid exotic app-only deep links unless you also provide a fallback web page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from a “QR menu builder” subscription?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many builders sell hosting, design, and a dynamic redirect together. You can still host a simple menu page yourself and encode it with a free static generator. You trade dashboard polish for no monthly fee and no trial kill switch on the code."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="../index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="../index.html#generator">Generator</a>
+    <a href="./">Guides</a>
+    <a href="../about.html">About</a>
+    <a href="../privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+<article class="prose">
+<h1>Restaurant menu QR codes that never expire</h1>
+<p>Guests expect to scan a table tent and open today’s menu. Too many restaurants discover—months later—that the square still scans but the phone lands on an expired trial page or a broken short link. That is not “QR technology dying.” It is usually a <strong>dynamic menu SaaS</strong> or free redirect that stopped cooperating.</p>
+<p>A <strong>static</strong> restaurant menu QR encodes a URL <em>you</em> control directly in the image. No vendor account keeps it alive. No free-trial clock sits behind the ink. Update the menu page when prices change; reprint only when you change the URL itself.</p>
+<p>This guide covers how static menu codes work, when a paid dynamic tool is still worth it, and how to make a permanent menu QR with no signup.</p>
+<h2>Static menu URL vs dynamic menu SaaS</h2>
+<div class="table-scroll">
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Static menu QR</strong></th>
+<th><strong>Dynamic / SaaS menu QR</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><strong>What is printed</strong></th>
+<td>Your full menu URL (or PDF link)</td>
+<td>A vendor short link or app redirect</td>
+</tr>
+<tr>
+<th scope="row"><strong>Who can turn it off</strong></th>
+<td>Essentially nobody except you (by moving the URL)</td>
+<td>The vendor—trial end, unpaid invoice, product sunset</td>
+</tr>
+<tr>
+<th scope="row"><strong>Change dishes / prices</strong></th>
+<td>Edit the same URL’s page or PDF</td>
+<td>Often edit in a dashboard without reprinting</td>
+</tr>
+<tr>
+<th scope="row"><strong>Monthly fee for the code</strong></th>
+<td>None for the barcode itself</td>
+<td>Common after a free trial</td>
+</tr>
+<tr>
+<th scope="row"><strong>Best when</strong></th>
+<td>You already host a stable menu page and can reprint occasionally</td>
+<td>You refuse to reprint and need frequent destination swaps <em>and</em> will pay for reliability</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Static does not mean the menu is frozen.</strong> It means the <em>QR payload</em> is frozen. Point the code at <code>https://yourrestaurant.com/menu</code> (or a short path you promise to keep). Change the HTML or PDF behind that path as often as you like. Guests keep scanning the same table tent.</p>
+<p><strong>Dynamic is not evil</strong>—it is a paid redirect product. Use it when creative is expensive to reprint (etched signage, large vinyl) and you budget for a serious plan. Do <strong>not</strong> bake a free dynamic trial into laminated menus you will not touch for two years. When the trial ends, guests see “expired” or a paywall, and you look unprofessional.</p>
+<p>For the broader comparison, see <a href="static-vs-dynamic-qr.html">static vs dynamic QR codes</a> and <a href="qr-code-that-never-expires.html">QR codes that never expire</a>.</p>
+<h2>How to make a permanent menu QR (no signup)</h2>
+<ol>
+<li><strong>Pick a stable URL you own.</strong> Prefer a path on your own site or a Google Drive / Notion / PDF host you control long-term. Avoid encoding a third-party shortener. If you use a PDF, keep the <em>same</em> share link and update the file in place when possible.</li>
+<li><strong>Open a free static generator.</strong> Use the <a href="../index.html">homepage static QR tool</a>—client-side, no account. Choose <strong>URL</strong>, paste the menu address, download <strong>PNG</strong> (screens) or <strong>SVG</strong> (crisp print).</li>
+<li><strong>Test before the print run.</strong> Scan with iPhone Camera and an Android device at table distance, under typical restaurant lighting. Check glare on laminated tents.</li>
+<li><strong>Print with quiet zone.</strong> Leave a white margin; do not crop the square tightly into a logo collage. Matte finishes scan more reliably than glossy under spotlights.</li>
+<li><strong>Document the URL.</strong> Write the encoded address on the staff SOP. If someone rebuilds the website, they must keep that path or set a permanent redirect.</li>
+</ol>
+<p>Optional soft brand note: the same workflow is the destination of <a href="https://qrstatic.app/">qrstatic.app</a> once the host cutover finishes—same static, no-signup idea.</p>
+<p>Need WiFi for guests as well? Pair the menu tent with a separate <a href="../wifi-qr-code-generator.html">WiFi QR code</a> on a <strong>guest</strong> network—not your POS VLAN.</p>
+<h2>Print and ops tips for restaurants</h2>
+<p><strong>One URL, many languages.</strong> Host <code>/menu</code> with language toggles rather than three different QR codes per table. Fewer codes means fewer reprints when you rebrand.</p>
+<p><strong>Seasonal specials.</strong> Put daily specials <em>on the same menu page</em> (a banner or section). Do not mint a new dynamic short link every week unless you are paying for that flexibility on purpose.</p>
+<p><strong>When you must change the URL.</strong> Generate a new static QR and replace table tents in one pass. Static codes cannot be remotely rewritten—that is the tradeoff that also prevents a vendor from killing them. If an old menu QR already failed, check whether the scan opens a third-party domain; if yes, replace with a static code to your site. See <a href="why-did-my-qr-code-stop-working.html">why did my QR stop working</a> and <a href="qr-code-expired-after-free-trial.html">QR expired after free trial</a>.</p>
+<h2>When dynamic still makes sense</h2>
+<p>Choose a <strong>paid</strong>, reputable dynamic or menu platform when:</p>
+<ul>
+<li>You change destinations constantly and refuse any reprint window.</li>
+<li>You need vendor scan analytics as a primary KPI (static codes have no built-in scan dashboard—you measure visits on your own site).</li>
+<li>Corporate or franchise rules mandate a specific SaaS.</li>
+</ul>
+<p>In those cases, read the contract for trial length, what happens at non-payment, and export options. Free trials are for evaluation—not for the laminated card that sits on every two-top.</p>
+<h2>FAQ</h2>
+<h3>Do restaurant menu QR codes expire?</h3>
+<p><strong>Static</strong> menu QR codes—where your menu URL is encoded in the image—do not expire because of a generator trial. What expires is often a <strong>dynamic free trial</strong> or short-link plan behind the square. Keep a URL you control and the printed code stays valid.</p>
+<h3>Can I update prices without printing new QR codes?</h3>
+<p>Yes, if the QR points at a stable URL and you edit that page or PDF. The barcode does not store the dish list; it stores the address.</p>
+<h3>Is a Google Drive or PDF link OK?</h3>
+<p>Yes for static encoding, if the link remains reachable and you accept that sharing settings matter. Prefer a page on your own domain when you can. Do not wrap the Drive link in yet another free shortener.</p>
+<h3>Should I use one QR per language?</h3>
+<p>Usually no. One multilingual menu page is easier to maintain. Multiple static codes are fine if your workflow already separates menus—just track which URL each tent uses.</p>
+<h3>Static or dynamic for a café that changes the board daily?</h3>
+<p>If specials live on the same web menu you already update, <strong>static</strong> is enough. If you need the printed code to point at a brand-new URL every day with zero reprint, budget for <strong>paid</strong> dynamic—not a free trial.</p>
+<h3>Will guests need an app to open my menu?</h3>
+<p>No. Camera apps open ordinary <code>https</code> URLs. Avoid exotic app-only deep links unless you also provide a fallback web page.</p>
+<h3>How is this different from a “QR menu builder” subscription?</h3>
+<p>Many builders sell hosting, design, and a dynamic redirect together. You can still host a simple menu page yourself and encode it with a <a href="../index.html">free static generator</a>. You trade dashboard polish for no monthly fee and no trial kill switch on the code.</p>
+<hr>
+<p><strong>Related:</strong> <a href="../index.html">Free static QR generator</a> · <a href="static-vs-dynamic-qr.html">Static vs dynamic QR codes</a> · <a href="qr-code-that-never-expires.html">QR codes that never expire</a> · <a href="why-did-my-qr-code-stop-working.html">Why did my QR stop working?</a> · <a href="qr-code-expired-after-free-trial.html">QR expired after free trial</a> · <a href="google-review-qr-code-static.html">Google review QR (static)</a> · <a href="wedding-qr-code-static-no-signup.html">Wedding QR (static, no signup)</a> · <a href="cafe-table-tent-menu-wifi-review-qr.html">Cafe table tent</a> · <a href="qr-code-print-size-scan-distance.html">Print sizes</a></p>
+</article>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRNoExpire</div>
+    <div class="footer-links">
+      <a href="../index.html">Generator</a>
+      <a href="./">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
