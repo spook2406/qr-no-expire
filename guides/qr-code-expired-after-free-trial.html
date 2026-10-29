@@ -12,12 +12,12 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>QR Code Expired After Free Trial — What To Do</title>
-<meta name="description" content="Free dynamic QR trials often kill the redirect—not the barcode. Learn what happened and how to replace it with a static code you own.">
+<title>QR Code Expired After Free Trial — Fix &amp; Replace</title>
+<meta name="description" content="Trial over and the QR dead? Usually the short-link redirect stopped—not the print. See how to check, then replace it with a static code (PNG/SVG, no signup).">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://qrstatic.app/guides/qr-code-expired-after-free-trial.html">
-<meta property="og:title" content="QR Code Expired After Free Trial — What To Do">
-<meta property="og:description" content="Free dynamic QR trials often kill the redirect—not the barcode. Learn what happened and how to replace it with a static code you own.">
+<meta property="og:title" content="QR Code Expired After Free Trial — Fix &amp; Replace">
+<meta property="og:description" content="Trial over and the QR dead? Usually the short-link redirect stopped—not the print. See how to check, then replace it with a static code (PNG/SVG, no signup).">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://qrstatic.app/guides/qr-code-expired-after-free-trial.html">
 <link rel="stylesheet" href="../css/style.css">
@@ -29,18 +29,26 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Did the QR image itself expire?",
+      "name": "Do QR codes expire?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Usually no. The image still encodes data. The redirect service or destination stopped cooperating. Static images have no built-in trial timer."
+        "text": "The printed pattern does not carry a built-in calendar. What fails is usually a dynamic redirect or free-trial account, a moved URL (404), changed Wi-Fi credentials, or damaged print. Static images that embed the payload have no vendor trial timer."
       }
     },
     {
       "@type": "Question",
-      "name": "Are free static QR codes safe from trial expiration?",
+      "name": "Does a free trial kill static codes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Free static codes that embed your payload in the downloaded image do not depend on a generator subscription to keep working. Your website or WiFi settings can still change—that is separate from a trial kill switch."
+        "text": "No. Free static codes that embed your payload in the downloaded image do not depend on a generator subscription to keep scanning. Your website or Wi-Fi settings can still change—that is separate from a trial kill switch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I keep the same sticker art?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if the encoded data still resolves. If the trial redirect is dead, the old art still points at a dead short link. You need a new barcode for a new destination—or a sticker overlay. You cannot unlock the old short URL from outside the original vendor account."
       }
     },
     {
@@ -48,15 +56,7 @@
       "name": "Can I extend the old trial code without reprinting?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Only through that vendor’s account and policy. Read their official Support/help center. There is no universal “reactivate any QR” tool."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will paying the old vendor restore every printed code?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Often yes if the same short URLs remain on their platform and the domain still resolves. Migrations and shutdowns can still strand codes—confirm with their docs and support before you rely on nostalgia."
+        "text": "Only through that vendor’s account and policy. Read their official Support / help center. There is no universal “reactivate any QR” tool."
       }
     },
     {
@@ -72,15 +72,15 @@
       "name": "Static replacement vs paid dynamic—how do I choose?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Choose static when the destination can stay stable or you can update the page in place. Choose paid dynamic when you must change destinations without reprinting and you accept ongoing cost. See static vs dynamic."
+        "text": "Choose static when the destination can stay stable or you can update the page in place. Choose paid dynamic when you must change destinations without reprinting and you accept ongoing cost."
       }
     },
     {
       "@type": "Question",
-      "name": "Is “expired QR” ever a phone problem?",
+      "name": "Is “expired QR” ever a phone or print problem?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sometimes scan UI fails (dirty lens, glare, damaged print). If the same PNG works on screen but the sticker fails, fix print quality. If every device hits an upgrade wall on a vendor domain, that is the trial/redirect story."
+        "text": "Sometimes. Dirty lens, glare, low contrast, or damaged print can look like a dead code. If the same PNG works on screen but the sticker fails, fix print quality. If every device hits an upgrade wall on a vendor domain, that is the trial / redirect story."
       }
     }
   ]
@@ -101,65 +101,72 @@
 </header>
 <article class="prose">
 <h1>Your QR code expired after a free trial</h1>
-<p>The sticker still looks perfect. The camera still finds a square. Then the browser shows an expired campaign, an upgrade wall, or a dead short link. People say “my QR expired after the free trial.” What usually expired is not the barcode format—it is the <strong>dynamic redirect service</strong> behind it.</p>
-<p>This article explains that pattern in plain language, what you can (and cannot) fix remotely, and how to replace the code with a <strong>static</strong> QR you own so a trial clock cannot turn your print run off again.</p>
+<p>The sticker still looks fine. The camera still finds a square. Then the browser shows an expired campaign, an upgrade wall, or a dead short link. People say “my QR expired after the free trial.” What usually expired is not the barcode format—it is the <strong>dynamic redirect</strong> (or trial account) behind it.</p>
+<p>This guide covers what that pattern means, quick checks before you reprint, what you cannot fix from outside, and how to replace the mark with a <strong>static</strong> QR you control so a trial clock cannot turn the next print run off.</p>
+
 <h2>What “expired after free trial” usually means</h2>
-<p>Dynamic QR products typically encode a <strong>vendor-owned short URL</strong> in the printed image. While the trial (or paid plan) is active, their servers redirect scanners to your real landing page and may count scans.</p>
+<p>Most free-trial QR products encode a <strong>vendor-owned short URL</strong> in the printed image. While the trial (or paid plan) is active, their servers redirect scanners to your real landing page and may count scans.</p>
 <p>When the trial ends, common outcomes include:</p>
 <ul>
-<li>The short URL stops redirecting.</li>
+<li>The short URL or campaign stops resolving.</li>
 <li>The page asks you to upgrade or log in.</li>
-<li>The campaign is marked inactive in their dashboard.</li>
+<li>The dashboard marks the code inactive.</li>
 </ul>
-<p>From a guest’s perspective the QR “expired.” Technically the modules still encode yesterday’s short link; the contract behind that link changed.</p>
-<p><strong>Free static</strong> codes work differently: your URL, WiFi string, or text is written <strong>into the image</strong>. There is no vendor trial attached to the download. Many free static tools behave this way—not only one site. So it is inaccurate to say “all free QR codes expire.” Expiration talk belongs with <strong>dynamic free trials and short-link failures</strong>.</p>
-<p>For the side-by-side, read <a href="static-vs-dynamic-qr.html">static vs dynamic QR codes</a> and <a href="qr-code-that-never-expires.html">QR codes that never expire</a>.</p>
-<h2>Check the vendor’s own Support docs (do not guess)</h2>
-<p>Each product defines trial length, grace periods, and what happens to codes at non-payment. <strong>Do not rely on hearsay or a blog’s invented quote.</strong> Open that vendor’s <strong>official Support or help center</strong> and read their trial / billing / “what happens when my plan ends” articles for the product you actually used.</p>
-<p>While you are there, note:</p>
-<ul>
-<li>Whether inactive codes can be reactivated by paying.</li>
-<li>Whether destinations are exportable.</li>
-<li>Whether the short domain might be retired even for paying users during migrations.</li>
-</ul>
-<p>If you still have dashboard access, you may be able to renew and restore redirects <strong>without</strong> reprinting—sometimes. If you lost access, or the company changed terms, plan on a reprint.</p>
-<h2>What you cannot do from the outside</h2>
-<p>You cannot “unlock” a third-party short link by generating a new code elsewhere that magically inherits their ID. A new static QR is a <strong>new</strong> barcode pointing at a destination <strong>you</strong> choose. Physical posters, packaging, and menus that already shipped need replacement (or a sticker overlay) once the old redirect is dead.</p>
-<p>Exception path: only the original vendor (with a valid account/plan) can revive <em>their</em> short URLs—subject to their policy. Again: confirm in <strong>their</strong> Support docs.</p>
-<h2>Replace it with a static QR you own</h2>
+<p>From a guest’s perspective the QR “expired.” Technically the modules still encode yesterday’s short link; the contract behind that link changed. The <strong>pattern can still scan</strong>—what failed is the redirect / short link / trial account, not the ink.</p>
+<p><strong>Static</strong> codes work differently: your final URL, Wi‑Fi string, or text is written <strong>into the image</strong>. There is no vendor trial attached to the download. Free static generators that embed the payload this way do not share that trial clock. Expiration talk belongs with <strong>dynamic free trials and short-link failures</strong>. For the side-by-side, read <a href="https://qrstatic.app/guides/static-vs-dynamic-qr.html">Static vs dynamic QR codes</a> (and <a href="https://qrstatic.app/guides/static-vs-dynamic-qr.html">when static beats a trial redirect</a>).</p>
+
+<h2>Quick checks before you reprint</h2>
+<p>Run these before you order a full reprint:</p>
 <ol>
-<li><strong>Choose a durable destination.</strong> Prefer a URL on a domain you control (<code>yoursite.com/menu</code>, <code>/rsvp</code>, <code>/manual</code>). For WiFi, use a guest SSID and the <a href="../wifi-qr-code-generator.html">WiFi generator</a>.</li>
-<li><strong>Generate a static image.</strong> Open the <a href="../index.html">free static QR tool</a>—no signup, client-side. Encode URL / Text / WiFi / Email / Phone as needed.</li>
-<li><strong>Download PNG or SVG</strong>, scan-test on iPhone and Android, then reprint or cover the old marks.</li>
-<li><strong>Keep the URL stable.</strong> Update page content in place so you are not forced into another print cycle. Restaurants: <a href="restaurant-menu-qr-code-never-expires.html">menu QR that never expires</a>. Events: <a href="wedding-qr-code-static-no-signup.html">wedding QR static, no signup</a>. Reviews: <a href="google-review-qr-code-static.html">Google review QR static</a>.</li>
+<li><strong>Decode the printed code.</strong> Use a second phone or a QR preview app and read the exact URL or payload. Note the host name—do not only trust what the first browser tab shows after redirects.</li>
+<li><strong>Own domain vs vendor short domain.</strong> If the encoded host is a short domain you do not control, you are almost certainly on a dynamic / trial redirect. If it is <em>your</em> domain (<code>yoursite.com/menu</code>), the barcode is static-style and the problem is usually the page, not a trial kill switch.</li>
+<li><strong>Destination 404 vs provider “expired / upgrade” page.</strong> A 404 on your site means restore the page or add a redirect. An upgrade wall, “campaign expired,” or login gate on a vendor domain is the trial / plan story.</li>
 </ol>
-<p>If you later need editable destinations and vendor analytics, buy a <strong>paid</strong> dynamic plan on purpose—with clear uptime and exit terms—rather than discovering the cliff after packaging ships.</p>
-<p>Soft CTA: the static, no-signup workflow is what <a href="https://qrstatic.app/">qrstatic.app</a> is for once DNS cutover completes; generate on whichever host is live today.</p>
+<p>If every device hits the same vendor expired page at once after a known trial end date, skip deeper print troubleshooting and plan a replacement. For a broader triage tree, see <a href="https://qrstatic.app/guides/why-did-my-qr-code-stop-working.html">Why did my QR code stop working?</a> (<a href="https://qrstatic.app/guides/why-did-my-qr-code-stop-working.html">full dead-QR troubleshooting</a>).</p>
+
+<h2>What you usually cannot fix from outside</h2>
+<p>You cannot revive someone else’s redirect without <strong>their</strong> account and an active plan (subject to their policy). Generating a new code elsewhere does not inherit their short-link ID. A new static QR is a <strong>new</strong> barcode pointing at a destination <strong>you</strong> choose.</p>
+<p>Physical posters, packaging, and menus that already shipped need replacement—or a sticker overlay—once the old redirect is dead. If you still have dashboard access, renewing <em>may</em> restore redirects without reprinting; confirm in that product’s official Support docs, not hearsay.</p>
+
+<h2>Replace it with a static QR you control</h2>
+<ol>
+<li><strong>Encode the final URL you own</strong> (or a Wi‑Fi / text payload). Prefer stable paths you can update in place (<code>yoursite.com/menu</code>, <code>/rsvp</code>, <code>/manual</code>). Avoid nesting another free shortener in front of the real page—that recreates the same cliff.</li>
+<li><strong>Generate client-side</strong>, then download <strong>PNG</strong> for screens and <strong>SVG</strong> for print. Scan-test on iPhone and Android before you send files to the printer.</li>
+<li>Soft CTA: use the <a href="https://qrstatic.app/">free static QR generator (no signup)</a> on <a href="https://qrstatic.app/">qrstatic.app</a>—payload in the image, no trial redirect in the middle.</li>
+</ol>
+<p>If you later need edit-after-print and vendor analytics, buy a <strong>paid</strong> dynamic plan on purpose—with clear uptime and exit terms—rather than discovering the cliff after packaging ships.</p>
+
 <h2>Prevent the next trial cliff</h2>
 <ul>
+<li>For <strong>print permanence</strong>, prefer <strong>static</strong>: the payload lives in the image, so a generator subscription cannot turn the sticker off.</li>
 <li>Do not put free-trial short links on anything hard to reprint (product boxes, etched signs, wedding suites, laminated menus).</li>
-<li>Prefer static for evergreen WiFi, support URLs, and review links.</li>
-<li>If marketing insists on dynamic, start paid before the print deadline—not after.</li>
-<li>Document the exact encoded string in your brand asset folder.</li>
-<li>When something fails in the field, triage with <a href="why-did-my-qr-code-stop-working.html">why did my QR code stop working</a>.</li>
+<li>If you need <strong>edit-after-print</strong>, host a URL <strong>you</strong> control and update the page (or 301) instead of relying on a trial redirect you do not own.</li>
+<li>If marketing insists on dynamic tracking, start a paid plan <strong>before</strong> the print deadline—not after.</li>
+<li>Document the exact encoded string in your brand asset folder so the next reprint matches.</li>
 </ul>
+
+<h2>Related guides</h2>
+<ul>
+<li><a href="https://qrstatic.app/guides/why-did-my-qr-code-stop-working.html">Why did my QR code stop working?</a> — <a href="https://qrstatic.app/guides/why-did-my-qr-code-stop-working.html">full dead-QR troubleshooting</a></li>
+<li><a href="https://qrstatic.app/guides/static-vs-dynamic-qr.html">Static vs dynamic QR codes</a> — <a href="https://qrstatic.app/guides/static-vs-dynamic-qr.html">when static beats a trial redirect</a></li>
+<li><a href="https://qrstatic.app/">Free static QR generator (no signup)</a></li>
+</ul>
+
 <h2>FAQ</h2>
-<h3>Did the QR image itself expire?</h3>
-<p>Usually no. The image still encodes data. The <strong>redirect service</strong> or destination stopped cooperating. Static images have no built-in trial timer.</p>
-<h3>Are free static QR codes safe from trial expiration?</h3>
-<p>Free <strong>static</strong> codes that embed your payload in the downloaded image do not depend on a generator subscription to keep working. Your website or WiFi settings can still change—that is separate from a trial kill switch.</p>
+<h3>Do QR codes expire?</h3>
+<p>The printed pattern does not carry a built-in calendar. What fails is usually a <strong>dynamic redirect or free-trial account</strong>, a moved URL (404), changed Wi‑Fi credentials, or damaged print. Static images that embed the payload have no vendor trial timer.</p>
+<h3>Does a free trial kill static codes?</h3>
+<p>No. Free <strong>static</strong> codes that embed your payload in the downloaded image do not depend on a generator subscription to keep scanning. Your website or Wi‑Fi settings can still change—that is separate from a trial kill switch.</p>
+<h3>Can I keep the same sticker art?</h3>
+<p>Only if the encoded data still resolves. If the trial redirect is dead, the old art still points at a dead short link. You need a <strong>new</strong> barcode (new image) for a new destination—or a sticker overlay on the old mark. You cannot “unlock” the old short URL from outside the original vendor account.</p>
 <h3>Can I extend the old trial code without reprinting?</h3>
-<p>Only through that vendor’s account and policy. Read their official Support/help center. There is no universal “reactivate any QR” tool.</p>
-<h3>Will paying the old vendor restore every printed code?</h3>
-<p>Often yes <em>if</em> the same short URLs remain on their platform and the domain still resolves. Migrations and shutdowns can still strand codes—confirm with their docs and support before you rely on nostalgia.</p>
+<p>Only through that vendor’s account and policy. Read their official Support / help center. There is no universal “reactivate any QR” tool.</p>
 <h3>Should I encode a new shortener in front of my URL?</h3>
-<p>Adding another free shortener recreates the same risk. Point static codes at the real https URL you intend to keep.</p>
+<p>Adding another free shortener recreates the same risk. Point static codes at the real <code>https</code> URL you intend to keep.</p>
 <h3>Static replacement vs paid dynamic—how do I choose?</h3>
-<p>Choose <strong>static</strong> when the destination can stay stable or you can update the page in place. Choose <strong>paid dynamic</strong> when you must change destinations without reprinting and you accept ongoing cost. See <a href="static-vs-dynamic-qr.html">static vs dynamic</a>.</p>
-<h3>Is “expired QR” ever a phone problem?</h3>
-<p>Sometimes scan UI fails (dirty lens, glare, damaged print). If the same PNG works on screen but the sticker fails, fix print quality. If every device hits an upgrade wall on a vendor domain, that is the trial/redirect story.</p>
-<hr>
-<p><strong>Related:</strong> <a href="../index.html">Free static QR generator</a> · <a href="why-did-my-qr-code-stop-working.html">Why QR stopped working</a> · <a href="qr-code-that-never-expires.html">Never-expires guide</a> · <a href="static-vs-dynamic-qr.html">Static vs dynamic</a> · <a href="restaurant-menu-qr-code-never-expires.html">Restaurant menu QR</a> · <a href="wedding-qr-code-static-no-signup.html">Wedding QR</a> · <a href="static-or-dynamic-qr-how-to-tell.html">Static or dynamic?</a></p>
+<p>Choose <strong>static</strong> when the destination can stay stable or you can update the page in place. Choose <strong>paid dynamic</strong> when you must change destinations without reprinting and you accept ongoing cost. See <a href="https://qrstatic.app/guides/static-vs-dynamic-qr.html">Static vs dynamic QR codes</a>.</p>
+<h3>Is “expired QR” ever a phone or print problem?</h3>
+<p>Sometimes. Dirty lens, glare, low contrast, or damaged print can look like a “dead” code. If the same PNG works on screen but the sticker fails, fix print quality. If every device hits an upgrade wall on a vendor domain, that is the trial / redirect story—see <a href="https://qrstatic.app/guides/why-did-my-qr-code-stop-working.html">Why did my QR code stop working?</a>.</p>
 </article>
 <footer class="site-footer">
   <div class="footer-inner">
