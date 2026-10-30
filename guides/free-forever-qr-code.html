@@ -32,6 +32,7 @@
     <a href="../index.html#generator">Generator</a>
     <a href="./">Guides</a>
     <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
     <a href="../privacy.html">Privacy</a>
   </div>
 </nav>
@@ -40,23 +41,70 @@
   <h1>Free forever QR code — what to watch for</h1>
   <p class="meta">Updated for 2026 · Keyword focus: free forever qr / no signup</p>
 
-  <p>“Free forever” is a powerful marketing phrase. For QR codes, the fine print matters more than the headline. If the free plan still routes every scan through the vendor’s short domain, your code depends on their business surviving — and on them keeping that redirect free.</p>
+  <p>“Free forever” is a powerful marketing phrase. For QR codes, the fine print matters more than the headline. If the free plan still routes every scan through the vendor’s short domain, your code depends on their business surviving — and on them keeping that redirect free. A menu printed today can stop working next year even though you never agreed to a paid plan.</p>
 
-  <h2>Red flags</h2>
+  <p>This guide explains what “free forever” can honestly mean, which product designs fail after print, and how to generate a no-signup static QR that stays scannable without a vendor account.</p>
+
+  <h2>What people mean by free forever</h2>
+  <p>Searchers usually want three things at once:</p>
+  <ul>
+    <li><strong>No signup</strong> — download a code without creating an account or handing over an email.</li>
+    <li><strong>No recurring fee</strong> — the scan itself must not start charging months later.</li>
+    <li><strong>No surprise expiration</strong> — printed materials (menus, packaging, posters) keep working.</li>
+  </ul>
+  <p>Dynamic QR platforms often satisfy the first bullet in the first week, then quietly fail the second and third. Static codes reverse that trade-off: you give up remote editability, and in return the image itself carries the payload.</p>
+
+  <h2>Red flags on “free” QR tools</h2>
   <ul>
     <li>Required account before download</li>
     <li>Scan analytics behind a paid wall (okay as optional; risky if required for the link to resolve)</li>
     <li>Watermarks that force an upgrade for “commercial use”</li>
     <li>Codes that stop working after a trial period</li>
+    <li>Short links on a vendor domain with no way to export a true static image</li>
+    <li>Vague “free forever” badges next to pricing that puts basic redirects on a paid tier</li>
   </ul>
+  <p>If you already printed a free-tier dynamic code that broke, see <a href="qr-code-expired-after-free-trial.html">QR code expired after free trial</a> and <a href="why-did-my-qr-code-stop-working.html">why QR codes stop working</a>.</p>
+
+  <h2>Static vs dynamic: the cost of “edit later”</h2>
+  <p>Dynamic QR codes encode a short URL. The vendor’s server decides where that URL goes. That is useful for campaigns you will retarget, but it creates a long-term dependency: hosting, billing, and policy changes all sit between the scanner and your destination.</p>
+  <p>Static QR codes encode the destination (or WiFi / vCard / calendar payload) directly. Cameras read the payload without calling the generator’s API. There is no campaign ID to expire. The trade-off is permanence of the <em>encoded</em> data: if the destination URL moves, keep a redirect on your domain or print a new code. For a deeper comparison, read <a href="static-vs-dynamic-qr.html">static vs dynamic QR codes</a>.</p>
 
   <h2>What actually stays free</h2>
-  <p>A <strong>static QR generated in the browser</strong> with an open-source library has no vendor middleman. You download PNG/SVG once and host or print it yourself. That is as close to “free forever” as software gets.</p>
+  <p>A <strong>static QR generated in the browser</strong> with an open-source library has no vendor middleman. You download PNG or SVG once and host or print it yourself. That is as close to “free forever” as software gets, because:</p>
+  <ul>
+    <li>Generation happens on your device — nothing must stay online for the image to remain valid.</li>
+    <li>There is no account database that can lock the download behind a plan.</li>
+    <li>You can archive the SVG in your design files and reprint years later.</li>
+  </ul>
+  <p>QRStatic (qrstatic.app) follows that model: MIT-licensed rendering, client-side only, PNG and SVG export, no signup. Start on the <a href="../index.html#generator">home generator</a>, or use dedicated tools for <a href="../wifi-qr-code-generator.html">WiFi</a>, <a href="../vcard-qr-code-generator.html">vCard</a>, <a href="../calendar-event-qr-code-generator.html">calendar events</a>, and <a href="../google-review-qr-code-generator.html">Google reviews</a>.</p>
+
+  <h2>Practical checklist before you print</h2>
+  <ol>
+    <li>Point URL codes at a domain you control (your site, not a temporary landing page).</li>
+    <li>Prefer HTTPS destinations that you can redirect if paths change.</li>
+    <li>Leave a quiet zone (white margin) around the code; avoid busy backgrounds.</li>
+    <li>Use error correction M or H for outdoor or frequently handled prints.</li>
+    <li>Export SVG for large print runs; PNG is fine for slides and social posts.</li>
+    <li>Test with at least two phone brands before ordering bulk print.</li>
+    <li>Store the original SVG/PNG next to your brand assets so reprints match.</li>
+  </ol>
+  <p>Size guidance: <a href="qr-code-print-size-scan-distance.html">print size by scan distance</a>. Restaurant and cafe layouts: <a href="restaurant-menu-qr-code-never-expires.html">menu QR that never expires</a> and <a href="cafe-table-tent-menu-wifi-review-qr.html">table-tent WiFi + review patterns</a>.</p>
 
   <h2>When dynamic still makes sense</h2>
-  <p>If you truly need to change the destination after printing (seasonal campaigns, A/B tests), pay for a reputable dynamic service with a clear SLA — do not rely on an anonymous free tier for anything you will print at scale.</p>
+  <p>If you truly need to change the destination after printing (seasonal campaigns, A/B tests, one physical sticker for many landing pages), pay for a reputable dynamic service with a clear SLA — do not rely on an anonymous free tier for anything you will print at scale. Budget for renewals the same way you budget for domain renewals. For packaging, wayfinding, WiFi cards, and wedding materials that must still work in five years, static is usually the safer “free forever” path.</p>
 
-  <p><a href="../index.html#generator">Create a no-signup static QR now</a> · Next: <a href="static-vs-dynamic-qr.html">Static vs dynamic</a></p>
+  <h2>Privacy and commercial use</h2>
+  <p>Client-side static generation keeps WiFi passwords and personal vCard fields on your device during creation. That does not remove your duty to use destinations responsibly, but it avoids uploading credentials to a QR SaaS just to get an image. For how this site handles analytics and ads, see the <a href="../privacy.html">Privacy Policy</a>.</p>
+
+  <h2>Quick answers</h2>
+  <h3>Is a free forever QR code possible without signup?</h3>
+  <p>Yes — generate a static code in the browser, download the image, and print or host it yourself. No account is required for the scan to work.</p>
+  <h3>Why did my free QR stop working?</h3>
+  <p>Most often it was a dynamic short link on a free plan that expired, hit a scan limit, or moved behind paywall. Replace it with a static code pointed at a URL you control.</p>
+  <h3>Can I use static codes for business?</h3>
+  <p>Yes. Static codes are widely used on packaging, menus, and signage. Just keep destination URLs stable and test print quality.</p>
+
+  <p><a href="../index.html#generator">Create a no-signup static QR now</a> · Next: <a href="static-qr-no-expiration.html">how permanent static QRs work</a> · <a href="static-vs-dynamic-qr.html">Static vs dynamic</a></p>
 </article>
 <footer class="site-footer">
   <div class="footer-inner">
@@ -65,6 +113,7 @@
       <a href="../index.html">Generator</a>
       <a href="./">Guides</a>
       <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
       <a href="../privacy.html">Privacy</a>
     </div>
   </div>
