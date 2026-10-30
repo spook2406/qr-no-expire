@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV95W19XS3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JV95W19XS3');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Calendar Event QR Code Generator (Static, No Signup) | QRStatic</title>
+<meta name="description" content="Free browser-only calendar/event QR code. Encodes iCalendar VEVENT for Apple, Google, and Outlook. Never expires, no signup. Download PNG, SVG, or .ics.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/calendar-event-qr-code-generator.html">
+<meta property="og:title" content="Free Calendar Event QR Code Generator (Static, No Signup) | QRStatic">
+<meta property="og:description" content="Free browser-only calendar/event QR. Encodes iCalendar VEVENT; works with Apple/Google/Outlook; never expires; PNG + SVG + .ics.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/calendar-event-qr-code-generator.html">
+<link rel="stylesheet" href="css/style.css">
+<meta name="google-adsense-account" content="ca-pub-8737820277849030">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Does a calendar event QR code expire?","acceptedAnswer":{"@type":"Answer","text":"A static calendar QR does not expire: the iCalendar VEVENT lives inside the image, so there is no trial clock or short-link server that can shut it off."}},
+    {"@type":"Question","name":"Will Apple, Google, and Outlook calendars open the event?","acceptedAnswer":{"@type":"Answer","text":"iPhone Camera often offers to add a VEVENT to Calendar. Android and desktop behavior depends on the scanner app. Always test on an iPhone and an Android device before you print."}},
+    {"@type":"Question","name":"Is this calendar QR generator free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Create and download PNG, SVG, or a .ics file with no signup. Generation is client-side on your device."}},
+    {"@type":"Question","name":"Can I make an all-day event?","acceptedAnswer":{"@type":"Answer","text":"Yes. Check All-day and set the start (and optional end) date. Timed events need start time; end defaults to one hour later if left blank."}},
+    {"@type":"Question","name":"Is my event data uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. This page builds the VCALENDAR string and QR image in your browser. Nothing is sent to our servers."}}
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="index.html#generator">Generator</a>
+    <a href="guides/">Guides</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+
+<section class="hero">
+  <h1>Free Calendar Event QR Code Generator</h1>
+  <p>Let guests add your event to their calendar with one scan. This page builds a <strong>static</strong> QR that encodes a standard iCalendar <code>VEVENT</code>—no account, no short link, and no expiration date.</p>
+  <div class="badge-row">
+    <span class="badge">✓ No signup</span>
+    <span class="badge">✓ Never expires</span>
+    <span class="badge">✓ Client-side only</span>
+    <span class="badge">✓ PNG, SVG &amp; .ics</span>
+  </div>
+</section>
+
+<div class="container" id="calendar-generator">
+  <h2 class="section-title">Generate your calendar event QR</h2>
+  <p style="color:var(--muted);max-width:52rem;margin:0 0 1rem;">Fill in the event details. Everything runs in your browser: title, times, and location never leave your device.</p>
+
+  <div class="generator">
+    <div class="panel">
+      <h2>1. Event details</h2>
+      <div class="field">
+        <label for="cal-title">Event title</label>
+        <input id="cal-title" type="text" placeholder="Product launch meetup" autocomplete="off">
+      </div>
+      <div class="field">
+        <label><input id="cal-allday" type="checkbox"> All-day event</label>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="cal-start-date">Start date</label>
+          <input id="cal-start-date" type="date">
+        </div>
+        <div class="field" id="cal-time-fields" class="cal-time-only">
+          <label for="cal-start-time">Start time</label>
+          <input id="cal-start-time" type="time" value="10:00">
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="cal-end-date">End date (optional)</label>
+          <input id="cal-end-date" type="date">
+        </div>
+        <div class="field cal-time-only">
+          <label for="cal-end-time">End time (optional)</label>
+          <input id="cal-end-time" type="time">
+          <p class="hint">Timed events default to 1 hour if end time is blank.</p>
+        </div>
+      </div>
+      <div class="field">
+        <label for="cal-location">Location (optional)</label>
+        <input id="cal-location" type="text" placeholder="123 Main St, or Zoom" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="cal-desc">Description (optional)</label>
+        <textarea id="cal-desc" placeholder="Agenda, dress code, or notes"></textarea>
+      </div>
+      <div class="field">
+        <label for="cal-url">Event URL (optional)</label>
+        <input id="cal-url" type="url" placeholder="https://example.com/event" autocomplete="off">
+      </div>
+
+      <h2>2. Style</h2>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-size">Size (px)</label>
+          <select id="opt-size">
+            <option value="256">256</option>
+            <option value="320" selected>320</option>
+            <option value="512">512</option>
+            <option value="1024">1024</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-ecc">Error correction</label>
+          <select id="opt-ecc">
+            <option value="L">L — ~7%</option>
+            <option value="M" selected>M — ~15%</option>
+            <option value="Q">Q — ~25%</option>
+            <option value="H">H — ~30%</option>
+          </select>
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-margin">Quiet zone</label>
+          <select id="opt-margin">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-dark">Foreground</label>
+          <input id="opt-dark" type="color" value="#000000">
+        </div>
+      </div>
+      <div class="field">
+        <label for="opt-light">Background</label>
+        <input id="opt-light" type="color" value="#ffffff">
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn" id="generate-btn">Generate calendar QR</button>
+      </div>
+      <div class="error" id="form-error" role="alert"></div>
+      <div class="privacy-note">
+        Privacy: QR codes are generated entirely on your device. Event details are not uploaded.
+      </div>
+    </div>
+
+    <div class="panel preview-wrap">
+      <h2 style="align-self:flex-start;width:100%;margin:0 0 .5rem;">3. Preview &amp; download</h2>
+      <p class="preview-empty" id="preview-empty">Your calendar QR will appear here. It encodes a VCALENDAR / VEVENT payload — no short link that can expire.</p>
+      <canvas id="qr-canvas" width="320" height="320" aria-label="Calendar event QR code preview"></canvas>
+      <div class="actions">
+        <button type="button" class="btn" id="download-png" disabled>Download PNG</button>
+        <button type="button" class="btn secondary" id="download-svg" disabled>Download SVG</button>
+        <button type="button" class="btn secondary" id="download-ics" disabled>Download .ics</button>
+        <button type="button" class="btn secondary" id="copy-ics" disabled>Copy ICS</button>
+      </div>
+      <p style="color:var(--muted);font-size:.85rem;align-self:flex-start;margin-top:.75rem;">ICS payload preview</p>
+      <pre id="payload-preview" style="align-self:stretch;max-height:10rem;overflow:auto;font-size:.7rem;background:#0b1220;color:#c8d4eb;padding:.75rem;border-radius:8px;white-space:pre-wrap;word-break:break-all;"></pre>
+    </div>
+  </div>
+</div>
+
+<article class="prose">
+  <h2>Why a static calendar QR never expires</h2>
+  <p>Many “event QR” tools create a <strong>dynamic</strong> code: the printed square points at a short URL on their servers. When the trial ends, the scan fails—even though your meetup is still on the calendar.</p>
+  <p>A <strong>static</strong> calendar QR is different. The iCalendar payload (<code>BEGIN:VCALENDAR</code> … <code>BEGIN:VEVENT</code> …) is encoded <strong>inside the image</strong>. After you print or save it:</p>
+  <ul>
+    <li>No vendor account is required to keep it working.</li>
+    <li>No subscription renewal can turn it off.</li>
+    <li>There is no short link that can expire or change owners.</li>
+  </ul>
+  <p>That makes static event QRs a good fit for wedding programs, conference badges, restaurant tasting nights, and café pop-ups—alongside a <a href="guides/wedding-qr-code-static-no-signup.html">wedding QR guide</a> or <a href="guides/cafe-table-tent-menu-wifi-review-qr.html">café table tent</a>.</p>
+
+  <h2>Test on iPhone and Android before you print</h2>
+  <p><strong>iPhone:</strong> Camera often recognizes a VEVENT and offers “Add to Calendar.” Confirm title, time, and location look right.</p>
+  <p><strong>Android:</strong> Behavior varies by Camera / Lens / third-party scanner. Some open the ICS; others show raw text. Always test the exact phone models your guests use.</p>
+  <p><strong>Print checklist:</strong> quiet zone intact · high contrast · one iPhone <em>and</em> one Android scan · optional .ics download as a backup share.</p>
+
+  <h2>FAQ</h2>
+  <h3>Does a calendar event QR code expire?</h3>
+  <p>A <strong>static</strong> calendar QR does not expire: the VEVENT lives in the image. Codes that stop after a free trial were usually dynamic redirects. See <a href="guides/qr-code-that-never-expires.html">QR codes that never expire</a>.</p>
+
+  <h3>Will Apple, Google, and Outlook calendars open the event?</h3>
+  <p>iOS Camera support for VEVENT is generally strong. Android and desktop scanners differ. <strong>Print only after you have tested on at least one iPhone and one Android device.</strong></p>
+
+  <h3>Is this calendar QR generator free?</h3>
+  <p>Yes. PNG, SVG, Copy ICS, and Download .ics—no signup, no watermark, no “trial expires.”</p>
+
+  <h3>Can I make an all-day event?</h3>
+  <p>Yes. Check <strong>All-day</strong>. Timed events need a start time; end defaults to one hour later if blank.</p>
+
+  <h3>Is my event data uploaded?</h3>
+  <p>No. Generation is client-side, same as our <a href="wifi-qr-code-generator.html">WiFi</a> and <a href="vcard-qr-code-generator.html">vCard</a> tools.</p>
+
+  <hr>
+  <p><strong>Next steps:</strong> <a href="index.html">Homepage generator</a> · <a href="wifi-qr-code-generator.html">WiFi QR</a> · <a href="vcard-qr-code-generator.html">vCard QR</a> · <a href="google-review-qr-code-generator.html">Google review QR</a> · <a href="guides/wedding-qr-code-static-no-signup.html">Wedding QR guide</a></p>
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRNoExpire — free static QR code generator. No account required.</div>
+    <div class="footer-links">
+      <a href="index.html">Generator</a>
+      <a href="wifi-qr-code-generator.html">WiFi QR</a>
+      <a href="vcard-qr-code-generator.html">vCard QR</a>
+      <a href="calendar-event-qr-code-generator.html">Calendar QR</a>
+      <a href="google-review-qr-code-generator.html">Review QR</a>
+      <a href="guides/">Guides</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/spook2406/qr-no-expire">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script defer src="vendor/qrcode.min.js"></script>
+<script defer src="js/calendar-payload.js"></script>
+<script defer src="js/calendar-page.js"></script>
+</body>
+</html>
