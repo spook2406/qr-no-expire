@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV95W19XS3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JV95W19XS3');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Location / Maps QR Code Generator (Static) | QRStatic</title>
+<meta name="description" content="Free browser-only location/maps QR code. Default Google Maps URL; optional geo:lat,lon. Static payload that never expires. No signup. PNG + SVG. Coords and address stay in your browser.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/location-qr-code-generator.html">
+<meta property="og:title" content="Free Location / Maps QR Code Generator (Static) | QRStatic">
+<meta property="og:description" content="Create a static location/maps QR in your browser. Google Maps URL by default, optional geo:. No signup, PNG + SVG. Never expires.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/location-qr-code-generator.html">
+<link rel="stylesheet" href="css/style.css">
+<meta name="google-adsense-account" content="ca-pub-8737820277849030">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is a location / maps QR code?","acceptedAnswer":{"@type":"Answer","text":"It encodes a place so a phone can open maps. This tool defaults to a Google Maps URL (cross-device friendly) and optionally supports a geo:lat,lon URI."}},
+    {"@type":"Question","name":"Should I use a Maps URL or geo:?","acceptedAnswer":{"@type":"Answer","text":"Prefer a Google Maps URL for most print use—it opens reliably in Maps apps or the browser, including many iOS Camera scans. geo: can work well on Android intents but may behave differently on iOS."}},
+    {"@type":"Question","name":"Does scanning start navigation automatically?","acceptedAnswer":{"@type":"Answer","text":"Usually no. Scanning opens a maps app or browser with the place. The user confirms directions or navigation."}},
+    {"@type":"Question","name":"Does this location QR expire?","acceptedAnswer":{"@type":"Answer","text":"A static Maps URL or geo: QR does not expire because of a generator trial—the payload lives in the image. Maps apps still control how links open."}},
+    {"@type":"Question","name":"Is this an official Google or Apple Maps tool?","acceptedAnswer":{"@type":"Answer","text":"No. QRStatic is not affiliated with Google, Apple, or any maps provider."}},
+    {"@type":"Question","name":"Is my address or coordinates uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. Validation and QR generation run entirely in your browser."}},
+    {"@type":"Question","name":"Can I use this for any location?","acceptedAnswer":{"@type":"Answer","text":"Only for lawful location sharing—storefronts, events, and places you are allowed to share. Do not encode private residences or sensitive locations without consent."}}
+  ]
+}
+</script>
+<style>
+  .warn-note { display:none; margin-top:.75rem; padding:.65rem .85rem; border-radius:8px; background:#3a2e14; color:#f0d78c; font-size:.9rem; }
+  .warn-note:not([hidden]) { display:block; }
+  .payload-box { margin-top:.75rem; padding:.65rem .85rem; border-radius:8px; background:#0f172a; color:#c8d4eb; font-family:ui-monospace,monospace; font-size:.85rem; word-break:break-all; min-height:2.5rem; }
+  .mode-row { display:flex; flex-wrap:wrap; gap:.75rem 1.25rem; margin:.25rem 0 .5rem; }
+  .mode-row label { display:inline-flex; align-items:center; gap:.4rem; color:var(--muted); cursor:pointer; font-size:.95rem; }
+</style>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="index.html#generator">Generator</a>
+    <a href="guides/">Guides</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+
+<section class="hero">
+  <h1>Free Location / Maps QR Code Generator</h1>
+  <p>Encode a place as a <strong>static</strong> QR—default <strong>Google Maps URL</strong> (cross-device), optional <code>geo:lat,lon</code>. No signup, no short link that dies after a trial. Scanning opens maps or a browser; the user confirms navigation.</p>
+  <div class="badge-row">
+    <span class="badge">✓ No signup</span>
+    <span class="badge">✓ Never expires</span>
+    <span class="badge">✓ Client-side only</span>
+    <span class="badge">✓ PNG &amp; SVG</span>
+  </div>
+  <p style="margin-top:1rem;color:var(--muted);font-size:.95rem;"><strong>Lawful use only.</strong> For storefronts, events, and places you may share—not private or sensitive locations without consent. Not a Google or Apple official tool. Coordinates and addresses stay in your browser.</p>
+</section>
+
+<div class="container" id="location-generator">
+  <h2 class="section-title">Generate your location / maps QR</h2>
+  <p style="color:var(--muted);max-width:52rem;margin:0 0 1rem;">Enter coordinates and/or a place name. We build the payload in your browser. Whitespace is trimmed; invalid coords show a clear error—no silent QR.</p>
+
+  <div class="generator">
+    <div class="panel">
+      <h2>1. Place details</h2>
+      <div class="field">
+        <span class="label-like" style="display:block;margin-bottom:.35rem;font-weight:600;">Payload mode</span>
+        <div class="mode-row" role="radiogroup" aria-label="Payload mode">
+          <label><input type="radio" name="loc-mode" value="maps" checked> Google Maps URL (recommended)</label>
+          <label><input type="radio" name="loc-mode" value="geo"> <code>geo:lat,lon</code></label>
+        </div>
+        <p class="hint" id="mode-hint">Default: a Google Maps URL opens in Maps apps or the browser on most phones (including iOS Camera).</p>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="loc-lat">Latitude</label>
+          <input id="loc-lat" type="text" inputmode="decimal" placeholder="40.7128" autocomplete="off" spellcheck="false">
+          <p class="hint">−90 to 90</p>
+        </div>
+        <div class="field">
+          <label for="loc-lng">Longitude</label>
+          <input id="loc-lng" type="text" inputmode="decimal" placeholder="-74.0060" autocomplete="off" spellcheck="false">
+          <p class="hint">−180 to 180</p>
+        </div>
+      </div>
+      <div class="field" id="field-query">
+        <label for="loc-query">Place name or address (optional for Maps URL)</label>
+        <input id="loc-query" type="text" placeholder="Empire State Building, New York" autocomplete="street-address">
+        <p class="hint">Maps URL mode can use a query alone, coords alone, or both. <code>geo:</code> mode needs coords only (name is not encoded).</p>
+      </div>
+
+      <h2>2. Style</h2>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-size">Size (px)</label>
+          <select id="opt-size">
+            <option value="256">256</option>
+            <option value="320" selected>320</option>
+            <option value="512">512</option>
+            <option value="1024">1024</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-ecc">Error correction</label>
+          <select id="opt-ecc">
+            <option value="L">L — ~7%</option>
+            <option value="M" selected>M — ~15%</option>
+            <option value="Q">Q — ~25%</option>
+            <option value="H">H — ~30%</option>
+          </select>
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-margin">Quiet zone</label>
+          <select id="opt-margin">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-dark">Foreground</label>
+          <input id="opt-dark" type="color" value="#000000">
+        </div>
+      </div>
+      <div class="field">
+        <label for="opt-light">Background</label>
+        <input id="opt-light" type="color" value="#ffffff">
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn" id="generate-btn">Generate Location QR</button>
+      </div>
+      <div class="error" id="form-error" role="alert"></div>
+      <div class="warn-note" id="form-warning" hidden></div>
+      <p style="margin:.75rem 0 .25rem;color:var(--muted);font-size:.9rem;">Payload</p>
+      <div class="payload-box" id="payload-out" aria-live="polite"></div>
+      <div class="actions" style="margin-top:.5rem;">
+        <button type="button" class="btn secondary" id="copy-payload" disabled>Copy payload</button>
+      </div>
+      <div class="privacy-note">
+        Privacy: coordinates and addresses stay on your device. Nothing is uploaded to create the QR.
+      </div>
+    </div>
+
+    <div class="panel preview-wrap">
+      <h2 style="align-self:flex-start;width:100%;margin:0 0 .5rem;">3. Preview &amp; download</h2>
+      <p class="preview-empty" id="preview-empty">Your location QR will appear here. It encodes the Maps URL or geo: payload directly—no redirect server.</p>
+      <canvas id="qr-canvas" width="320" height="320" aria-label="Location / maps QR code preview"></canvas>
+      <div class="actions">
+        <button type="button" class="btn" id="download-png" disabled>Download PNG</button>
+        <button type="button" class="btn secondary" id="download-svg" disabled>Download SVG</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<article class="prose">
+  <h2>How location / maps QR codes work</h2>
+  <p>A <strong>Google Maps URL</strong> (for example <code>https://maps.google.com/?q=40.7128,-74.0060</code>) is the most portable default: most phone cameras open Maps or a browser so the guest can view the place and start directions after confirming.</p>
+  <p>A <code>geo:lat,lon</code> URI is shorter and can hand off to a maps app via platform intents—especially on Android. On iOS, Camera and link handling for <code>geo:</code> can differ, so prefer the Maps URL for mixed-device print (table tents, posters, invitations).</p>
+  <p>Pair with a <a href="calendar-event-qr-code-generator.html">calendar event QR</a> when the place is tied to a time, or with café / restaurant guides when you also need WiFi, menu, or review codes.</p>
+
+  <h2>FAQ</h2>
+  <h3>What is a location / maps QR code?</h3>
+  <p>A QR that encodes a place—usually a Maps URL or <code>geo:</code> coordinates—so a phone can open maps after a scan.</p>
+  <h3>Should I use a Maps URL or geo:?</h3>
+  <p><strong>Prefer Maps URL</strong> for most print jobs (better cross-device, including many iOS Camera scans). Use <code>geo:</code> when you specifically want a compact lat,lon URI and have tested the target devices.</p>
+  <h3>Does scanning start navigation automatically?</h3>
+  <p>Usually <strong>no</strong>. The device opens a maps app or browser; the user confirms directions.</p>
+  <h3>Does this location QR expire?</h3>
+  <p>A <strong>static</strong> payload does not expire because of a generator trial—the data lives in the image. Maps apps still control how URLs and <code>geo:</code> links open.</p>
+  <h3>Is this an official Google or Apple Maps tool?</h3>
+  <p>No. QRStatic is not affiliated with Google, Apple, or any maps provider.</p>
+  <h3>Is my address or coordinates uploaded?</h3>
+  <p>No. Everything runs in your browser.</p>
+  <h3>Can I use this for any location?</h3>
+  <p>Only for <strong>lawful</strong> sharing—business storefronts, public events, and places you may disclose. Do not encode private or sensitive locations without consent.</p>
+
+  <hr>
+  <p><strong>Next steps:</strong> <a href="calendar-event-qr-code-generator.html">Calendar event QR</a> · <a href="phone-call-qr-code-generator.html">Phone call / tel QR</a> · <a href="sms-qr-code-generator.html">SMS QR</a> · <a href="whatsapp-qr-code-generator.html">WhatsApp click-to-chat QR</a> · <a href="email-qr-code-generator.html">Email / mailto QR</a> · <a href="vcard-qr-code-generator.html">vCard QR</a> · <a href="wifi-qr-code-generator.html">WiFi QR</a> · <a href="google-review-qr-code-generator.html">Google review QR</a> · <a href="guides/cafe-table-tent-menu-wifi-review-qr.html">Café table tent</a> · <a href="guides/restaurant-menu-qr-code-never-expires.html">Restaurant menu QR</a></p>
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRNoExpire — free static QR code generator. No account required.</div>
+    <div class="footer-links">
+      <a href="index.html">Generator</a>
+      <a href="wifi-qr-code-generator.html">WiFi QR</a>
+      <a href="vcard-qr-code-generator.html">vCard QR</a>
+      <a href="calendar-event-qr-code-generator.html">Calendar QR</a>
+      <a href="google-review-qr-code-generator.html">Review QR</a>
+      <a href="sms-qr-code-generator.html">SMS QR</a>
+      <a href="whatsapp-qr-code-generator.html">WhatsApp QR</a>
+      <a href="email-qr-code-generator.html">Email QR</a>
+      <a href="phone-call-qr-code-generator.html">Phone QR</a>
+      <a href="location-qr-code-generator.html">Location QR</a>
+      <a href="guides/">Guides</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/spook2406/qr-no-expire">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script defer src="vendor/qrcode.min.js"></script>
+<script defer src="js/location-payload.js"></script>
+<script defer src="js/location-page.js"></script>
+</body>
+</html>
