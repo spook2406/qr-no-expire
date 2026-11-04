@@ -28,7 +28,7 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type":"Question","name":"Does a WiFi QR code expire?","acceptedAnswer":{"@type":"Answer","text":"A static WiFi QR does not expire: the SSID and password live in the image, so there is no trial clock to run out. Free static generators that work this way keep working the same way. Codes that stop working after a free trial were usually dynamic redirects."}},
-    {"@type":"Question","name":"What if I change my WiFi password?","acceptedAnswer":{"@type":"Answer","text":"Generate and print a new QR. Static codes cannot be edited after creation. That is why guest networks with a password you are willing to rotate are often easier to manage."}},
+    {"@type":"Question","name":"What if I change my WiFi password?","acceptedAnswer":{"@type":"Answer","text":"Generate and print a new QR. Static codes cannot be edited after creation. Guest networks with a password you are willing to rotate are often easier to manage. See the guide on Wi-Fi QR codes that stop working after a password change."}},
     {"@type":"Question","name":"Is this WiFi QR generator free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Create and download PNG or SVG with no signup. Generation is client-side on your device."}},
     {"@type":"Question","name":"Do guests need an app?","acceptedAnswer":{"@type":"Answer","text":"Usually no. Current iPhone Camera and most Android Wi-Fi settings can scan WiFi QR codes."}},
     {"@type":"Question","name":"Can I make a QR for an open network (no password)?","acceptedAnswer":{"@type":"Answer","text":"Yes. Set security to no password / nopass and leave the password blank. Still prefer a guest SSID if the network is public-facing."}},
@@ -186,7 +186,7 @@
   <p><strong>Prefer a guest network.</strong> Most routers let you create a separate SSID for visitors. Put <em>that</em> network in the QR. Your main devices stay on the primary network; guests get internet without seeing printers, NAS drives, or cameras.</p>
   <p><strong>Do not post the QR as a public photo.</strong> Uploading a clear photo of your WiFi QR to social media, review sites, or product listings can give strangers your password. Print for on-site use; share digitally only with people you trust.</p>
   <p><strong>Remember: the password is in the code.</strong> Anyone who can scan it (or decode the image) can read the credentials. If the QR will sit in a semi-public space, guest WiFi with a limited password is safer than your primary home password.</p>
-  <p><strong>Rotate when needed.</strong> If a password leaks or a guest relationship ends, change the guest WiFi password on the router and print a new QR. Static codes cannot be “updated” remotely—you reprint instead. That tradeoff is intentional: no remote control also means no remote kill switch.</p>
+  <p><strong>Rotate when needed.</strong> If a password leaks or a guest relationship ends, change the guest WiFi password on the router and print a new QR. Static codes cannot be “updated” remotely—you reprint instead. That tradeoff is intentional: no remote control also means no remote kill switch. Step-by-step: <a href="guides/wifi-qr-not-working-after-password-change.html">Wi‑Fi QR not working after a password change</a>.</p>
 
   <h2>How to print and test on iPhone and Android</h2>
   <p><strong>Print tips</strong></p>
@@ -222,7 +222,7 @@
   <p>A <strong>static</strong> WiFi QR does not expire: the SSID and password live in the image, so there is no trial clock to run out. Free static generators that work this way keep working the same way. Codes that “stop working” after a free trial were usually <strong>dynamic</strong> redirects (a short link behind the square). See <a href="guides/qr-code-that-never-expires.html">why QR codes expire</a>.</p>
 
   <h3>What if I change my WiFi password?</h3>
-  <p>Generate and print a new QR. Static codes cannot be edited after creation. That is why guest networks with a password you are willing to rotate are often easier to manage.</p>
+  <p>Generate and print a new QR. Static codes cannot be edited after creation. That is why guest networks with a password you are willing to rotate are often easier to manage. Full walkthrough: <a href="guides/wifi-qr-not-working-after-password-change.html">Wi‑Fi QR not working after a password change</a>.</p>
 
   <h3>Is this WiFi QR generator free?</h3>
   <p>Yes. Create and download PNG or SVG with no signup. Generation is client-side on your device. Start from this page’s generator or the <a href="index.html">homepage WiFi tab</a>.</p>
@@ -240,7 +240,7 @@
   <p>Safer if it is a <strong>guest</strong> network with limited access. Avoid encoding your primary home or office password on anything that strangers can photograph.</p>
 
   <hr>
-  <p><strong>Next steps:</strong> <a href="index.html">Create any static QR on the homepage</a> · <a href="phone-call-qr-code-generator.html">Phone call / tel QR</a> · <a href="location-qr-code-generator.html">Location / Maps QR</a> · <a href="totp-qr-code-generator.html">TOTP / 2FA QR</a> · <a href="vcard-qr-code-generator.html">vCard / business card QR</a> · <a href="guides/static-vs-dynamic-qr.html">Static vs dynamic QR codes</a> · <a href="guides/qr-code-that-never-expires.html">QR codes that never expire</a></p>
+  <p><strong>Next steps:</strong> <a href="guides/wifi-qr-not-working-after-password-change.html">Wi‑Fi QR after a password change</a> · <a href="guides/cafe-table-tent-menu-wifi-review-qr.html">Cafe table tent (menu + Wi‑Fi + reviews)</a> · <a href="guides/static-or-dynamic-qr-how-to-tell.html">Is my QR static or dynamic?</a> · <a href="index.html">Create any static QR on the homepage</a> · <a href="phone-call-qr-code-generator.html">Phone call / tel QR</a> · <a href="location-qr-code-generator.html">Location / Maps QR</a> · <a href="totp-qr-code-generator.html">TOTP / 2FA QR</a> · <a href="vcard-qr-code-generator.html">vCard / business card QR</a> · <a href="guides/static-vs-dynamic-qr.html">Static vs dynamic QR codes</a> · <a href="guides/qr-code-that-never-expires.html">QR codes that never expire</a></p>
 </article>
 
 <footer class="site-footer">
@@ -262,6 +262,7 @@
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
       <a href="https://github.com/spook2406/qr-no-expire">GitHub</a>
     </div>
   </div>
