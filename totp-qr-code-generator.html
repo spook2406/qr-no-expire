@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV95W19XS3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JV95W19XS3');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free TOTP / 2FA QR Code Generator (otpauth, Static) | QRStatic</title>
+<meta name="description" content="Free browser-only otpauth/TOTP QR for Google Authenticator &amp; compatible apps; encode Base32 secret locally; static never expires; no signup; PNG + SVG; secret never uploaded; not an authenticator app">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/totp-qr-code-generator.html">
+<meta property="og:title" content="Free TOTP / 2FA QR Code Generator (otpauth, Static) | QRStatic">
+<meta property="og:description" content="Create a static otpauth/TOTP enrollment QR in your browser. Base32 secret never uploaded. No signup. PNG + SVG. Compatible with Google Authenticator and similar apps. Not an authenticator app.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/totp-qr-code-generator.html">
+<link rel="stylesheet" href="css/style.css">
+<meta name="google-adsense-account" content="ca-pub-8737820277849030">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is a TOTP / otpauth QR code?","acceptedAnswer":{"@type":"Answer","text":"It is an enrollment QR that encodes an otpauth:// URI (Google Key URI Format) so an authenticator app can add a time-based (TOTP) or counter-based (HOTP) account. This page builds that static URI in your browser."}},
+    {"@type":"Question","name":"Is this Google Authenticator, Microsoft Authenticator, Authy, or Apple?","acceptedAnswer":{"@type":"Answer","text":"No. QRStatic is not affiliated with Google, Microsoft, Apple, Authy, or any authenticator vendor. This page is not an authenticator app and does not store or recover secrets."}},
+    {"@type":"Question","name":"Will Google Authenticator honor SHA256, 8 digits, or a custom period?","acceptedAnswer":{"@type":"Answer","text":"Often no. Google Authenticator and some apps may ignore non-default algorithm, digits, or period. Prefer SHA1, 6 digits, and 30 seconds unless you control the verifying server."}},
+    {"@type":"Question","name":"Is my secret uploaded or saved?","acceptedAnswer":{"@type":"Answer","text":"No. Validation and QR generation run in your browser. The secret is not uploaded to our servers and is not written to localStorage by default—refreshing the page clears the form."}},
+    {"@type":"Question","name":"Is the QR or PNG the same as the secret?","acceptedAnswer":{"@type":"Answer","text":"Yes. Anyone who can scan the QR or open the PNG/SVG can enroll the same secret. Do not email, chat, or upload the image to a cloud album. Delete unused copies."}},
+    {"@type":"Question","name":"Can I use this to take over someone else's account?","acceptedAnswer":{"@type":"Answer","text":"No. Use only for your own services or authorized test enrollment. Unauthorized account takeover help is prohibited."}},
+    {"@type":"Question","name":"Does this TOTP QR expire?","acceptedAnswer":{"@type":"Answer","text":"A static otpauth payload does not expire because of a generator trial—the data lives in the image. Authenticator apps and your server still enforce how codes are verified."}}
+  ]
+}
+</script>
+<style>
+  .warn-note { display:none; margin-top:.75rem; padding:.65rem .85rem; border-radius:8px; background:#3a2e14; color:#f0d78c; font-size:.9rem; }
+  .warn-note:not([hidden]) { display:block; }
+  .payload-box { margin-top:.75rem; padding:.65rem .85rem; border-radius:8px; background:#0f172a; color:#c8d4eb; font-family:ui-monospace,monospace; font-size:.85rem; word-break:break-all; min-height:2.5rem; }
+  .mode-row { display:flex; flex-wrap:wrap; gap:.75rem 1.25rem; margin:.25rem 0 .5rem; }
+  .mode-row label { display:inline-flex; align-items:center; gap:.4rem; color:var(--muted); cursor:pointer; font-size:.95rem; }
+  .adv-box { margin-top:.5rem; padding:.75rem .85rem; border:1px solid rgba(148,163,184,.25); border-radius:8px; }
+  .adv-box summary { cursor:pointer; font-weight:600; color:var(--text); }
+</style>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="index.html#generator">Generator</a>
+    <a href="guides/">Guides</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+
+<section class="hero">
+  <h1>Free TOTP / 2FA QR Code Generator</h1>
+  <p>Build a <strong>static</strong> <code>otpauth://</code> enrollment QR for Google Authenticator and compatible apps—Base32 secret encoded <strong>locally</strong>, no signup, no short link that dies after a trial. This page is <strong>not</strong> an authenticator app.</p>
+  <div class="badge-row">
+    <span class="badge">✓ No signup</span>
+    <span class="badge">✓ Never expires</span>
+    <span class="badge">✓ Client-side only</span>
+    <span class="badge">✓ PNG &amp; SVG</span>
+  </div>
+  <p style="margin-top:1rem;color:var(--muted);font-size:.95rem;"><strong>Lawful use only.</strong> For your own service or authorized test enrollment—not unauthorized account takeover. Not Google / Microsoft / Apple / Authy official. The QR and PNG equal the secret: do not email, chat, or cloud-album them. Secrets are not stored or recoverable here.</p>
+</section>
+
+<div class="container" id="totp-generator">
+  <h2 class="section-title">Generate your TOTP / otpauth QR</h2>
+  <p style="color:var(--muted);max-width:52rem;margin:0 0 1rem;">Enter issuer, account label, and Base32 secret. We assemble a Google Key URI Format payload in your browser. Spaces in the secret are stripped and letters uppercased. Invalid or empty fields show a clear error—no silent QR. Defaults: <strong>SHA1 / 6 digits / 30s</strong>.</p>
+
+  <div class="generator">
+    <div class="panel">
+      <h2>1. Account &amp; secret</h2>
+      <div class="field">
+        <span class="label-like" style="display:block;margin-bottom:.35rem;font-weight:600;">Type</span>
+        <div class="mode-row" role="radiogroup" aria-label="OTP type">
+          <label><input type="radio" name="otp-type" value="totp" checked> TOTP (time-based, recommended)</label>
+          <label><input type="radio" name="otp-type" value="hotp"> HOTP (counter)</label>
+        </div>
+        <p class="hint" id="type-hint">TOTP (time-based) is what Google Authenticator and most apps expect. Defaults: SHA1, 6 digits, 30-second period.</p>
+      </div>
+      <div class="field">
+        <label for="otp-issuer">Issuer (optional)</label>
+        <input id="otp-issuer" type="text" placeholder="Example" autocomplete="organization" spellcheck="false">
+        <p class="hint">Shown in the authenticator app. When set, the label becomes <code>Issuer:account</code> and <code>issuer=</code> is added to the URI.</p>
+      </div>
+      <div class="field">
+        <label for="otp-account">Account label (required)</label>
+        <input id="otp-account" type="text" placeholder="user@example.com" autocomplete="username" spellcheck="false">
+        <p class="hint">Usually an email or username for this enrollment.</p>
+      </div>
+      <div class="field">
+        <label for="otp-secret">Secret (Base32, required)</label>
+        <input id="otp-secret" type="text" placeholder="JBSWY3DPEHPK3PXP" autocomplete="off" spellcheck="false" autocapitalize="characters">
+        <p class="hint">A–Z and 2–7 only after cleanup. Aim for ~16+ characters (80+ bits). Do not paste secrets into chat or email.</p>
+        <div class="actions" style="margin-top:.5rem;">
+          <button type="button" class="btn secondary" id="random-secret-btn">Generate random Base32 secret</button>
+        </div>
+      </div>
+      <div class="field" id="field-counter" hidden>
+        <label for="otp-counter">HOTP counter (required for HOTP)</label>
+        <input id="otp-counter" type="number" min="0" step="1" value="0" inputmode="numeric">
+        <p class="hint">Usually starts at 0. Must match the verifier.</p>
+      </div>
+
+      <details class="adv-box">
+        <summary>Advanced (algorithm / digits / period)</summary>
+        <p class="hint" style="margin-top:.5rem;">Changing these from defaults may break Google Authenticator compatibility. A warning appears when you leave SHA1 / 6 / 30.</p>
+        <div class="row-2">
+          <div class="field">
+            <label for="otp-algorithm">Algorithm</label>
+            <select id="otp-algorithm">
+              <option value="SHA1" selected>SHA1 (default)</option>
+              <option value="SHA256">SHA256</option>
+              <option value="SHA512">SHA512</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="otp-digits">Digits</label>
+            <select id="otp-digits">
+              <option value="6" selected>6 (default)</option>
+              <option value="8">8</option>
+            </select>
+          </div>
+        </div>
+        <div class="field" id="field-period">
+          <label for="otp-period">Period (seconds, TOTP)</label>
+          <input id="otp-period" type="number" min="1" max="3600" value="30" inputmode="numeric">
+          <p class="hint">Default 30. Only included in the URI when not 30.</p>
+        </div>
+      </details>
+
+      <h2>2. Style</h2>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-size">Size (px)</label>
+          <select id="opt-size">
+            <option value="256">256</option>
+            <option value="320" selected>320</option>
+            <option value="512">512</option>
+            <option value="1024">1024</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-ecc">Error correction</label>
+          <select id="opt-ecc">
+            <option value="L">L — ~7%</option>
+            <option value="M" selected>M — ~15%</option>
+            <option value="Q">Q — ~25%</option>
+            <option value="H">H — ~30%</option>
+          </select>
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-margin">Quiet zone</label>
+          <select id="opt-margin">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-dark">Foreground</label>
+          <input id="opt-dark" type="color" value="#000000">
+        </div>
+      </div>
+      <div class="field">
+        <label for="opt-light">Background</label>
+        <input id="opt-light" type="color" value="#ffffff">
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn" id="generate-btn">Generate TOTP QR</button>
+      </div>
+      <div class="error" id="form-error" role="alert"></div>
+      <div class="warn-note" id="form-warning" hidden></div>
+      <p style="margin:.75rem 0 .25rem;color:var(--muted);font-size:.9rem;">Payload (<code>otpauth://</code>)</p>
+      <div class="payload-box" id="payload-out" aria-live="polite"></div>
+      <div class="actions" style="margin-top:.5rem;">
+        <button type="button" class="btn secondary" id="copy-payload" disabled>Copy payload</button>
+      </div>
+      <div class="privacy-note">
+        Privacy: the secret stays on your device. Nothing is uploaded. We do not write the secret to localStorage—refresh clears the form. Treat PNG/SVG downloads like passwords.
+      </div>
+    </div>
+
+    <div class="panel preview-wrap">
+      <h2 style="align-self:flex-start;width:100%;margin:0 0 .5rem;">3. Preview &amp; download</h2>
+      <p class="preview-empty" id="preview-empty">Your TOTP enrollment QR will appear here. It encodes otpauth:// directly—no redirect server.</p>
+      <canvas id="qr-canvas" width="320" height="320" aria-label="TOTP / otpauth QR code preview"></canvas>
+      <div class="actions">
+        <button type="button" class="btn" id="download-png" disabled>Download PNG</button>
+        <button type="button" class="btn secondary" id="download-svg" disabled>Download SVG</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<article class="prose">
+  <h2>How otpauth / TOTP QR codes work</h2>
+  <p>Authenticator apps (Google Authenticator, Microsoft Authenticator, Authy, and others) scan an <code>otpauth://totp/…</code> URI that follows the <strong>Google Key URI Format</strong> (RFC 6238 for TOTP). The URI carries a Base32 secret plus optional issuer, algorithm, digits, and period.</p>
+  <p><strong>URI policy on this page:</strong> we omit <code>algorithm</code>, <code>digits</code>, and <code>period</code> from the URI when they equal the defaults (<code>SHA1</code> / <code>6</code> / <code>30</code>) to keep the payload short. Non-defaults are included explicitly. HOTP uses <code>otpauth://hotp/…</code> and always includes <code>counter=</code>.</p>
+  <p>Example (issuer <code>Example</code>, account <code>user@example.com</code>, secret <code>JBSWY3DPEHPK3PXP</code>):</p>
+  <p><code>otpauth://totp/Example:user%40example.com?secret=JBSWY3DPEHPK3PXP&amp;issuer=Example</code></p>
+  <p>This tool creates an <strong>enrollment</strong> QR only. It does not generate one-time codes, store secrets, or recover lost authenticators. For export/migrate between apps, use each vendor’s official export flow.</p>
+
+  <h2>FAQ</h2>
+  <h3>What is a TOTP / otpauth QR code?</h3>
+  <p>A QR that encodes an <code>otpauth://</code> enrollment URI so an authenticator app can add a TOTP (or HOTP) account.</p>
+  <h3>Is this Google Authenticator, Microsoft Authenticator, Authy, or Apple?</h3>
+  <p><strong>No.</strong> QRStatic is not affiliated with those vendors. This page is not an authenticator app and cannot store or recover secrets.</p>
+  <h3>Will Google Authenticator honor SHA256, 8 digits, or a custom period?</h3>
+  <p><strong>Often no.</strong> Google Authenticator and some apps may ignore non-default algorithm, digits, or period. Prefer SHA1 / 6 / 30 unless you control the verifier. Changing advanced options shows a visible warning.</p>
+  <h3>Is my secret uploaded or saved?</h3>
+  <p>No. Everything runs in your browser. Secrets are not uploaded and are not written to <code>localStorage</code>—refresh clears the form.</p>
+  <h3>Is the QR or PNG the same as the secret?</h3>
+  <p><strong>Yes.</strong> Anyone who scans the QR or opens the PNG/SVG can enroll the same secret. Do not send images by email, chat, or cloud album. Delete unused copies.</p>
+  <h3>Can I use this for any account?</h3>
+  <p>Only for <strong>lawful</strong> own-service or authorized test enrollment. Do not use this to assist unauthorized account takeover.</p>
+  <h3>Does this TOTP QR expire?</h3>
+  <p>A <strong>static</strong> otpauth payload does not expire because of a generator trial—the data lives in the image. Your server and authenticator apps still control verification.</p>
+  <h3>How do I migrate or export an existing authenticator?</h3>
+  <p>Use the official export/migrate flow in Google Authenticator, Authy, or your IdP. This page does not reverse-engineer vendor export blobs.</p>
+
+  <hr>
+  <p><strong>Next steps:</strong> <a href="wifi-qr-code-generator.html">WiFi QR</a> · <a href="vcard-qr-code-generator.html">vCard QR</a> · <a href="phone-call-qr-code-generator.html">Phone call / tel QR</a> · <a href="email-qr-code-generator.html">Email / mailto QR</a> · <a href="sms-qr-code-generator.html">SMS QR</a> · <a href="whatsapp-qr-code-generator.html">WhatsApp click-to-chat QR</a> · <a href="location-qr-code-generator.html">Location / Maps QR</a> · <a href="calendar-event-qr-code-generator.html">Calendar event QR</a> · <a href="google-review-qr-code-generator.html">Google review QR</a> · <a href="index.html">Homepage generator</a></p>
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRNoExpire — free static QR code generator. No account required.</div>
+    <div class="footer-links">
+      <a href="index.html">Generator</a>
+      <a href="wifi-qr-code-generator.html">WiFi QR</a>
+      <a href="vcard-qr-code-generator.html">vCard QR</a>
+      <a href="calendar-event-qr-code-generator.html">Calendar QR</a>
+      <a href="google-review-qr-code-generator.html">Review QR</a>
+      <a href="sms-qr-code-generator.html">SMS QR</a>
+      <a href="whatsapp-qr-code-generator.html">WhatsApp QR</a>
+      <a href="email-qr-code-generator.html">Email QR</a>
+      <a href="phone-call-qr-code-generator.html">Phone QR</a>
+      <a href="location-qr-code-generator.html">Location QR</a>
+      <a href="totp-qr-code-generator.html">TOTP / 2FA QR</a>
+      <a href="guides/">Guides</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/spook2406/qr-no-expire">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script defer src="vendor/qrcode.min.js"></script>
+<script defer src="js/totp-payload.js"></script>
+<script defer src="js/totp-page.js"></script>
+</body>
+</html>
