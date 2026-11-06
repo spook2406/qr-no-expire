@@ -11,63 +11,161 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How to Make a Guest Wi‑Fi QR Code for Your Cafe or Restaurant</title>
-<meta name="description" content="Make a guest Wi‑Fi QR for cafe or restaurant table tents. Static codes, print sizing, password rotation, and a free no‑signup generator.">
+<title>Guest Wi‑Fi QR for a Cafe or Restaurant (Free, No Monthly Fee)</title>
+<meta name="description" content="Make a free static guest Wi‑Fi QR for a cafe or restaurant. WIFI: payload, no account, no monthly fee, table-tent size, and what to reprint after a password change.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://qrstatic.app/guides/guest-wifi-qr-code-cafe-restaurant.html">
-<meta property="og:title" content="How to Make a Guest Wi‑Fi QR Code for Your Cafe or Restaurant">
-<meta property="og:description" content="Static guest Wi‑Fi QR for cafes: SSID, password, print size, and reprint after rotation—no signup.">
-<meta property="og:type" content="website">
+<meta property="og:title" content="Guest Wi‑Fi QR for a Cafe or Restaurant (Free, No Monthly Fee)">
+<meta property="og:description" content="Static guest Wi‑Fi QR for cafes: WIFI: payload in the image, no signup, no monthly fee. Print size and password reprint steps.">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://qrstatic.app/guides/guest-wifi-qr-code-cafe-restaurant.html">
 <link rel="stylesheet" href="../css/style.css">
 <meta name="google-adsense-account" content="ca-pub-8737820277849030">
-<script type="application/ld+json">
+<script type="application/ld+json" id="geo-schema">
+
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "What information goes into a guest Wi‑Fi QR code?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A static guest Wi‑Fi QR encodes the network name (SSID), security type (usually WPA or WPA2), the password, and optionally whether the network is hidden. Phones read that payload and offer to join without typing."
+      "@type": "WebPage",
+      "@id": "https://qrstatic.app/guides/guest-wifi-qr-code-cafe-restaurant.html#webpage",
+      "url": "https://qrstatic.app/guides/guest-wifi-qr-code-cafe-restaurant.html",
+      "name": "Guest Wi‑Fi QR for a Cafe or Restaurant (Free, No Monthly Fee)",
+      "description": "Make a free static guest Wi‑Fi QR for a cafe or restaurant. WIFI: payload, no account, no monthly fee, table-tent size, and what to reprint after a password change.",
+      "dateModified": "2026-11-06",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "qrstatic.app",
+        "url": "https://qrstatic.app/"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Ethen"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "qrstatic.app",
+        "url": "https://qrstatic.app/"
+      },
+      "mainEntity": {
+        "@id": "https://qrstatic.app/guides/guest-wifi-qr-code-cafe-restaurant.html#faq"
       }
     },
     {
-      "@type": "Question",
-      "name": "Is a guest Wi‑Fi QR better than telling customers the password?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For cafes and restaurants, a printed QR on a table tent or counter card is faster, quieter, and more accurate than spelling passwords over noise. Staff spend less time repeating credentials."
+      "@type": "Article",
+      "@id": "https://qrstatic.app/guides/guest-wifi-qr-code-cafe-restaurant.html#article",
+      "headline": "How to make a guest Wi‑Fi QR code for a cafe or restaurant",
+      "description": "Make a free static guest Wi‑Fi QR for a cafe or restaurant. WIFI: payload, no account, no monthly fee, table-tent size, and what to reprint after a password change.",
+      "dateModified": "2026-11-06",
+      "inLanguage": "en",
+      "mainEntityOfPage": {
+        "@id": "https://qrstatic.app/guides/guest-wifi-qr-code-cafe-restaurant.html#webpage"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Ethen"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "qrstatic.app",
+        "url": "https://qrstatic.app/"
       }
     },
     {
-      "@type": "Question",
-      "name": "What print size should I use for a table Wi‑Fi QR?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Match code size to how far guests will hold their phone. A small table tent usually works at a few centimeters; larger counter signs need a larger quiet zone and module size. See our print size and scan distance guide."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens when we change the guest Wi‑Fi password?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Static codes do not update themselves. Regenerate a new QR with the current SSID and password, reprint the affected cards, and archive the SVG next to your router change log. See our password-change guide."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I make a guest Wi‑Fi QR for free without signup?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The Wi‑Fi QR generator on qrstatic.app runs in your browser, needs no account, and downloads PNG or SVG you can print."
-      }
+      "@type": "FAQPage",
+      "@id": "https://qrstatic.app/guides/guest-wifi-qr-code-cafe-restaurant.html#faq",
+      "url": "https://qrstatic.app/guides/guest-wifi-qr-code-cafe-restaurant.html",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://qrstatic.app/guides/guest-wifi-qr-code-cafe-restaurant.html#webpage"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What information goes into a guest Wi‑Fi QR code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A guest Wi‑Fi QR code stores the SSID, the security type, the password, and an optional hidden-network flag inside the image as a WIFI: string. The qrstatic generator writes WIFI:T: with WPA, WEP, or nopass, then S: for the network name and P: for the password when encryption is not nopass, and it ends the payload with ;;. Choose Hidden network only when the SSID is not broadcast; that adds H:true. The SSID must match the router exactly. Backslash, semicolon, comma, and double quote are escaped. You download PNG or SVG, and the password is not uploaded."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a qrstatic account or a monthly fee for a guest Wi‑Fi QR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, a guest Wi‑Fi QR from qrstatic.app does not need an account or a monthly fee, because the generator runs in your browser and the finished image is a static file. Open the Wi‑Fi QR code generator, enter the guest SSID, pick WPA/WPA2, WEP, or None, and download PNG or SVG. Default export size is 320 pixels, with options 256, 512, and 1024. Error correction defaults to M, about 15 percent, and the quiet zone defaults to 2 modules. There is no trial clock on the file, and qrstatic does not host a redirect for the code."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a static guest Wi‑Fi QR code expire?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A static guest Wi‑Fi QR does not expire, because the SSID, security type, and password are stored in the image itself rather than on a subscription server. The code keeps working after you close the browser tab, with no qrstatic account to renew. It stops matching the router only when you change the guest password, rename the SSID, or switch between WPA, WEP, and nopass. In that case generate a new WIFI: payload and reprint. Dynamic short-link codes are the ones that can die when a free trial ends."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens when we change the guest Wi‑Fi password?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Regenerate and reprint every public copy, because a static WIFI: image cannot be edited after you download it. Change the guest password on the router first, then open the Wi‑Fi QR code generator and enter the same SSID, the same security type, and the new password. Download a fresh PNG for quick prints and an SVG as the master file. Replace table tents, counter cards, and window stickers that still show the old square. Keep the new SVG with the date of the router change."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What print size should I use for a table Wi‑Fi QR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For a table tent, start around 3–4 cm wide for the code square when guests scan from about 30–50 cm, and leave a quiet zone of white margin around the modules. That starting size comes from the qrstatic print-size guide, which uses about one-tenth of scan distance as a field rule and treats it as a proofing target, not a lab certificate. Handheld cards can start near 2–2.5 cm. A window or door sign scanned from 1–2 m starts nearer 10–15 cm. Export SVG if you will resize the same artwork, and test one print under cafe lighting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can guests join without installing an app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Guests usually do not need a separate app, because current iPhone Camera and most Android Wi‑Fi settings can read a WIFI: QR and offer to join. The payload is the standard connection string, not a website login. Test with a phone that is not already connected to that SSID, on both iOS and Android if you can. Older phones may need the system Wi‑Fi scan control instead of the camera. An open network uses security None, stored as nopass, with no password in the string."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should the QR use the staff Wi‑Fi password or a separate guest SSID?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use a separate guest SSID, not the staff or POS password, so a rotation does not knock payment devices offline. Put only that guest network in the QR. Anyone who can photograph the card can read the password, because it is inside the WIFI: payload. A separate guest SSID keeps staff devices on the primary network. If the passphrase leaks, change it on the router and reprint; a static file has no remote kill switch. Leave Hidden network off unless the SSID truly is not broadcast."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I choose WPA, WPA2, WEP, or no password?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Match the router, and for almost all passworded guest networks choose WPA/WPA2, which this generator stores as T:WPA. Use WEP only if the router is still set to WEP. Use None, stored as nopass, only for an open network, and leave the password blank so the payload omits P:. A mismatch between the card and the router makes the phone try the wrong join method even when the QR scans. After any router wizard that renames the SSID, generate again and scan a phone that is offline to that network."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I put the Wi‑Fi QR next to a menu QR and a Google review QR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, as three separate squares with short labels such as Wi‑Fi, Menu, and Review, each with its own quiet zone. Do not merge them into one payload. The Wi‑Fi square uses a WIFI: string; the review square encodes a Google review URL; a menu square encodes the menu URL. When only the guest password changes, reprint the Wi‑Fi panel and leave the others. Layout notes are in the cafe table tent guide. The review image itself has no monthly fee because it is a static URL QR, not a vendor redirect."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is PNG or SVG better for printing a table tent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Download PNG for a quick sticker or print-shop file, and keep SVG as the master because it stays sharp when you resize a table tent into a window sign. The generator can render PNG widths of 256, 320, 512, or 1024 pixels, with 320 selected by default. Quiet zone choices are 1, 2, or 4 modules, default 2. Error correction is L about 7 percent, M about 15 percent (default), Q about 25 percent, or H about 30 percent. Higher correction is not a substitute for contrast and physical size. Proof-scan before you print the whole floor."
+          }
+        }
+      ]
     }
   ]
 }
+
 </script>
 </head>
 <body>
@@ -85,107 +183,138 @@
 </header>
 <article class="prose">
 
-<h1>How to make a guest Wi‑Fi QR code for your cafe or restaurant</h1>
+<h1>How to make a guest Wi‑Fi QR code for a cafe or restaurant</h1>
 
-<p>Customers ask for the Wi‑Fi password. Music is loud. Someone mishears a character. Another person writes it on a napkin that gets thrown away. A <strong>guest Wi‑Fi QR code</strong> on a table tent or counter card cuts that loop: phones scan, join, and you keep serving.</p>
+<p class="meta">Last updated: <time datetime="2026-11-06">November 6, 2026</time>. This is a qrstatic.app product guide by Ethen. It describes the client-side static QR generator on this site. <a href="../about.html">About qrstatic</a> · <a href="../wifi-qr-code-generator.html">Wi‑Fi QR code generator</a> · <a href="./">QR code guides</a> · <a href="../index.html">qrstatic.app homepage</a></p>
 
-<p>This how‑to shows a simple static setup for cafes, restaurants, and small shops. When you are ready to generate the image, use the free browser tool: <a href="../wifi-qr-code-generator.html">Wi‑Fi QR code generator</a> (no signup; the payload stays on your device).</p>
+<p>Customers ask for the Wi‑Fi password. The room is loud, a character gets misheard, and a napkin with the passphrase gets thrown away. A <strong>guest Wi‑Fi QR code</strong> on a table tent or counter card lets a phone read the network name and password from the image and offer to join.</p>
 
-<h2>Why a table QR beats shouting the password</h2>
+<p>This guide matches how the qrstatic.app Wi‑Fi tool actually works. The <a href="../wifi-qr-code-generator.html">Wi‑Fi QR code generator</a> builds a standard <code>WIFI:</code> payload in the browser, draws the QR on your device, and downloads PNG or SVG. The SSID and password are not uploaded. There is no account and no monthly fee. The same fields are on the WiFi tab of the <a href="../index.html">homepage generator</a>. More write-ups live in the <a href="./">QR code guides</a>.</p>
 
+<h2>How do I make a guest Wi‑Fi QR code for a cafe or restaurant?</h2>
+<p>Make a guest Wi‑Fi QR by encoding the guest SSID, security type, and current password in a static WIFI: image, then print that image on a table tent or counter card, using the qrstatic.app Wi‑Fi generator in your browser with no account and no monthly fee so the finished code does not expire.</p>
 <ul>
-<li><strong>Speed.</strong> Guests connect without hunting staff.</li>
-<li><strong>Accuracy.</strong> No more “was that O or zero?”</li>
-<li><strong>Consistency.</strong> Every table shows the same credentials until you rotate them on purpose.</li>
-<li><strong>Print control.</strong> A static code is just an image you own—PNG for quick prints, SVG for crisp re‑sizes.</li>
+  <li>The encoded string looks like <code>WIFI:T:WPA;S:GuestCafe;P:secret;;</code>, and <code>H:true</code> is added only if you tick Hidden network.</li>
+  <li>Security is stored as <code>WPA</code> (the WPA/WPA2 choice), <code>WEP</code>, or <code>nopass</code> for an open network.</li>
+  <li>The file is static: qrstatic.app does not host a redirect, so a subscription cannot switch the printed card off.</li>
 </ul>
 
-<p>If you later need remote revoke without reprinting, that is a different product class (dynamic / redirect). For guest Wi‑Fi you control, static is usually enough. Compare approaches in <a href="static-vs-dynamic-qr.html">static vs dynamic QR codes</a>.</p>
-
-<h2>What to gather before you generate</h2>
-
-<ol>
-<li><strong>SSID</strong> — the exact Wi‑Fi name guests should join (case matters).</li>
-<li><strong>Security type</strong> — most guest networks use WPA or WPA2‑Personal. Match what the router shows, not a guess.</li>
-<li><strong>Password</strong> — the current passphrase. Avoid temporary “demo” passwords you plan to change tomorrow unless you will reprint.</li>
-<li><strong>Hidden network?</strong> — only tick hidden if the SSID is not broadcast. Most cafes leave this off.</li>
-<li><strong>Where it will live</strong> — table tent, sticker by the POS, window cling, or laminate near takeaway wait. Placement drives print size.</li>
-</ol>
-
-<p>Tip: keep a short “guest” SSID separate from staff Wi‑Fi so you can rotate guest credentials without kicking the POS offline.</p>
-
-<h2>Step‑by‑step: create the static guest Wi‑Fi QR</h2>
-
-<ol>
-<li>Open the <a href="../wifi-qr-code-generator.html">Wi‑Fi QR code generator</a> on qrstatic.app.</li>
-<li>Enter SSID, choose the security type, enter the password, and set hidden only if needed.</li>
-<li>Generate and preview. Scan with a phone that is <em>not</em> already joined to that network.</li>
-<li>Download <strong>PNG</strong> for quick print shops or stickers; download <strong>SVG</strong> as your master file for later reprints.</li>
-<li>Save the SVG next to a one‑line note: date, SSID, who changed the router. The next password rotation will thank you.</li>
-</ol>
-
-<p>You do not need an account. Generation runs in the browser. Treat the downloaded file like any other credential print—do not post the SVG in a public Drive folder if the password is sensitive.</p>
-
-<h2>Print size, contrast, and table distance</h2>
-
-<p>A perfect payload still fails if the printed square is tiny, low‑contrast, or wrinkled. Match module size to how guests hold their phones:</p>
-
+<h2>What information goes into a cafe guest Wi‑Fi QR code?</h2>
+<p>A cafe guest Wi‑Fi QR stores the exact guest SSID, the router security type, and the current password inside the image, plus a hidden-network flag only if the SSID is not broadcast, so phones that understand the WIFI: payload can offer to join without a qrstatic account, a redirect, or a monthly subscription.</p>
 <ul>
-<li><strong>Table tents</strong> — phone is usually close; a modest square with a clear quiet zone works.</li>
-<li><strong>Counter or window</strong> — guests stand farther back; enlarge the code and keep the surrounding panel uncluttered.</li>
-<li><strong>Laminate and glare</strong> — glossy film under bright lights can confuse cameras; matte finishes scan more reliably.</li>
+  <li>The SSID is trimmed, then must match the router exactly, including spaces and capitalization.</li>
+  <li>Backslash, semicolon, comma, and double quote in the SSID or password are escaped so the <code>WIFI:</code> string still parses.</li>
+  <li>When security is <code>nopass</code>, the password is omitted; otherwise the payload includes <code>P:</code> plus the passphrase.</li>
+</ul>
+<p>Keep a guest SSID separate from staff and POS Wi‑Fi so you can rotate the guest passphrase without kicking the register offline. Leave Hidden network off unless the SSID truly is not broadcast. Most cafe routers leave the name visible.</p>
+
+<h2>Why should a cafe print a Wi‑Fi QR instead of telling guests the password?</h2>
+<p>A printed guest Wi‑Fi QR is better than telling guests the password in a loud cafe because the phone reads the SSID and passphrase from the image, which avoids misheard characters, and one static PNG or SVG stays the same on every table until you change the router password and reprint on purpose.</p>
+<ul>
+  <li>You own the image: PNG for a quick print, SVG when you need a sharp resize later.</li>
+  <li>There is no qrstatic.app login between the scan and the join.</li>
+  <li>A dynamic short link is a different product; compare them in <a href="static-vs-dynamic-qr.html">static vs dynamic QR codes</a>.</li>
 </ul>
 
-<p>Details and distance rules: <a href="qr-code-print-size-scan-distance.html">QR code print size and scan distance</a>. If a scan detects nothing at all, triage print damage first with <a href="why-did-my-qr-code-stop-working.html">why did my QR code stop working</a>.</p>
-
-<h2>Share a card with menu or review codes</h2>
-
-<p>Many cafes put menu, Wi‑Fi, and Google review codes on one tent. That works when each square has room and a short label (“Wi‑Fi”, “Menu”, “Review”). Do not mash three codes into one microscopic stamp.</p>
-
+<h2>How do I create the guest Wi‑Fi QR in the browser?</h2>
+<p>Create the guest code on the Wi‑Fi QR generator by entering the SSID, choosing WPA/WPA2, WEP, or no password, typing the passphrase, ticking hidden only if needed, and downloading PNG or SVG, with generation in the browser so the SSID and password are not uploaded and no qrstatic account is required.</p>
 <ul>
-<li>Layout ideas: <a href="cafe-table-tent-menu-wifi-review-qr.html">cafe table tent menu, Wi‑Fi, and review QR</a>.</li>
-<li>Menu permanence: <a href="restaurant-menu-qr-code-never-expires.html">restaurant menu QR that never expires</a>.</li>
-<li>Review without a monthly fee: <a href="free-google-review-qr-no-monthly-fee.html">free Google review QR (no monthly fee)</a>; also <a href="google-review-qr-code-static.html">static Google review QR</a>.</li>
+  <li>PNG widths in the tool are 256, 320, 512, and 1024 pixels, and 320 is selected by default.</li>
+  <li>Error correction is L (about 7%), M (about 15%, the default), Q (about 25%), or H (about 30%).</li>
+  <li>Quiet zone choices are 1, 2, or 4 modules, and 2 is the default.</li>
+</ul>
+<ol>
+  <li>Open the <a href="../wifi-qr-code-generator.html">Wi‑Fi QR code generator</a> (or the WiFi tab on the <a href="../index.html">homepage generator</a>).</li>
+  <li>Enter the guest SSID, choose the security type the router actually uses, enter the password, and set hidden only if needed.</li>
+  <li>Generate and scan with a phone that is not already joined to that network.</li>
+  <li>Download PNG for a print shop or sticker, and download SVG as the master file.</li>
+  <li>Save the SVG with a one-line note: date, SSID, and who changed the router.</li>
+</ol>
+<p>Treat the download like any other printed password. Do not drop the SVG in a public folder if the passphrase should stay on the premises. Rendering uses the same in-browser QR library described on <a href="../about.html">About qrstatic</a>; nothing in that step creates an account.</p>
+
+<h2>How large should a table-tent Wi‑Fi QR be?</h2>
+<p>Size a table-tent Wi‑Fi QR for about a 30–50 cm scan, which the qrstatic print-size guide starts at roughly 3–4 cm wide for the code square plus a clear quiet zone, while a farther counter or window sign needs a larger square and matte stock scans more reliably than glossy laminate under cafe lights.</p>
+<ul>
+  <li>The <a href="qr-code-print-size-scan-distance.html">QR print size and scan distance</a> guide starts handheld cards near 2–2.5 cm and a 1–2 m window sign nearer 10–15 cm. Those are proofing targets, not a lab certificate.</li>
+  <li>Measure the code square, not the whole tent, and keep the white quiet zone uncropped.</li>
+  <li>Export SVG if the same artwork may later move from a tent to a larger sign. If a camera sees nothing, check damage and contrast in <a href="why-did-my-qr-code-stop-working.html">why a QR code stops working</a> before you blame the password.</li>
 </ul>
 
-<p>If only the Wi‑Fi password changes, swap that panel and leave menu/review panels alone—another reason to keep separate codes instead of one mega‑payload.</p>
+<h2>Can one tent hold Wi‑Fi, menu, and Google review QR codes?</h2>
+<p>Yes, put Wi‑Fi, menu, and Google review on one tent as three separate static QR codes, each with a short label and its own quiet zone, so a password change means reprinting only the Wi‑Fi panel while the review URL and the menu URL stay in their own images.</p>
+<ul>
+  <li>Label the squares in plain words such as Wi‑Fi, Menu, and Review. Do not merge the three jobs into one payload.</li>
+  <li>Layout: <a href="cafe-table-tent-menu-wifi-review-qr.html">cafe table tent with menu, Wi‑Fi, and review QR codes</a>.</li>
+  <li>Related guides: <a href="restaurant-menu-qr-code-never-expires.html">restaurant menu QR that never expires</a>, <a href="free-google-review-qr-no-monthly-fee.html">free Google review QR with no monthly fee</a>, and <a href="google-review-qr-code-static.html">static Google review QR</a>. The review image is built on the <a href="../google-review-qr-code-generator.html">Google review QR code generator</a>.</li>
+</ul>
 
-<h2>Password rotation without chaos</h2>
-
-<p>Static guest Wi‑Fi QRs encode today’s password. When you rotate the router password (seasonal wipe, security incident, staff turnover), old stickers keep advertising the old secret.</p>
-
+<h2>What should I reprint after the guest Wi‑Fi password changes?</h2>
+<p>When the guest password changes, reprint every public Wi‑Fi QR, because a static WIFI: image keeps the old SSID, security type, and password and cannot be edited from a dashboard, so you change the router, generate a new code in the browser, download PNG or SVG, replace the cards, and file the new image with the change date.</p>
+<ul>
+  <li>Old stickers keep advertising the old secret until you take them down.</li>
+  <li>Menu and review panels can stay if they are separate images.</li>
+  <li>Full walkthrough: <a href="wifi-qr-not-working-after-password-change.html">Wi‑Fi QR not working after a password change</a>. A redirect product can avoid reprinting, and it can also die when a trial ends — see <a href="qr-code-expired-after-free-trial.html">QR code expired after a free trial</a>.</li>
+</ul>
 <ol>
-<li>Change the router guest password.</li>
-<li>Regenerate the QR with the new credentials.</li>
-<li>Reprint or resticker every public copy.</li>
-<li>Archive the new SVG with the change date.</li>
+  <li>Change the guest password on the router.</li>
+  <li>Regenerate the QR with the current SSID, security type, and new password.</li>
+  <li>Reprint or resticker every public copy.</li>
+  <li>Archive the new SVG next to the change date.</li>
 </ol>
 
-<p>Full walkthrough: <a href="wifi-qr-not-working-after-password-change.html">Wi‑Fi QR not working after password change</a>. Prefer static when rotations are rare; consider dynamic only when you must revoke without reprinting—and you accept vendor lock‑in and trial cliffs (<a href="qr-code-expired-after-free-trial.html">QR expired after free trial</a>).</p>
+<h2>What will a guest Wi‑Fi QR code not replace on the router?</h2>
+<p>A guest Wi‑Fi QR does not create a captive portal, set bandwidth limits, or replace router security, and it will not update itself if a setup wizard renames the SSID, because it only encodes the WIFI: payload you typed—network name, security type, password, and optional hidden flag—into a PNG or SVG you download.</p>
+<ul>
+  <li>Anyone who can scan or decode the image can read the passphrase, so use a guest network rather than the staff password.</li>
+  <li>There is no remote kill switch: rotating access means a new file and a new print.</li>
+  <li>After a router “quick setup” that renames the network, generate again and scan a phone that is offline to that SSID.</li>
+</ul>
 
-<h2>What this is not</h2>
-
-<p>A guest Wi‑Fi QR does not create captive‑portal login pages, does not enforce bandwidth caps, and does not replace router security settings. It also will not fix a mistyped SSID you baked into the first design. Re‑test after any router “quick setup” wizard that silently renames the network.</p>
-
-<h2>FAQ</h2>
+<h2>What should I check before I print guest Wi‑Fi cards for every table?</h2>
+<p>Before you print a card for every table, confirm the SSID spelling, the security type, a successful scan from a phone that is not already joined, and one proof on the real stock, because a static qrstatic.app guest Wi‑Fi QR has no account and no monthly fee and keeps working only while the printed credentials still match the router.</p>
+<ul>
+  <li>Match WPA/WPA2, WEP, or no password to the router, not to a guess.</li>
+  <li>Test iPhone and Android if you have both, under the lighting the tent will actually sit in.</li>
+  <li>Keep the SVG and the one-line change note in the same folder so the next reprint is a minutes-long job.</li>
+</ul>
 
 <h3>What information goes into a guest Wi‑Fi QR code?</h3>
-<p>SSID, security type, password, and optionally a hidden‑network flag. Phones offer to join from that payload.</p>
+<p>A guest Wi‑Fi QR code stores the SSID, the security type, the password, and an optional hidden-network flag inside the image as a WIFI: string. The qrstatic generator writes WIFI:T: with WPA, WEP, or nopass, then S: for the network name and P: for the password when encryption is not nopass, and it ends the payload with ;;. Choose Hidden network only when the SSID is not broadcast; that adds H:true. The SSID must match the router exactly. Backslash, semicolon, comma, and double quote are escaped. You download PNG or SVG, and the password is not uploaded.</p>
 
-<h3>Is a guest Wi‑Fi QR better than telling customers the password?</h3>
-<p>Usually yes in noisy cafes: faster, fewer typos, less staff interruption.</p>
+<h3>Do I need a qrstatic account or a monthly fee for a guest Wi‑Fi QR?</h3>
+<p>No, a guest Wi‑Fi QR from qrstatic.app does not need an account or a monthly fee, because the generator runs in your browser and the finished image is a static file. Open the Wi‑Fi QR code generator, enter the guest SSID, pick WPA/WPA2, WEP, or None, and download PNG or SVG. Default export size is 320 pixels, with options 256, 512, and 1024. Error correction defaults to M, about 15 percent, and the quiet zone defaults to 2 modules. There is no trial clock on the file, and qrstatic does not host a redirect for the code.</p>
 
-<h3>What print size should I use for a table Wi‑Fi QR?</h3>
-<p>Size for the real scan distance and keep contrast high. See <a href="qr-code-print-size-scan-distance.html">print size by scan distance</a>.</p>
+<h3>Does a static guest Wi‑Fi QR code expire?</h3>
+<p>A static guest Wi‑Fi QR does not expire, because the SSID, security type, and password are stored in the image itself rather than on a subscription server. The code keeps working after you close the browser tab, with no qrstatic account to renew. It stops matching the router only when you change the guest password, rename the SSID, or switch between WPA, WEP, and nopass. In that case generate a new WIFI: payload and reprint. Dynamic short-link codes are the ones that can die when a free trial ends.</p>
 
 <h3>What happens when we change the guest Wi‑Fi password?</h3>
-<p>Regenerate, reprint, archive. Static images do not auto‑update. Guide: <a href="wifi-qr-not-working-after-password-change.html">password‑change fix</a>.</p>
+<p>Regenerate and reprint every public copy, because a static WIFI: image cannot be edited after you download it. Change the guest password on the router first, then open the Wi‑Fi QR code generator and enter the same SSID, the same security type, and the new password. Download a fresh PNG for quick prints and an SVG as the master file. Replace table tents, counter cards, and window stickers that still show the old square. Keep the new SVG with the date of the router change.</p>
 
-<h3>Can I make a guest Wi‑Fi QR for free without signup?</h3>
-<p>Yes—use the <a href="../wifi-qr-code-generator.html">Wi‑Fi QR code generator</a>, download PNG/SVG, and print. No account.</p>
+<h3>What print size should I use for a table Wi‑Fi QR?</h3>
+<p>For a table tent, start around 3–4 cm wide for the code square when guests scan from about 30–50 cm, and leave a quiet zone of white margin around the modules. That starting size comes from the qrstatic print-size guide, which uses about one-tenth of scan distance as a field rule and treats it as a proofing target, not a lab certificate. Handheld cards can start near 2–2.5 cm. A window or door sign scanned from 1–2 m starts nearer 10–15 cm. Export SVG if you will resize the same artwork, and test one print under cafe lighting.</p>
 
-<h2>Next step</h2>
-<p>Create your guest network code now: <a href="../wifi-qr-code-generator.html">https://qrstatic.app/wifi-qr-code-generator.html</a>. Print one test tent, scan from a phone that is offline to that SSID, then roll the design to the floor.</p>
+<h3>Can guests join without installing an app?</h3>
+<p>Guests usually do not need a separate app, because current iPhone Camera and most Android Wi‑Fi settings can read a WIFI: QR and offer to join. The payload is the standard connection string, not a website login. Test with a phone that is not already connected to that SSID, on both iOS and Android if you can. Older phones may need the system Wi‑Fi scan control instead of the camera. An open network uses security None, stored as nopass, with no password in the string.</p>
+
+<h3>Should the QR use the staff Wi‑Fi password or a separate guest SSID?</h3>
+<p>Use a separate guest SSID, not the staff or POS password, so a rotation does not knock payment devices offline. Put only that guest network in the QR. Anyone who can photograph the card can read the password, because it is inside the WIFI: payload. A separate guest SSID keeps staff devices on the primary network. If the passphrase leaks, change it on the router and reprint; a static file has no remote kill switch. Leave Hidden network off unless the SSID truly is not broadcast.</p>
+
+<h3>Should I choose WPA, WPA2, WEP, or no password?</h3>
+<p>Match the router, and for almost all passworded guest networks choose WPA/WPA2, which this generator stores as T:WPA. Use WEP only if the router is still set to WEP. Use None, stored as nopass, only for an open network, and leave the password blank so the payload omits P:. A mismatch between the card and the router makes the phone try the wrong join method even when the QR scans. After any router wizard that renames the SSID, generate again and scan a phone that is offline to that network.</p>
+
+<h3>Can I put the Wi‑Fi QR next to a menu QR and a Google review QR?</h3>
+<p>Yes, as three separate squares with short labels such as Wi‑Fi, Menu, and Review, each with its own quiet zone. Do not merge them into one payload. The Wi‑Fi square uses a WIFI: string; the review square encodes a Google review URL; a menu square encodes the menu URL. When only the guest password changes, reprint the Wi‑Fi panel and leave the others. Layout notes are in the cafe table tent guide. The review image itself has no monthly fee because it is a static URL QR, not a vendor redirect.</p>
+
+<h3>Is PNG or SVG better for printing a table tent?</h3>
+<p>Download PNG for a quick sticker or print-shop file, and keep SVG as the master because it stays sharp when you resize a table tent into a window sign. The generator can render PNG widths of 256, 320, 512, or 1024 pixels, with 320 selected by default. Quiet zone choices are 1, 2, or 4 modules, default 2. Error correction is L about 7 percent, M about 15 percent (default), Q about 25 percent, or H about 30 percent. Higher correction is not a substitute for contrast and physical size. Proof-scan before you print the whole floor.</p>
+
+<h2>Where do I generate the guest Wi‑Fi QR and download it?</h2>
+<p>Generate the guest code on the Wi‑Fi QR generator, download PNG for the print shop and SVG as the master file, then scan one tent from a phone that is offline to that SSID, because the payload is built in your browser as a static WIFI: string with no signup and no subscription that can turn the image off.</p>
+<ul>
+  <li>Tool: <a href="../wifi-qr-code-generator.html">Wi‑Fi QR code generator</a> at qrstatic.app/wifi-qr-code-generator.html.</li>
+  <li>Pair it with a <a href="free-google-review-qr-no-monthly-fee.html">free Google review QR with no monthly fee</a> when the tent also asks for a review.</li>
+  <li>Browse the rest from the <a href="./">QR code guides</a> index or the guides section on the <a href="../index.html">qrstatic.app homepage</a>.</li>
+</ul>
 
 </article>
 <footer class="site-footer">
