@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV95W19XS3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JV95W19XS3');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Microsoft Teams Meeting QR Code Generator | QRStatic</title>
+<meta name="description" content="Free browser-only Microsoft Teams meetup-join link → static QR; never expires on our side; PNG + SVG; no signup. Unwraps Outlook Safe Links. Not Microsoft official. Lobby / org policies still apply.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/teams-meeting-qr-code-generator.html">
+<meta property="og:title" content="Free Microsoft Teams Meeting QR Code Generator | QRStatic">
+<meta property="og:description" content="Create a static Microsoft Teams meeting QR in your browser from a full meetup-join URL. Outlook Safe Links unwrap. No signup. PNG + SVG. Never expires on our side. Not Microsoft official.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/teams-meeting-qr-code-generator.html">
+<link rel="stylesheet" href="css/style.css">
+<meta name="google-adsense-account" content="ca-pub-8737820277849030">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"My Teams link looks like safelinks.protection.outlook.com — can I still paste it?","acceptedAnswer":{"@type":"Answer","text":"Yes. Outlook Safe Links wrap the real join URL in a url= query parameter. Paste the Safe Links URL and we unwrap/decode it to the underlying Teams meetup-join link before building the QR. If unwrap fails, copy the real teams.microsoft.com/l/meetup-join/… link from the invite instead."}},
+    {"@type":"Question","name":"Teams join URLs are very long — will the QR still scan when printed?","acceptedAnswer":{"@type":"Answer","text":"Teams meetup-join URLs are long, so the QR is denser. Print larger and do not shrink below a comfortable scan distance. See our print size / scan distance guide for sizing tips."}},
+    {"@type":"Question","name":"What if the meeting is deleted, the link is revoked, or tenant policy blocks join?","acceptedAnswer":{"@type":"Answer","text":"The static QR encodes the join URL itself and does not expire on our side—we do not host a short link. If Teams deletes the meeting, revokes the link, or tenant policy blocks join, the QR stops working until you encode a new valid join URL."}},
+    {"@type":"Question","name":"Does a Teams QR bypass lobby or organization admission?","acceptedAnswer":{"@type":"Answer","text":"No. Lobby, organizer admission, and organization policies still apply. Encoding the join URL does not bypass Microsoft Teams controls."}},
+    {"@type":"Question","name":"Is this an official Microsoft Teams tool?","acceptedAnswer":{"@type":"Answer","text":"No. QRStatic is not affiliated with Microsoft. Use only Teams join links you have the right to share. Public posters with join access can let people into the meeting subject to lobby / org policy."}},
+    {"@type":"Question","name":"Is my Teams link uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. Normalization, Safe Links unwrap, and QR generation run in your browser. Links are not uploaded to our servers and we do not create dynamic short links."}}
+  ]
+}
+</script>
+<style>
+  .warn-note { display:none; margin-top:.75rem; padding:.65rem .85rem; border-radius:8px; background:#3a2e14; color:#f0d78c; font-size:.9rem; }
+  .warn-note:not([hidden]) { display:block; }
+  .payload-box { margin-top:.75rem; padding:.65rem .85rem; border-radius:8px; background:#0f172a; color:#c8d4eb; font-family:ui-monospace,monospace; font-size:.85rem; word-break:break-all; min-height:2.5rem; }
+  .type-pill { display:none; margin-top:.5rem; padding:.4rem .75rem; border-radius:999px; background:rgba(45,140,255,.18); color:#9ec9ff; font-size:.85rem; font-weight:600; width:fit-content; }
+  .type-pill:not([hidden]) { display:inline-block; }
+</style>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="index.html#generator">Generator</a>
+    <a href="guides/">Guides</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+
+<section class="hero">
+  <h1>Free Microsoft Teams Meeting QR Code Generator</h1>
+  <p>Paste a full <strong>Microsoft Teams</strong> meetup-join link—<code>teams.microsoft.com/l/meetup-join/…</code> (or <code>teams.live.com</code>). We keep the join token intact, unwrap Outlook Safe Links when needed, strip tracking noise, then build a <strong>static</strong> QR in your browser. Never expires on our side. No signup, no short link that dies after a trial. PNG + SVG.</p>
+  <div class="badge-row">
+    <span class="badge">✓ No signup</span>
+    <span class="badge">✓ Never expires</span>
+    <span class="badge">✓ Client-side only</span>
+    <span class="badge">✓ PNG &amp; SVG</span>
+  </div>
+  <p style="margin-top:1rem;color:var(--muted);font-size:.95rem;"><strong>Not Microsoft / Teams official.</strong> QRStatic is not affiliated with Microsoft. Only encode Teams join links you have the right to share. <strong>Security:</strong> join links can admit attendees—be careful on uncontrolled public posters; lobby and organization policies still apply and are controlled by Teams, not the QR. Links stay in your browser; we do not upload them or mint dynamic redirects.</p>
+</section>
+
+<div class="container" id="teams-generator">
+  <h2 class="section-title">Generate your Teams meeting QR</h2>
+  <p style="color:var(--muted);max-width:52rem;margin:0 0 1rem;">Paste the <strong>full</strong> meetup-join URL from your invite (including the long path token). We canonicalize to HTTPS, preserve the join path and Teams query params (such as <code>context</code>), strip <code>utm_*</code> / click-ids, and unwrap Outlook Safe Links (<code>*.safelinks.protection.outlook.com</code>) when present. Empty, Zoom, Meet, non-join Teams pages, or garbage inputs show a clear error—no silent QR. Bare meeting IDs without a full join URL are not accepted in this version.</p>
+
+  <div class="generator">
+    <div class="panel">
+      <h2>1. Teams meetup-join link</h2>
+      <div class="field">
+        <label for="teams-url">Meeting join URL</label>
+        <input id="teams-url" type="text" inputmode="url" placeholder="https://teams.microsoft.com/l/meetup-join/…" autocomplete="off" spellcheck="false">
+        <p class="hint">Examples: full <code>https://teams.microsoft.com/l/meetup-join/19%3ameeting_…</code> links, <code>teams.live.com/l/meetup-join/…</code>, or Outlook Safe Links that wrap a Teams join URL. Sign-in / admin / download / store pages are rejected.</p>
+      </div>
+      <div class="type-pill" id="detected-type" hidden></div>
+
+      <h2>2. Style</h2>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-size">Size (px)</label>
+          <select id="opt-size">
+            <option value="256">256</option>
+            <option value="320" selected>320</option>
+            <option value="512">512</option>
+            <option value="1024">1024</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-ecc">Error correction</label>
+          <select id="opt-ecc">
+            <option value="L">L — ~7%</option>
+            <option value="M" selected>M — ~15%</option>
+            <option value="Q">Q — ~25%</option>
+            <option value="H">H — ~30%</option>
+          </select>
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-margin">Quiet zone</label>
+          <select id="opt-margin">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-dark">Foreground</label>
+          <input id="opt-dark" type="color" value="#000000">
+        </div>
+      </div>
+      <div class="field">
+        <label for="opt-light">Background</label>
+        <input id="opt-light" type="color" value="#ffffff">
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn" id="generate-btn">Generate Teams QR</button>
+      </div>
+      <div class="error" id="form-error" role="alert"></div>
+      <div class="warn-note" id="form-warning" hidden></div>
+      <p style="margin:.75rem 0 .25rem;color:var(--muted);font-size:.9rem;">Normalized URL (QR payload)</p>
+      <div class="payload-box" id="payload-out" aria-live="polite"></div>
+      <div class="actions" style="margin-top:.5rem;">
+        <button type="button" class="btn secondary" id="copy-payload" disabled>Copy URL</button>
+      </div>
+      <div class="privacy-note">
+        Privacy: the Teams link stays on your device. Nothing is uploaded. We do not create dynamic short links or require an account. Treat a printed join QR like any public share of that meeting.
+      </div>
+    </div>
+
+    <div class="panel preview-wrap">
+      <h2 style="align-self:flex-start;width:100%;margin:0 0 .5rem;">3. Preview &amp; download</h2>
+      <p class="preview-empty" id="preview-empty">Your Teams meeting QR will appear here. It encodes the normalized HTTPS meetup-join URL directly (token preserved)—no redirect server.</p>
+      <canvas id="qr-canvas" width="320" height="320" aria-label="Microsoft Teams meeting QR code preview"></canvas>
+      <div class="actions">
+        <button type="button" class="btn" id="download-png" disabled>Download PNG</button>
+        <button type="button" class="btn secondary" id="download-svg" disabled>Download SVG</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<article class="prose">
+  <h2>How Microsoft Teams meeting QR codes work</h2>
+  <p>Teams join links look like <code>https://teams.microsoft.com/l/meetup-join/…</code> with a long path token (and often a <code>context</code> query). This page accepts that full URL, keeps the join token intact, unwraps Outlook Safe Links when needed, strips tracking params, and encodes the clean join URL into a static QR.</p>
+  <p>Scanning opens Microsoft Teams (app or web) for that meeting. Whether someone can join still depends on Teams lobby settings, organizer admission, and tenant policy. Encoding the URL does not bypass those controls.</p>
+
+  <h2>Outlook Safe Links</h2>
+  <p>Invites forwarded through Microsoft 365 often wrap the real join URL as <code>*.safelinks.protection.outlook.com/?url=…</code>. Paste that wrapper anyway—we unwrap the <code>url=</code> value to the underlying Teams meetup-join link before building the QR. If unwrap fails, copy the real <code>teams.microsoft.com/l/meetup-join/…</code> link from the invite.</p>
+
+  <h2>Long URLs and print size</h2>
+  <p>Teams join URLs are long, so the QR is denser than a short Meet/Zoom code. Print larger and do not shrink the code below a comfortable scan distance. See <a href="guides/qr-code-print-size-scan-distance.html">QR print size by scan distance</a> for sizing guidance.</p>
+
+  <h2>Public posters: lobby still applies</h2>
+  <p>A posted join link can let people reach the meeting lobby. Prefer lobby / organizer admission when you print a hallway or classroom QR. Only paste links you are allowed to share.</p>
+
+  <h2>FAQ</h2>
+  <h3>My Teams link looks like safelinks.protection.outlook.com — can I still paste it?</h3>
+  <p><strong>Yes.</strong> Outlook Safe Links wrap the real join URL in a <code>url=</code> query parameter. Paste the Safe Links URL and we unwrap/decode it to the underlying Teams meetup-join link before building the QR. If unwrap fails, copy the real <code>teams.microsoft.com/l/meetup-join/…</code> link from the invite instead.</p>
+  <h3>Teams join URLs are very long — will the QR still scan when printed?</h3>
+  <p>Teams meetup-join URLs are long, so the QR is denser. <strong>Print larger</strong> and do not shrink below a comfortable scan distance. See our <a href="guides/qr-code-print-size-scan-distance.html">print size / scan distance guide</a> for sizing tips.</p>
+  <h3>What if the meeting is deleted, the link is revoked, or tenant policy blocks join?</h3>
+  <p>The static QR encodes the join URL itself and <strong>does not expire on our side</strong>—we do not host a short link. If Teams deletes the meeting, revokes the link, or tenant policy blocks join, the QR stops working until you encode a new valid join URL.</p>
+  <h3>Does a Teams QR bypass lobby or organization admission?</h3>
+  <p><strong>No.</strong> Lobby, organizer admission, and organization policies still apply. Encoding the join URL does not bypass Microsoft Teams controls.</p>
+  <h3>Does this Teams QR expire on our side?</h3>
+  <p>A <strong>static</strong> payload does not expire because of a generator trial—the URL lives in the image. Teams still controls whether the join link remains valid.</p>
+  <h3>Is this an official Microsoft Teams tool?</h3>
+  <p><strong>No.</strong> QRStatic is not affiliated with Microsoft. Microsoft Teams® and related marks are trademarks of their respective owners.</p>
+  <h3>Is my Teams link uploaded?</h3>
+  <p>No. Everything runs in your browser. We do not upload URLs or mint dynamic short links. No signup, watermark, or trial.</p>
+
+  <hr>
+  <p><strong>Next steps:</strong> <a href="google-meet-qr-code-generator.html">Google Meet QR</a> · <a href="zoom-meeting-qr-code-generator.html">Zoom meeting QR</a> · <a href="calendar-event-qr-code-generator.html">Calendar event QR</a> · <a href="guides/why-did-my-qr-code-stop-working.html">Why did my QR stop working?</a> · <a href="guides/static-vs-dynamic-qr.html">Static vs dynamic</a> · <a href="guides/qr-code-print-size-scan-distance.html">Print size / scan distance</a> · <a href="discord-qr-code-generator.html">Discord invite QR</a> · <a href="telegram-qr-code-generator.html">Telegram group/channel QR</a> · <a href="sms-qr-code-generator.html">SMS QR</a> · <a href="phone-call-qr-code-generator.html">Phone call / tel QR</a> · <a href="spotify-qr-code-generator.html">Spotify playlist QR</a> · <a href="location-qr-code-generator.html">Location / Maps QR</a> · <a href="totp-qr-code-generator.html">TOTP / 2FA QR</a> · <a href="email-qr-code-generator.html">Email / mailto QR</a> · <a href="wifi-qr-code-generator.html">WiFi QR</a> · <a href="vcard-qr-code-generator.html">vCard QR</a> · <a href="google-review-qr-code-generator.html">Google review QR</a> · <a href="index.html">Homepage generator</a></p>
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRNoExpire — free static QR code generator. No account required.</div>
+    <div class="footer-links">
+      <a href="index.html">Generator</a>
+      <a href="wifi-qr-code-generator.html">WiFi QR</a>
+      <a href="vcard-qr-code-generator.html">vCard QR</a>
+      <a href="calendar-event-qr-code-generator.html">Calendar QR</a>
+      <a href="google-review-qr-code-generator.html">Review QR</a>
+      <a href="sms-qr-code-generator.html">SMS QR</a>
+      <a href="whatsapp-qr-code-generator.html">WhatsApp QR</a>
+      <a href="email-qr-code-generator.html">Email QR</a>
+      <a href="phone-call-qr-code-generator.html">Phone QR</a>
+      <a href="location-qr-code-generator.html">Location QR</a>
+      <a href="totp-qr-code-generator.html">TOTP / 2FA QR</a>
+      <a href="spotify-qr-code-generator.html">Spotify QR</a>
+      <a href="telegram-qr-code-generator.html">Telegram QR</a>
+      <a href="discord-qr-code-generator.html">Discord QR</a>
+      <a href="zoom-meeting-qr-code-generator.html">Zoom QR</a>
+      <a href="google-meet-qr-code-generator.html">Google Meet QR</a>
+      <a href="teams-meeting-qr-code-generator.html">Teams QR</a>
+      <a href="guides/">Guides</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="https://github.com/spook2406/qr-no-expire">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script defer src="vendor/qrcode.min.js"></script>
+<script defer src="js/teams-payload.js"></script>
+<script defer src="js/teams-page.js"></script>
+</body>
+</html>
