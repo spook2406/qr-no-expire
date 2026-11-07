@@ -159,17 +159,24 @@
 
 <article class="prose">
   <h2>Click-to-chat, not login</h2>
-  <p>WhatsApp Web shows a <strong>login</strong> QR that ties a phone session to a browser. This page does the opposite: it encodes a public <strong>click-to-chat</strong> link (<code>https://wa.me/…</code>) so a customer can start a conversation with your business number. <code>api.whatsapp.com/send</code> is functionally similar for many clients; we implement <code>wa.me</code>.</p>
+  <p>WhatsApp Web shows a <strong>login</strong> QR that ties a phone session to a browser. This page does the opposite: it encodes a public <strong>click-to-chat</strong> link (<code>https://wa.me/…</code>) so a customer can start a conversation with your business number. <code>api.whatsapp.com/send</code> is functionally similar for many clients; this tool builds <code>wa.me</code> only. It does not create a session, pair a device, or talk to WhatsApp’s servers.</p>
+
+  <h2>What the page writes into the image</h2>
+  <p>The generator keeps digits and drops spaces, parentheses, dashes, and a leading plus. If you fill the separate country-code field, those digits are placed in front and a leading zero on the national number is removed. The result must be 8 to 15 digits, which is the length check used for an E.164-style number. The QR then contains <code>https://wa.me/</code> plus those digits. An optional message is added as a <code>text</code> query, percent-encoded. A message longer than 500 characters still encodes, with a warning that some WhatsApp clients truncate it.</p>
+  <p>That URL is rendered in your browser with the same client-side library as the other tools. Nothing is uploaded, and there is no short link on a qrstatic.app domain. A scan opens WhatsApp (app or web) on a chat with that number. The prefilled text, if any, is a draft—the person still sends it. If you change the business number, the old print still points at the old number; make a new image and replace the card.</p>
+  <p>A counter card or a table tent is the intended use: a number you are allowed to publish, for people who choose to write to you. Do not print a login QR from WhatsApp Web and do not use this page to assemble unsolicited blasts.</p>
 
   <h2>FAQ</h2>
   <h3>Is this a WhatsApp Web login QR?</h3>
-  <p>No—click-to-chat only.</p>
+  <p>No. The payload is a public <code>https://wa.me/&lt;digits&gt;</code> click-to-chat URL. Login and device-pairing codes are a different mechanism, and this page does not produce them.</p>
   <h3>Is QRStatic affiliated with Meta or WhatsApp?</h3>
-  <p>No. Independent static QR tool; trademarks belong to their owners.</p>
+  <p>No. This is an independent static QR tool. WhatsApp and Meta names belong to their owners. The page only formats a link those apps already know how to open.</p>
   <h3>Does the WhatsApp QR expire?</h3>
-  <p>Static encoding does not expire from a generator trial. App behavior can still change over time—retest after major WhatsApp updates.</p>
+  <p>The image does not depend on a generator trial or a redirect we host. It keeps the <code>wa.me</code> URL you created. WhatsApp can still change how that URL opens, and a number you no longer control will not start a useful chat. Retest after major app updates, and reprint if the number changes.</p>
   <h3>Can I use this for spam?</h3>
-  <p>No. Opt-in business/personal chat only. Recipients confirm in WhatsApp before sending.</p>
+  <p>No. Use it for a number people are invited to message—your shop, your own phone—not for unsolicited lists. Scanning opens a draft; it does not send a message by itself.</p>
+  <h3>Why was my number rejected?</h3>
+  <p>The digit string was shorter than 8 or longer than 15 after punctuation was removed, or the country code was missing. <code>wa.me</code> needs the country calling code in the digits (for example <code>15551234567</code>), not a local number alone.</p>
 
   <hr>
   <p><strong>Next steps:</strong> <a href="sms-qr-code-generator.html">SMS QR</a> · <a href="phone-call-qr-code-generator.html">Phone call / tel QR</a> · <a href="location-qr-code-generator.html">Location / Maps QR</a> · <a href="totp-qr-code-generator.html">TOTP / 2FA QR</a> · <a href="email-qr-code-generator.html">Email / mailto QR</a> · <a href="wifi-qr-code-generator.html">WiFi QR</a> · <a href="vcard-qr-code-generator.html">vCard QR</a> · <a href="google-review-qr-code-generator.html">Google review QR</a> · <a href="guides/cafe-table-tent-menu-wifi-review-qr.html">Café table tent</a> · <a href="guides/restaurant-menu-qr-code-never-expires.html">Restaurant menu QR</a> · <a href="spotify-qr-code-generator.html">Spotify playlist QR</a> · <a href="telegram-qr-code-generator.html">Telegram group/channel QR</a> · <a href="discord-qr-code-generator.html">Discord invite QR</a></p>
