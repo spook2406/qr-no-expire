@@ -175,7 +175,7 @@ img { max-width: 100%; height: auto; }
 .prose h1 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: .5rem; }
 .prose h2 { margin-top: 1.8rem; font-size: 1.25rem; }
 .prose p, .prose li { color: #c8d4eb; }
-.prose ul { padding-left: 1.2rem; }
+.prose ul, .prose ol { padding-left: 1.2rem; }
 .prose .meta { color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; }
 
 .site-footer {

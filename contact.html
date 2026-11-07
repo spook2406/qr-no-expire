@@ -13,11 +13,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact — QRStatic / QRNoExpire</title>
-<meta name="description" content="Contact the QRStatic team about the free static QR code generator. Email us at smithk@gmail.com or open a GitHub issue.">
+<meta name="description" content="Contact qrstatic.app about the free static QR generators. Email smithk@gmail.com or open a GitHub issue. No phone line and no remote edits of printed codes.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://qrstatic.app/contact.html">
 <meta property="og:title" content="Contact — QRStatic / QRNoExpire">
-<meta property="og:description" content="Contact the QRStatic team about the free static QR code generator. Email us at smithk@gmail.com or open a GitHub issue.">
+<meta property="og:description" content="Contact qrstatic.app about the free static QR generators. Email smithk@gmail.com or open a GitHub issue. No phone line and no remote edits of printed codes.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://qrstatic.app/contact.html">
 <link rel="stylesheet" href="css/style.css">
@@ -37,27 +37,37 @@
 </nav>
 </header>
 <article class="prose">
-  <h1>Contact us</h1>
-  <p>Questions about the free static QR generator on <strong>qrstatic.app</strong>, a bug report, privacy request, or partnership note — we read every message.</p>
+  <h1>Contact</h1>
+  <p class="meta">Maintained by Ethen · qrstatic.app</p>
+  <p><strong>qrstatic.app</strong> is a free, browser-side toolkit for static QR codes. You type a payload, the page draws a PNG or SVG, and you keep the file. There is no account, and the site does not host a redirect behind the image. The <a href="about.html">About</a> page explains that design, the tool list, and the limits. This page is how to reach the person who maintains it.</p>
 
   <h2>Email</h2>
-  <p>Write to <a href="mailto:smithk@gmail.com">smithk@gmail.com</a>.</p>
-  <p>Please include:</p>
+  <p>Write to <a href="mailto:smithk@gmail.com">smithk@gmail.com</a>. That mailbox is read by Ethen, who maintains the qrstatic.app product. It is the only contact address. There is no phone number, no postal address, and no live chat—those are not withheld; they do not exist. Please do not send Wi‑Fi passwords, TOTP secrets, or other credentials you would not want sitting in an email thread. Describe the field (for example “guest SSID with an apostrophe”) instead of pasting the secret.</p>
+  <p>Useful messages include:</p>
   <ul>
-    <li>What you were trying to do (URL / WiFi / vCard / calendar / Google review QR, or a guide page)</li>
+    <li>What you were trying to do (URL, Wi‑Fi, vCard, calendar, Google review, location, or a guide page)</li>
     <li>Your browser and device (for example Chrome on Android, Safari on iPhone)</li>
-    <li>Screenshots or the exact error text, if something failed</li>
+    <li>The exact error text, or a screenshot of the page—not a screenshot of a password</li>
+    <li>For a wrong payload, the shape of the string you expected (<code>WIFI:</code>, <code>wa.me</code>, <code>geo:</code>, a review URL) without private values</li>
   </ul>
-  <p>We aim to reply within a few business days. There is no phone line and no chat widget — email keeps your request in one place and avoids collecting numbers we do not need.</p>
+  <p>Expect a reply within a few business days when a reply is possible. There is no on-call support and no same-day promise. A printed code that stopped scanning is not something email can patch remotely: the image already contains its payload. The usual fix is to generate a new file and replace the print. The <a href="guides/wifi-qr-not-working-after-password-change.html">password-change guide</a> and <a href="guides/why-did-my-qr-code-stop-working.html">why a QR stopped working</a> cover the common cases before you write.</p>
+
+  <h2>What a reply can and cannot do</h2>
+  <ul>
+    <li><strong>Can:</strong> explain how a generator builds its string, point you at the matching tool or guide, and take a bug report about a page that rejects valid input or emits the wrong payload.</li>
+    <li><strong>Cannot:</strong> look up a code you already generated, change a sticker that is already on a table, recover a password you did not save, or edit a Google, Telegram, Discord, or Zoom resource. Those stay with you and with that service.</li>
+    <li><strong>Will not:</strong> count scans for you, or turn a static file into a dynamic redirect you can edit later. That is a different product. Reprinting is how a static code gets updated.</li>
+  </ul>
 
   <h2>GitHub</h2>
-  <p>For reproducible bugs or documentation fixes, open an issue on the public repository: <a href="https://github.com/spook2406/qr-no-expire">github.com/spook2406/qr-no-expire</a>.</p>
+  <p>Reproducible bugs and documentation fixes can also be an issue on the public repository: <a href="https://github.com/spook2406/qr-no-expire">github.com/spook2406/qr-no-expire</a>. Use email if the report includes anything you would not post in public. The repository is the source of the pages; it is not a hosted QR service.</p>
 
-  <h2>Privacy</h2>
-  <p>QR payloads are generated in your browser and are not uploaded to our servers. Analytics and ads disclosures live on the <a href="privacy.html">Privacy Policy</a>. For a privacy-related request, email the same address and put “Privacy” in the subject line.</p>
+  <h2>Privacy requests</h2>
+  <p>QR payloads are generated in your browser and are not uploaded to a qrstatic.app server. There is no account to delete and no stored history of the codes you made. Analytics and advertising are described in the <a href="privacy.html">Privacy Policy</a>. For a privacy question, email <a href="mailto:smithk@gmail.com">smithk@gmail.com</a> with “Privacy” in the subject line. Use of the tools is covered by the <a href="terms.html">Terms of Use</a>.</p>
 
-  <h2>About this site</h2>
-  <p>Learn how the generator works on the <a href="about.html">About</a> page, or start creating codes on the <a href="index.html#generator">home generator</a>.</p>
+  <h2>Before you write</h2>
+  <p>Most “it expired” reports are a short link from another company, not a file from this site. If you still have the image, scan it and read the text it contains. A <code>WIFI:</code> line, a full <code>https://</code> URL you recognize, or a <code>mailto:</code> came from a static generator. A short domain you do not control is a redirect, and only that vendor can restore it. <a href="guides/static-or-dynamic-qr-how-to-tell.html">How to tell static from dynamic</a> walks through that check.</p>
+  <p>To make a new code, use the <a href="index.html#generator">homepage generator</a> or the <a href="guides/">guides</a> for guest Wi‑Fi, Google reviews, and print size.</p>
 </article>
 <footer class="site-footer">
   <div class="footer-inner">

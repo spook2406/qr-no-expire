@@ -13,11 +13,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About qrstatic — Free Static QR Tools</title>
-<meta name="description" content="qrstatic.app is a free, client-side static QR toolkit. No signup and no expiration clock on the image. Wi‑Fi, vCard, calendar, reviews, and more.">
+<meta name="description" content="What qrstatic.app is: free browser-side static QR tools. The payload is written into the PNG or SVG. No signup, no redirect server, and no edit-after-print.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://qrstatic.app/about.html">
 <meta property="og:title" content="About qrstatic — Free Static QR Tools">
-<meta property="og:description" content="qrstatic.app is a free, client-side static QR toolkit. No signup and no expiration clock on the image. Wi‑Fi, vCard, calendar, reviews, and more.">
+<meta property="og:description" content="What qrstatic.app is: free browser-side static QR tools. The payload is written into the PNG or SVG. No signup, no redirect server, and no edit-after-print.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://qrstatic.app/about.html">
 <link rel="stylesheet" href="css/style.css">
@@ -38,28 +38,59 @@
 </header>
 <article class="prose">
   <h1>About qrstatic</h1>
-  <p><strong>qrstatic</strong> (<a href="https://qrstatic.app/">qrstatic.app</a>) is a free set of static QR tools. Codes are generated in your browser. There is no signup, and a static image does not depend on a subscription to keep working.</p>
-  <p>The payload—a URL, plain text, or a structured string such as Wi‑Fi or vCard—is written into the PNG or SVG you download. The site does not run a redirect that can expire the code later.</p>
-  <h2>Tools</h2>
+  <p class="meta">Maintained by Ethen · qrstatic.app</p>
+  <p><strong>qrstatic</strong> (<a href="https://qrstatic.app/">qrstatic.app</a>) is a free set of static QR code generators for people who need a square they can download and print. You open a page, type the payload you actually want scanned—a URL, a guest Wi‑Fi password, a phone number, a review link—and the browser draws a PNG or SVG. There is no account. The site does not mint a short link, and it does not run a redirect that the printed code has to call later.</p>
+
+  <h2>What “static” means here</h2>
+  <p>A static QR code stores its contents in the image. The dark and light modules are a machine-readable copy of a text string. A phone camera recovers that string and acts on it: open a web page, join a Wi‑Fi network, start an email draft, save a contact, or open a map. Nothing on qrstatic.app has to stay online for that scan to succeed. If this website were unreachable, a PNG you had already downloaded would still scan, because the data was never stored on a server this site controls.</p>
+  <p>Codes that “expire” are usually a different product wearing the same square. The image encodes a short URL on a domain the generator operates. Their server looks up that short URL and forwards the phone to your real destination. When a free trial ends, a subscription lapses, or the vendor shuts the domain down, the lookup fails. The ink is intact; the pointer is dead. That failure mode is why a table tent can stop opening a menu or a review form even though the print still looks fine.</p>
+  <p>qrstatic.app does not offer that lookup. There is no dashboard where a destination can be swapped after printing, and there is no subscription that keeps an image “on.” The file you download is the whole product. Practical comparisons live in the <a href="guides/">guides</a>, especially <a href="guides/static-vs-dynamic-qr.html">static vs dynamic QR codes</a> and <a href="guides/static-or-dynamic-qr-how-to-tell.html">how to tell which kind you already printed</a>.</p>
+
+  <h2>How a code is made</h2>
+  <p>Rendering uses the MIT-licensed <a href="https://github.com/soldair/node-qrcode">soldair/node-qrcode</a> library, bundled for the browser. Each page builds a payload in JavaScript on your device, then asks that library to draw it on a canvas. You can download PNG for a screen or SVG for print. Size, error correction (L, M, Q, or H), quiet zone, and colors change the drawing. They do not insert a server between the scan and the data.</p>
+  <p>The pages are a static site. There is no generation API. Clicking Generate does not submit the form to a backend. The same library call is what the <a href="index.html#generator">homepage generator</a> and the dedicated tools use.</p>
+
+  <h2>Privacy of the payload</h2>
+  <p>URLs, Wi‑Fi passwords, phone numbers, review links, and TOTP secrets are handled in the browser while the image is drawn. There is no account database of codes you have made. This site cannot open a history and tell you what you encoded, because that text was never received. The <a href="privacy.html">Privacy Policy</a> describes this in operational detail, including what GitHub Pages logs and what Google Analytics does on a page view.</p>
+  <p>Two boundaries are easy to miss. First, a file you later email to a printer, or a photo you post, is then outside this site—anyone who can see the image can scan it. Second, the site loads Google Analytics and may load Google AdSense. The generator does not send the payload to a qrstatic.app server and does not attach it to an event we control. Those third-party scripts still run in the browser on the same page, so do not type a secret you would not want present while they are loaded. The <a href="privacy.html">Privacy Policy</a> states this more carefully. Advertising does not change how the image is drawn.</p>
+
+  <h2>The tools</h2>
+  <p>Each tool builds one kind of string, then uses the same client-side renderer. The string is what a camera recovers:</p>
   <ul>
-    <li><a href="index.html">URL and text</a> on the homepage generator</li>
-    <li><a href="wifi-qr-code-generator.html">Wi‑Fi</a></li>
-    <li><a href="vcard-qr-code-generator.html">vCard</a></li>
-    <li><a href="calendar-event-qr-code-generator.html">Calendar</a></li>
-    <li><a href="google-review-qr-code-generator.html">Google Review</a></li>
-    <li><a href="sms-qr-code-generator.html">SMS</a></li>
-    <li><a href="whatsapp-qr-code-generator.html">WhatsApp</a></li>
-    <li><a href="email-qr-code-generator.html">Email</a></li>
-    <li><a href="phone-call-qr-code-generator.html">Phone</a></li>
-    <li><a href="location-qr-code-generator.html">Location</a></li>
-    <li><a href="totp-qr-code-generator.html">TOTP</a></li>
+    <li><a href="index.html">Homepage generator</a> — a URL (an omitted scheme is prefixed with <code>https://</code>), plain text, a <code>WIFI:</code> connection string, a <code>mailto:</code> draft, or a <code>tel:</code> link. Wi‑Fi fields escape backslash, semicolon, comma, and double quote so the payload stays valid.</li>
+    <li><a href="wifi-qr-code-generator.html">Wi‑Fi</a> — the same <code>WIFI:T:…;S:…;P:…;;</code> string, with notes for guest networks and reprinting after a password change.</li>
+    <li><a href="vcard-qr-code-generator.html">vCard</a> — a vCard 3.0 block (<code>BEGIN:VCARD</code>) a phone can offer to save.</li>
+    <li><a href="calendar-event-qr-code-generator.html">Calendar</a> — a minimal <code>VCALENDAR</code> / <code>VEVENT</code> a calendar app can import.</li>
+    <li><a href="google-review-qr-code-generator.html">Google Review</a> — a Place ID or an official Google review URL. A bare Place ID becomes <code>https://search.google.com/local/writereview?placeid=…</code>. Non-Google URLs are rejected. This is not a Google product.</li>
+    <li><a href="sms-qr-code-generator.html">SMS</a> — an <code>SMSTO:</code> payload that opens a text draft. The person still taps Send.</li>
+    <li><a href="whatsapp-qr-code-generator.html">WhatsApp</a> — a <code>https://wa.me/</code> click-to-chat URL (digits only, optional prefilled text). Not a WhatsApp Web login QR, and not affiliated with Meta.</li>
+    <li><a href="email-qr-code-generator.html">Email</a> and <a href="phone-call-qr-code-generator.html">phone</a> — the same <code>mailto:</code> and <code>tel:</code> payloads as the homepage, on their own pages.</li>
+    <li><a href="location-qr-code-generator.html">Location</a> — a Google Maps URL by default, or a <code>geo:latitude,longitude</code> URI if you choose that mode. A place name is not written into a <code>geo:</code> payload.</li>
+    <li><a href="totp-qr-code-generator.html">TOTP</a> — an <code>otpauth://</code> URI for an authenticator app. The secret is inside the image. Treat the file like a password.</li>
+    <li><a href="spotify-qr-code-generator.html">Spotify</a>, <a href="telegram-qr-code-generator.html">Telegram</a>, <a href="discord-qr-code-generator.html">Discord</a>, and <a href="zoom-meeting-qr-code-generator.html">Zoom</a> — the public share or join URL you paste, lightly normalized. Tracking parameters are stripped. A Zoom <code>pwd</code> query is kept. These pages are not official tools of those companies.</li>
+    <li><a href="google-meet-qr-code-generator.html">Google Meet</a> — a <code>meet.google.com/xxx-xxxx-xxx</code> link or a bare meeting code, rewritten to the canonical HTTPS join URL. Not a Google product. A one-time meeting can stop accepting joins after it ends; a recurring room code can stay on a poster. Encoding the URL does not bypass a waiting room.</li>
+    <li><a href="teams-meeting-qr-code-generator.html">Microsoft Teams</a> — the full <code>teams.microsoft.com/l/meetup-join/…</code> or <code>teams.live.com</code> URL. The join token is kept. An Outlook Safe Links wrapper is unwrapped in the browser when the real Teams URL is inside it. Not a Microsoft product. Lobby and tenant policy still apply, and a long join URL makes a denser code, so print it larger.</li>
   </ul>
-  <p>Practical write-ups are in the <a href="guides/">guides</a>.</p>
-  <h2>Technology</h2>
-  <p>QR rendering uses the MIT-licensed <a href="https://github.com/soldair/node-qrcode">soldair/node-qrcode</a> library, bundled for the browser. Generation runs entirely on your device.</p>
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:smithk@gmail.com">smithk@gmail.com</a></p>
-  <p>See the <a href="contact.html">Contact</a> page for how to reach us, or open an issue on <a href="https://github.com/spook2406/qr-no-expire">GitHub</a>.</p>
+
+  <h2>Who maintains it</h2>
+  <p>qrstatic.app is maintained by <strong>Ethen</strong>. It is a product site, not a separate company with an office, a phone number, or a support staff. Pages and generators are published from the public repository <a href="https://github.com/spook2406/qr-no-expire">github.com/spook2406/qr-no-expire</a>. Questions, corrections, and privacy requests go to <a href="mailto:smithk@gmail.com">smithk@gmail.com</a>. The <a href="contact.html">Contact</a> page explains what to include and what a reply can and cannot fix.</p>
+
+  <h2>Limitations, stated plainly</h2>
+  <p>Static means one specific thing: no vendor subscription can switch the image off. It does not mean the destination you pointed at will last forever, and it does not mean the code can be edited in place.</p>
+  <ul>
+    <li><strong>No edit after print.</strong> A new Wi‑Fi password, a moved URL, a new phone number, or a revoked invite needs a new image. Reprinting is the update. There is also no remote kill switch.</li>
+    <li><strong>No scan analytics.</strong> These tools do not count scans. If you need counts, they have to live on a website you control, not inside the QR.</li>
+    <li><strong>Dynamic products solve a different job.</strong> One printed square whose destination you can change later is a real need. A static file is the wrong tool for that job.</li>
+    <li><strong>Other companies still control their own links.</strong> A Discord invite or a Telegram invite can expire on that service even though this image has no trial clock. A Zoom, Google Meet, or Teams meeting can end or be revoked. Google can change a review URL format. The QR only preserves the string you encoded.</li>
+    <li><strong>Phones disagree.</strong> iOS Camera handles many Wi‑Fi codes and Maps URLs reliably. <code>geo:</code> and some <code>SMSTO</code> forms vary by device. Test on the phones your guests actually carry before you print a stack. The <a href="guides/qr-code-print-size-scan-distance.html">print-size guide</a> covers quiet zone and contrast.</li>
+    <li><strong>“Free” is about the file, not a promise that this website lasts forever.</strong> There is no signup and no fee to generate or download. The file you keep is what does not depend on this site staying up.</li>
+    <li><strong>No affiliation.</strong> qrstatic.app is not affiliated with Google, Microsoft, Telegram, Discord, Spotify, Zoom, Meta, WhatsApp, or any phone carrier. Those names describe the payload format only.</li>
+    <li><strong>Do not encode a secret you cannot afford to leak.</strong> A Wi‑Fi QR is a printed password. A TOTP QR is a printed authenticator secret. A Zoom link that includes <code>?pwd=</code> is a printed meeting password.</li>
+  </ul>
+  <p>You are responsible for having the right to encode and distribute what you put in the image. The <a href="terms.html">Terms of Use</a> say that directly, including the rule against using the tools for phishing or other unlawful payloads.</p>
+
+  <h2>Where to go next</h2>
+  <p>The <a href="guides/">guides hub</a> is the long-form companion: guest Wi‑Fi for a cafe, what to do after a password change, a Google review code without a monthly fee, print size, and why a code that used to work suddenly does not. Start a file on the <a href="index.html#generator">homepage generator</a>, or read how data is handled in the <a href="privacy.html">Privacy Policy</a>. To write to the maintainer, use <a href="contact.html">Contact</a>.</p>
 </article>
 <footer class="site-footer">
   <div class="footer-inner">

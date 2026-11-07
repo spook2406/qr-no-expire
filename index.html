@@ -49,7 +49,7 @@
     <span class="badge">✓ No expiration</span>
     <span class="badge">✓ Client-side only</span>
   </div>
-  <p style="margin-top:1rem;color:var(--muted);font-size:.95rem;">Dedicated tools: <a href="wifi-qr-code-generator.html">free WiFi QR code generator</a> · <a href="vcard-qr-code-generator.html">vCard / business card QR generator</a> · <a href="calendar-event-qr-code-generator.html">calendar event QR generator</a> · <a href="google-review-qr-code-generator.html">Google review QR generator</a> · <a href="sms-qr-code-generator.html">SMS QR generator</a> · <a href="whatsapp-qr-code-generator.html">WhatsApp click-to-chat QR generator</a> · <a href="email-qr-code-generator.html">Email / mailto QR generator</a> · <a href="phone-call-qr-code-generator.html">Phone call / tel QR generator</a> · <a href="location-qr-code-generator.html">Location / Maps QR generator</a> · <a href="totp-qr-code-generator.html">TOTP / 2FA Authenticator QR generator</a> · <a href="spotify-qr-code-generator.html">Spotify playlist QR generator</a> · <a href="telegram-qr-code-generator.html">Telegram group/channel QR generator</a> · <a href="discord-qr-code-generator.html">Discord invite QR generator</a> · <a href="zoom-meeting-qr-code-generator.html">Zoom meeting QR generator</a> · <a href="google-meet-qr-code-generator.html">Google Meet QR generator</a> · <a href="teams-meeting-qr-code-generator.html">Microsoft Teams meeting QR generator</a>.</p>
+  <p style="margin-top:1rem;color:var(--muted);font-size:.95rem;">The form below encodes a link, plain text, Wi‑Fi, email, or a phone number. Other payloads—including <a href="google-meet-qr-code-generator.html">Google Meet</a> and <a href="teams-meeting-qr-code-generator.html">Microsoft Teams</a>—have their own pages under <a href="#tools">Tools</a>. <a href="#static-vs-expiring">How a static code differs from one that expires</a> is further down the page.</p>
 </section>
 
 <div class="container" id="generator">
@@ -215,6 +215,40 @@
       <p>Export PNG for social posts or SVG for crisp print materials and packaging.</p>
     </article>
   </div>
+
+  <article class="prose" id="static-vs-expiring" style="margin:2rem 0 0;padding:0;max-width:48rem;">
+    <h2>Static QR codes and codes that expire</h2>
+    <p>A static QR code is a picture of the data. The modules encode a string—your URL, a <code>WIFI:</code> network line, a <code>mailto:</code>, a <code>tel:</code> number—and the camera reads that string directly. This site never stores the string and never issues a short link that has to be resolved later. The PNG or SVG you download is the whole code. There is no account that can turn it off.</p>
+    <p>An expiring or “dynamic” code looks the same on paper and behaves differently. The square usually contains a short URL on the generator’s domain. Their server looks up that URL and redirects the phone. The lookup is the product: you can change the destination without reprinting, and the vendor can count scans. It also means the print depends on that server. When a trial ends, a plan lapses, or the company shuts the redirect down, scans fail even though the ink is fine. The longer comparison is <a href="guides/static-vs-dynamic-qr.html">static vs dynamic QR codes</a>. If you already have a print and are not sure which kind it is, use <a href="guides/static-or-dynamic-qr-how-to-tell.html">how to tell a static code from a dynamic one</a>.</p>
+    <p>Static is the wrong choice when you need to change the destination after the piece is printed, or when you need the QR vendor’s scan counts. It is the right choice when the payload itself should be what gets scanned, and you would rather reprint than rent a redirect.</p>
+
+    <h2 id="who-its-for">Who the tools are for</h2>
+    <p>The everyday user is someone printing a small run, not running a QR campaign. A cafe or restaurant puts the guest network on a table tent so staff stop reading the password aloud. A small shop puts a review link on the counter and does not want a monthly fee standing between the card and Google. A wedding, a clinic front desk, or a one-page menu can point at a URL the owner actually controls—their own site, a map pin, a phone number—rather than a short link that belongs to a trial account.</p>
+    <p>The tools assume you will test one phone, then print. They do not track guests, edit a code that is already on the table, or host your menu. If the Wi‑Fi password changes, the old sticker still contains the old password; you generate again and replace the card. That workflow is written up for cafes in the guest Wi‑Fi guide and for password rotations in the reprint guide, both linked below.</p>
+
+    <h2 id="how-to-use">How to use a generator</h2>
+    <ol>
+      <li>Open the tool that matches the payload. Do not paste a temporary short link from another QR service into the URL field if you want the print to outlive that service. Paste the real destination.</li>
+      <li>Generate, then scan the preview with your own phone before you download. Confirm the Wi‑Fi name, the review form, or the map pin—not just that “a code appeared.”</li>
+      <li>Download PNG for a screen, or SVG when a printer will scale the mark. Leave the quiet zone. Print one sample before a stack of tents or stickers.</li>
+    </ol>
+    <p><strong>Guest Wi‑Fi.</strong> Use the <a href="wifi-qr-code-generator.html">Wi‑Fi generator</a>. It writes a standard <code>WIFI:</code> string (network name, security, password) into the image. For a cafe or restaurant layout, follow <a href="guides/guest-wifi-qr-code-cafe-restaurant.html">how to make a guest Wi‑Fi QR for a cafe or restaurant</a>. When the password changes, the old print cannot be updated in place—see <a href="guides/wifi-qr-not-working-after-password-change.html">Wi‑Fi QR not working after a password change</a>.</p>
+    <p><strong>Google reviews.</strong> Use the <a href="google-review-qr-code-generator.html">Google review generator</a>. Paste the Place ID or the official review link from your Business Profile. A Place ID is turned into Google’s write-review URL; other websites are rejected. qrstatic.app is not affiliated with Google. The walkthrough that skips subscription short links is <a href="guides/free-google-review-qr-no-monthly-fee.html">a free Google review QR with no monthly fee</a>.</p>
+    <p><strong>A place on a map.</strong> The <a href="location-qr-code-generator.html">location generator</a> encodes either a Google Maps URL or a <code>geo:latitude,longitude</code> URI. Maps URLs are the better default for mixed iPhone and Android tables; <code>geo:</code> is shorter and omits the place name. Pair a map code with the print guides already on the site: <a href="guides/cafe-table-tent-menu-wifi-review-qr.html">one cafe table tent with menu, Wi‑Fi, and reviews</a>, <a href="guides/restaurant-menu-qr-code-never-expires.html">a menu QR that points at a page you host</a>, and <a href="guides/qr-code-print-size-scan-distance.html">print size by scan distance</a>.</p>
+
+    <h2 id="tools">Tools</h2>
+    <p>Same renderer on every page: the payload is built in your browser and the image is yours to keep. Pick the page that matches the string you need.</p>
+    <ul>
+      <li><a href="#generator">Homepage generator</a> — URL, plain text, Wi‑Fi, email, or phone, with size and error correction.</li>
+      <li><a href="wifi-qr-code-generator.html">Wi‑Fi QR</a> — guest networks and reprinting after a password change.</li>
+      <li><a href="google-review-qr-code-generator.html">Google review QR</a> — Place ID or an official review link. Not a Google product.</li>
+      <li><a href="location-qr-code-generator.html">Location / Maps QR</a> — Maps URL or <code>geo:</code> coordinates.</li>
+      <li><a href="vcard-qr-code-generator.html">vCard</a> — a contact card. <a href="calendar-event-qr-code-generator.html">Calendar</a> — one event. <a href="totp-qr-code-generator.html">TOTP</a> — an authenticator enrollment secret; do not publish that image.</li>
+      <li><a href="sms-qr-code-generator.html">SMS</a>, <a href="whatsapp-qr-code-generator.html">WhatsApp click-to-chat</a>, <a href="email-qr-code-generator.html">email</a>, and <a href="phone-call-qr-code-generator.html">phone</a> — a draft or a call the person still confirms. WhatsApp here is not a login QR.</li>
+      <li><a href="spotify-qr-code-generator.html">Spotify</a>, <a href="telegram-qr-code-generator.html">Telegram</a>, <a href="discord-qr-code-generator.html">Discord</a>, <a href="zoom-meeting-qr-code-generator.html">Zoom</a>, <a href="google-meet-qr-code-generator.html">Google Meet</a>, and <a href="teams-meeting-qr-code-generator.html">Microsoft Teams</a> — the public link you paste. Meet accepts a <code>meet.google.com</code> link or a bare meeting code. Teams needs the full meetup-join URL and can unwrap an Outlook Safe Link. Meetings can still end on those services, and a posted join link does not bypass a waiting room, lobby, or org policy.</li>
+    </ul>
+    <p>Background on the product, the maintainer, and the limits is on <a href="about.html">About</a>.</p>
+  </article>
 
   <h2 class="section-title">Guides</h2>
   <div class="guide-grid">
