@@ -162,7 +162,8 @@
     statusEl.textContent = '';
     var url = withUtm(pageBaseUrl(), 'native');
     var title = document.title || 'QRStatic';
-    var file = pngFileFromCanvas();
+    // The TOTP page (#totp-generator) encodes the secret in the QR. Do not attach that PNG.
+    var file = document.getElementById('totp-generator') ? null : pngFileFromCanvas();
     var data = chooseShareData(file, SHARE_TEXT, url, title);
     var plain = { title: title, text: SHARE_TEXT, url: url };
 
