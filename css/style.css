@@ -279,7 +279,46 @@ img { max-width: 100%; height: auto; }
     min-height: 44px;
   }
   .preview-wrap { min-height: 280px; }
+  .share-btn { min-height: 44px; }
   .hero { padding: 1.75rem 1rem .75rem; }
   .container { padding: 1rem 1rem 2.5rem; }
   .prose { padding: 1.25rem 1rem 2.5rem; }
 }
+
+/* Shown in the result panel only after a QR has been generated. */
+.share-result {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .55rem;
+  margin-top: .35rem;
+  padding-top: .9rem;
+  border-top: 1px solid var(--border);
+}
+.share-result[hidden] { display: none; }
+.share-result-label {
+  margin: 0;
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+.share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem;
+}
+a.share-btn { text-decoration: none; }
+.share-btn { white-space: nowrap; }
+.share-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+.share-status {
+  margin: 0;
+  font-size: .78rem;
+  color: var(--muted);
+  text-align: center;
+}
+.share-status:empty { display: none; }
