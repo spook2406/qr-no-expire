@@ -74,6 +74,7 @@ img { max-width: 100%; height: auto; }
   color: var(--muted); text-align: center;
   padding: 1rem; margin: 1.25rem 0; font-size: .85rem;
 }
+.ad-slot:empty { display: none; }
 
 .generator {
   display: grid; grid-template-columns: 1.15fr .85fr; gap: 1.25rem;
