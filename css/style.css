@@ -283,3 +283,43 @@ img { max-width: 100%; height: auto; }
   .container { padding: 1rem 1rem 2.5rem; }
   .prose { padding: 1.25rem 1rem 2.5rem; }
 }
+
+/* Share row — shown by js/share.js only after a QR exists */
+.qr-share {
+  align-self: stretch;
+  width: 100%;
+  margin-top: .35rem;
+  padding-top: .9rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.qr-share[hidden] { display: none; }
+.qr-share h3 {
+  margin: 0 0 .3rem;
+  font-size: .95rem;
+  font-weight: 700;
+}
+.qr-share-copy {
+  margin: 0 0 .75rem;
+  color: var(--text);
+  font-size: .88rem;
+}
+.qr-share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  justify-content: center;
+}
+.qr-share a.btn { text-decoration: none; }
+.qr-share .btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+.qr-share-hint,
+.qr-share-status {
+  margin: .7rem 0 0;
+  color: var(--muted);
+  font-size: .78rem;
+}
+.qr-share-status:empty { display: none; }
+.qr-share-status.is-error { color: var(--danger); }
