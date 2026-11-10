@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV95W19XS3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JV95W19XS3');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free App Store and Google Play QR Code Generator | QRStatic</title>
+<meta name="description" content="Free browser-only App Store and Google Play QR codes. Two labeled static codes, not a device-routed smart short link. No signup, no watermark. PNG, SVG, and a poster.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/app-store-google-play-qr-code-generator.html">
+<meta property="og:title" content="Free App Store and Google Play QR Code Generator | QRStatic">
+<meta property="og:description" content="Two labeled static QR codes for a public App Store page and a public Google Play page. Not a device-routed smart short link. No signup. PNG, SVG, and a poster.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/app-store-google-play-qr-code-generator.html">
+<link rel="stylesheet" href="css/style.css">
+<meta name="google-adsense-account" content="ca-pub-8737820277849030">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8737820277849030"
+  crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Is this one smart QR that opens the right store?","acceptedAnswer":{"@type":"Answer","text":"No. This page makes two static codes, not a device-routed smart short link. One code is the App Store URL. The other is the Google Play URL. Nothing on this site reads the user agent or redirects the scan."}},
+    {"@type":"Question","name":"Do these App Store and Google Play QR codes expire?","acceptedAnswer":{"@type":"Answer","text":"The codes do not expire on our side. They are pictures of the store URLs. We do not host the apps and we do not set an expiry. There is no trial expiry, no watermark, and no signup."}},
+    {"@type":"Question","name":"What if the app is delisted?","acceptedAnswer":{"@type":"Answer","text":"If an app is delisted or the store link dies, scans can fail. That happens at Apple or Google. We do not host the listing and we do not set an expiry."}},
+    {"@type":"Question","name":"Is this an official Apple or Google tool?","acceptedAnswer":{"@type":"Answer","text":"No. This site is not official Apple or Google, and it is not affiliated with either company. You must have the right to share the store links."}},
+    {"@type":"Question","name":"Can I encode an APK or sideload link?","acceptedAnswer":{"@type":"Answer","text":"No. Paste public store app pages you have the right to share. We do not help with piracy or sideloading. APK files and unofficial download sites are rejected and are not encoded."}},
+    {"@type":"Question","name":"Are the store links uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. URLs are not uploaded to our server. Normalization and QR generation run in your browser. We do not create a dynamic short link. After this page’s files are cached, generation still works offline."}}
+  ]
+}
+</script>
+<style>
+  .warn-note { display:none; margin-top:.75rem; padding:.65rem .85rem; border-radius:8px; background:#3a2e14; color:#f0d78c; font-size:.9rem; }
+  .warn-note:not([hidden]) { display:block; }
+  .payload-box { margin-top:.65rem; padding:.55rem .7rem; border-radius:8px; background:#0f172a; color:#c8d4eb; font-family:ui-monospace,monospace; font-size:.78rem; word-break:break-all; min-height:2.4rem; }
+  #store-generator .generator { grid-template-columns: minmax(280px, .9fr) minmax(0, 1.15fr); }
+  @media (max-width: 860px) {
+    #store-generator .generator { grid-template-columns: 1fr; }
+  }
+  .store-preview { align-items:stretch; text-align:left; justify-content:flex-start; min-width:0; }
+  .store-previews { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; width:100%; min-width:0; }
+  @media (max-width: 720px) { .store-previews { grid-template-columns:1fr; } }
+  .store-card { border:1px solid var(--border); border-radius:12px; padding:.85rem; background:rgba(0,0,0,.15); min-width:0; }
+  .store-card.is-empty { opacity:.92; }
+  .store-card h3 { margin:0 0 .35rem; font-size:1rem; }
+  .store-card .platform { color:var(--muted); font-weight:600; font-size:.8rem; margin-left:.35rem; }
+  .store-card canvas { display:block; width:220px !important; height:220px !important; min-width:0; margin:0 auto; background:#fff; border-radius:12px; padding:8px; box-shadow:var(--shadow); box-sizing:border-box; }
+  .store-card canvas[hidden] { display:none !important; }
+  .store-card .preview-empty { padding:.75rem .15rem; overflow-wrap:break-word; }
+  #form-error { white-space:pre-line; }
+  .poster-note { color:var(--muted); font-size:.85rem; margin:.35rem 0 0; }
+</style>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="index.html#generator">Generator</a>
+    <a href="guides/">Guides</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+
+<section class="hero">
+  <h1>Free App Store and Google Play QR Code Generator</h1>
+  <p>Paste a public <strong>App Store</strong> app page and a public <strong>Google Play</strong> app page. This page makes <strong>two side-by-side static QR codes</strong>, labeled App Store (iOS) and Google Play (Android). Each code stores that store’s HTTPS URL and nothing else. It is <strong>not</strong> a device-routed smart short link: there is no user-agent check, no redirect, and no short link on qrstatic.app or any other service. The codes do not expire on our side. No signup, no watermark, no trial expiry.</p>
+  <div class="badge-row">
+    <span class="badge">✓ Two static codes</span>
+    <span class="badge">✓ No signup</span>
+    <span class="badge">✓ Never expires on our side</span>
+    <span class="badge">✓ PNG, SVG &amp; poster</span>
+  </div>
+  <p style="margin-top:1rem;color:var(--muted);font-size:.95rem;"><strong>Not official Apple or Google.</strong> This site is not affiliated with Apple or Google. You must have the right to share the store links. We do not help with piracy or sideloading. If an app is delisted or the store link dies, scans can fail, but we do not host the app or set an expiry. The links stay in your browser; we do not upload them or mint a dynamic short link.</p>
+</section>
+
+<div class="container" id="store-generator">
+  <h2 class="section-title">Generate two static store QR codes</h2>
+  <p style="color:var(--muted);max-width:52rem;margin:0 0 1rem;">The fields are independent. Fill one or both. A Play link in the App Store field (or the reverse) is rejected and is <strong>not</strong> quietly written into the other code. Search pages, developer pages, short links, and APK or sideload links are not encoded. If only one field is valid, only that labeled code is generated and the other side stays empty. This page is still two static codes, not a smart redirect.</p>
+
+  <div class="generator">
+    <div class="panel">
+      <h2>1. Store links</h2>
+      <div class="field">
+        <label for="appstore-url">App Store URL (iOS)</label>
+        <input id="appstore-url" type="text" inputmode="url" placeholder="https://apps.apple.com/app/id123456789" autocomplete="off" spellcheck="false">
+        <p class="hint">Public app pages on <code>apps.apple.com</code> (country path or <code>/app/id…</code>) and legacy <code>itunes.apple.com</code> app pages. Tracking parameters such as <code>utm</code>, <code>fbclid</code>, and <code>gclid</code> are removed. The app id stays in the path.</p>
+      </div>
+      <div class="field">
+        <label for="play-url">Google Play URL (Android)</label>
+        <input id="play-url" type="text" inputmode="url" placeholder="https://play.google.com/store/apps/details?id=com.example.app" autocomplete="off" spellcheck="false">
+        <p class="hint">Only <code>play.google.com/store/apps/details?id=package</code>. <code>http</code> is upgraded to <code>https</code>. Every query parameter except <code>id</code> is removed. <code>market://details?id=</code> is rewritten to that HTTPS Play URL.</p>
+      </div>
+
+      <h2>2. Style</h2>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-size">Size (px)</label>
+          <select id="opt-size">
+            <option value="256">256</option>
+            <option value="320" selected>320</option>
+            <option value="512">512</option>
+            <option value="1024">1024</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-ecc">Error correction</label>
+          <select id="opt-ecc">
+            <option value="L">L — ~7%</option>
+            <option value="M" selected>M — ~15%</option>
+            <option value="Q">Q — ~25%</option>
+            <option value="H">H — ~30%</option>
+          </select>
+        </div>
+      </div>
+      <div class="row-2">
+        <div class="field">
+          <label for="opt-margin">Quiet zone</label>
+          <select id="opt-margin">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opt-dark">Foreground</label>
+          <input id="opt-dark" type="color" value="#000000">
+        </div>
+      </div>
+      <div class="field">
+        <label for="opt-light">Background</label>
+        <input id="opt-light" type="color" value="#ffffff">
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn" id="generate-btn">Generate static QR codes</button>
+      </div>
+      <div class="error" id="form-error" role="alert"></div>
+      <div class="warn-note" id="form-warning" hidden></div>
+      <div class="privacy-note">
+        Privacy: store URLs are not uploaded to our server. Nothing here is a dynamic short link. No account, no watermark, and no trial expiry on the files you download. After this page’s files are cached, generation still works offline.
+      </div>
+    </div>
+
+    <div class="panel preview-wrap store-preview">
+      <h2 style="align-self:flex-start;width:100%;margin:0;">3. Preview &amp; download</h2>
+      <div class="store-previews">
+        <div class="store-card is-empty" id="card-appstore">
+          <h3>App Store <span class="platform">iOS</span></h3>
+          <p class="preview-empty" id="empty-appstore">No App Store code yet. Paste a public apps.apple.com app page to add the iOS QR. This page makes two static codes, not a smart redirect.</p>
+          <canvas id="qr-appstore" width="320" height="320" hidden aria-label="App Store QR code preview"></canvas>
+          <p class="payload-box" id="payload-appstore" aria-live="polite"></p>
+          <div class="actions">
+            <button type="button" class="btn" id="png-appstore" disabled>PNG</button>
+            <button type="button" class="btn secondary" id="svg-appstore" disabled>SVG</button>
+            <button type="button" class="btn secondary" id="copy-appstore" disabled>Copy URL</button>
+          </div>
+        </div>
+        <div class="store-card is-empty" id="card-play">
+          <h3>Google Play <span class="platform">Android</span></h3>
+          <p class="preview-empty" id="empty-play">No Google Play code yet. Paste a public Play app page to add the Android QR. This page makes two static codes, not a smart redirect.</p>
+          <canvas id="qr-play" width="320" height="320" hidden aria-label="Google Play QR code preview"></canvas>
+          <p class="payload-box" id="payload-play" aria-live="polite"></p>
+          <div class="actions">
+            <button type="button" class="btn" id="png-play" disabled>PNG</button>
+            <button type="button" class="btn secondary" id="svg-play" disabled>SVG</button>
+            <button type="button" class="btn secondary" id="copy-play" disabled>Copy URL</button>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn secondary" id="download-poster" disabled>Download poster PNG</button>
+      </div>
+      <p class="poster-note" id="poster-note" hidden>The poster places the labeled code or codes on one PNG. It is not a single smart QR.</p>
+    </div>
+  </div>
+</div>
+
+<article class="prose">
+  <h2>Two static codes, not a smart redirect</h2>
+  <p>Most “app QR” tools encode one short link. The short-link server looks at the phone’s user agent and sends iPhone scanners to the App Store and Android scanners to Google Play. That short link can expire, and the code dies with the vendor. This page does not do that. It writes the official store URL into each image. A scan of the App Store code opens that App Store page. A scan of the Google Play code opens that Play page. There is no device routing and no intermediate redirect.</p>
+  <p>The codes do not expire on our side. We do not host the listing and we do not set an expiry. If an app is delisted or the store link dies, scans can fail at Apple or Google. Reprint only when the store URL itself changes. For the same idea on other payloads, see <a href="guides/why-did-my-qr-code-stop-working.html">why a QR code stops working</a> and <a href="guides/static-vs-dynamic-qr.html">static vs dynamic QR codes</a>.</p>
+
+  <h2>Which links are accepted</h2>
+  <p>App Store: a public app page on <code>apps.apple.com</code>, with or without a country path, including <code>/app/id</code> plus the numeric app id. A legacy <code>itunes.apple.com</code> app page is rewritten to HTTPS <code>apps.apple.com</code> and the app id is kept. <code>http</code> becomes <code>https</code>. Tracking parameters such as <code>utm</code>, <code>fbclid</code>, and <code>gclid</code> are removed.</p>
+  <p>Google Play: only <code>play.google.com/store/apps/details?id=</code> plus the package name. <code>http</code> becomes <code>https</code>. The QR keeps the <code>id</code> parameter and drops <code>referrer</code>, <code>utm</code>, and every other query parameter. <code>market://details?id=</code> is rewritten to the matching HTTPS Play URL.</p>
+  <p>Both fields empty, the wrong store, a Play URL pasted into the App Store field (or the reverse), a search, category, developer, or marketing page, a third-party smart short link, any non-store redirect domain, and an APK or sideload download are rejected with an error. They are never silently encoded. The two payloads are never swapped.</p>
+
+  <h2>One link or two</h2>
+  <p>If you paste only one valid store URL, you get only that labeled static code. The other side stays empty and its download buttons stay disabled. The page still describes two static codes, not a shortcut that picks a store for the scanner. If both URLs are valid, the two codes sit side by side. Download PNG and SVG for each code, plus one poster PNG that places the labeled code or codes together. There is no forced signup, no watermark, and no trial expiry.</p>
+
+  <h2>Security</h2>
+  <ul>
+    <li>This site is <strong>not official Apple or Google</strong>. Apple, the App Store, Google, and Google Play are trademarks of their owners. QRStatic is not affiliated with either company.</li>
+    <li>You must have the <strong>right to share</strong> the store links. Posting a QR is the same as handing out the store URL.</li>
+    <li>We do <strong>not</strong> help with piracy or sideloading. APK files, unofficial stores, and installers are rejected.</li>
+    <li>URLs are not uploaded to our server. We do not create a dynamic short link. After this page’s files are cached, generation still works offline.</li>
+  </ul>
+
+  <h2>FAQ</h2>
+  <h3>Is this one smart QR that opens the right store?</h3>
+  <p><strong>No.</strong> This page makes two static codes, not a device-routed smart short link. One code is the App Store URL. The other is the Google Play URL. Nothing on this site reads the user agent or redirects the scan.</p>
+  <h3>Do these QR codes expire?</h3>
+  <p>The codes do not expire on our side. A static QR is a picture of the store URL, so there is no trial expiry and no watermark. We do not host the apps and we do not set an expiry. No signup is required.</p>
+  <h3>What if the app is delisted?</h3>
+  <p>If an app is delisted or the store link dies, scans can fail. That failure is at the store, not on a timer we control. We do not host the listing and we do not set an expiry.</p>
+  <h3>Is this an official Apple or Google tool?</h3>
+  <p><strong>No.</strong> This site is not official Apple or Google, and it is not affiliated with either company. You must have the right to share the store links.</p>
+  <h3>Can I encode an APK or a short link?</h3>
+  <p>No. We do not help with piracy or sideloading. APK and sideload links, third-party smart short links, and other redirect domains are rejected and are not encoded. Paste the public store app page.</p>
+  <h3>What if I only have one store link?</h3>
+  <p>Generate the one labeled static code and leave the other side empty. That is still not a device-routed smart short link. Add the second URL later and generate again if you want both codes.</p>
+  <h3>Are the store links uploaded?</h3>
+  <p>No. URLs are not uploaded to our server. Checking the links and drawing the QR codes run in your browser. We do not create a dynamic short link. Once this page’s assets are cached, generation still works offline.</p>
+
+  <hr>
+  <p><strong>Next steps:</strong> <a href="google-form-qr-code-generator.html">Google Form QR</a> · <a href="spotify-qr-code-generator.html">Spotify QR</a> · <a href="guides/why-did-my-qr-code-stop-working.html">Why did my QR stop working?</a> · <a href="guides/static-vs-dynamic-qr.html">Static vs dynamic</a> · <a href="index.html">Homepage generator</a></p>
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRNoExpire — free static QR code generator. Not affiliated with Apple or Google. No account required.</div>
+    <div class="footer-links">
+      <a href="index.html">Generator</a>
+      <a href="wifi-qr-code-generator.html">WiFi QR</a>
+      <a href="vcard-qr-code-generator.html">vCard QR</a>
+      <a href="calendar-event-qr-code-generator.html">Calendar QR</a>
+      <a href="google-review-qr-code-generator.html">Review QR</a>
+      <a href="sms-qr-code-generator.html">SMS QR</a>
+      <a href="whatsapp-qr-code-generator.html">WhatsApp QR</a>
+      <a href="email-qr-code-generator.html">Email QR</a>
+      <a href="phone-call-qr-code-generator.html">Phone QR</a>
+      <a href="location-qr-code-generator.html">Location QR</a>
+      <a href="totp-qr-code-generator.html">TOTP / 2FA QR</a>
+      <a href="spotify-qr-code-generator.html">Spotify QR</a>
+      <a href="telegram-qr-code-generator.html">Telegram QR</a>
+      <a href="discord-qr-code-generator.html">Discord QR</a>
+      <a href="zoom-meeting-qr-code-generator.html">Zoom QR</a>
+      <a href="google-meet-qr-code-generator.html">Google Meet QR</a>
+      <a href="teams-meeting-qr-code-generator.html">Teams QR</a>
+      <a href="google-form-qr-code-generator.html">Google Form QR</a>
+      <a href="app-store-google-play-qr-code-generator.html">App Store &amp; Play QR</a>
+      <a href="guides/">Guides</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="https://github.com/spook2406/qr-no-expire">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script defer src="vendor/qrcode.min.js"></script>
+<script defer src="js/app-store-play-payload.js"></script>
+<script defer src="js/app-store-play-page.js"></script>
+</body>
+</html>
