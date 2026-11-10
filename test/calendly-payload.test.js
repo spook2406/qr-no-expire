@@ -2,28 +2,10 @@
 
 const fs = require('fs');
 const path = require('path');
-const vm = require('vm');
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const { root, loadIIFE } = require('./helpers');
 
-const root = path.join(__dirname, '..');
-
-function loadIIFE(filename) {
-  const code = fs.readFileSync(path.join(root, filename), 'utf8');
-  const sandbox = {
-    console: console,
-    URL: URL,
-    URLSearchParams: URLSearchParams,
-    TextEncoder: TextEncoder,
-    TextDecoder: TextDecoder,
-    Uint8Array: Uint8Array,
-    Promise: Promise
-  };
-  sandbox.globalThis = sandbox;
-  sandbox.window = sandbox;
-  vm.runInNewContext(code, sandbox, { filename: filename });
-  return sandbox;
-}
 
 function loadPayload() {
   return loadIIFE('js/calendly-payload.js').CalendlyPayload;
@@ -280,7 +262,7 @@ test('page, sitemap, homepage, calendar page, and guides meet the booking-page c
   assert.match(page, /ca-pub-8737820277849030/);
   assert.match(page, /href="guides\/why-did-my-qr-code-stop-working\.html"/);
   assert.match(page, /href="guides\/static-vs-dynamic-qr\.html"/);
-  assert.doesNotMatch(page, /js\/share\.js/);
+  assert.match(page, /js\/share\.js/);
   assert.doesNotMatch(pageJs, /userAgent|navigator\.platform|fetch\s*\(/);
   assert.doesNotMatch(payloadJs, /userAgent|fetch\s*\(/);
   assert.match(payloadJs, /No user-agent routing/);

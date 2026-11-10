@@ -1,0 +1,20 @@
+{
+  "name": "qrstatic",
+  "version": "1.0.0",
+  "private": true,
+  "description": "QRStatic: free static QR code generator that runs in the browser (qrstatic.app).",
+  "license": "UNLICENSED",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "test:e2e": "node --test test/e2e/*.test.js",
+    "check": "node scripts/check-site.js",
+    "ci": "npm run check && npm test && npm run test:e2e",
+    "serve": "python3 -m http.server 8080"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
