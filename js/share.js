@@ -2,12 +2,30 @@
   'use strict';
 
   var SHARE_TEXT = 'I made a free permanent QR code with QRStatic';
-  var canvas = document.getElementById('qr-canvas');
-  var downloadPng = document.getElementById('download-png');
-  if (!canvas || !downloadPng || document.getElementById('share-result')) return;
+  if (document.getElementById('share-result')) return;
 
-  var preview = canvas.closest('.preview-wrap') || canvas.parentElement;
-  if (!preview) return;
+  // Most pages have one #qr-canvas gated by #download-png. A page with several
+  // codes (e.g. App Store + Google Play) lists its canvas ids instead:
+  //   <div class="preview-wrap" data-share-canvases="qr-appstore qr-play">
+  // and the share row shows once any of them is drawn.
+  var canvases = [];
+  var gates = [];
+  var preview = null;
+  var single = document.getElementById('qr-canvas');
+  var downloadPng = document.getElementById('download-png');
+  if (single && downloadPng) {
+    canvases = [single];
+    gates = [downloadPng];
+    preview = single.closest('.preview-wrap') || single.parentElement;
+  } else {
+    preview = document.querySelector('[data-share-canvases]');
+    if (preview) {
+      canvases = preview.getAttribute('data-share-canvases').split(/\s+/)
+        .map(function (id) { return id ? document.getElementById(id) : null; })
+        .filter(Boolean);
+    }
+  }
+  if (!preview || !canvases.length) return;
 
   var section = document.createElement('section');
   section.className = 'share-result';
@@ -110,8 +128,19 @@
     return pageUrl;
   }
 
+  function firstDrawnCanvas() {
+    for (var i = 0; i < canvases.length; i++) {
+      if (!canvases[i].hidden) return canvases[i];
+    }
+    return null;
+  }
+
   function qrReady() {
-    return !canvas.hidden && !downloadPng.disabled;
+    if (!firstDrawnCanvas()) return false;
+    for (var i = 0; i < gates.length; i++) {
+      if (gates[i].disabled) return false;
+    }
+    return true;
   }
 
   function sync() {
@@ -121,7 +150,8 @@
   }
 
   function pngFileFromCanvas() {
-    if (typeof File !== 'function' || typeof canvas.toDataURL !== 'function') return null;
+    var canvas = firstDrawnCanvas();
+    if (!canvas || typeof File !== 'function' || typeof canvas.toDataURL !== 'function') return null;
     try {
       var dataUrl = canvas.toDataURL('image/png');
       var comma = dataUrl.indexOf(',');
@@ -198,7 +228,11 @@
   });
 
   var observer = new MutationObserver(sync);
-  observer.observe(canvas, { attributes: true, attributeFilter: ['hidden'] });
-  observer.observe(downloadPng, { attributes: true, attributeFilter: ['disabled'] });
+  canvases.forEach(function (el) {
+    observer.observe(el, { attributes: true, attributeFilter: ['hidden'] });
+  });
+  gates.forEach(function (el) {
+    observer.observe(el, { attributes: true, attributeFilter: ['disabled'] });
+  });
   sync();
 })();

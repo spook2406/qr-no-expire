@@ -45,48 +45,14 @@
     }
   };
 
-  function showError(msg) {
-    if (!errEl) return;
-    if (msg) {
-      errEl.textContent = msg;
-      errEl.classList.add('show');
-    } else {
-      errEl.textContent = '';
-      errEl.classList.remove('show');
-    }
-  }
+  function showError(msg) { QRCore.showError(errEl, msg); }
 
-  function showWarn(msg) {
-    if (!warnEl) return;
-    if (msg) {
-      warnEl.textContent = msg;
-      warnEl.hidden = false;
-    } else {
-      warnEl.textContent = '';
-      warnEl.hidden = true;
-    }
-  }
+  function showWarn(msg) { QRCore.showWarn(warnEl, msg); }
 
-  function getOptions() {
-    var size = parseInt((document.getElementById('opt-size') || {}).value, 10) || 320;
-    var level = (document.getElementById('opt-ecc') || {}).value || 'M';
-    var margin = parseInt((document.getElementById('opt-margin') || {}).value, 10);
-    if (isNaN(margin)) margin = 2;
-    return {
-      errorCorrectionLevel: level,
-      margin: margin,
-      width: size,
-      color: {
-        dark: (document.getElementById('opt-dark') || {}).value || '#000000',
-        light: (document.getElementById('opt-light') || {}).value || '#ffffff'
-      }
-    };
-  }
+  function getOptions() { return QRCore.getOptions(); }
 
   function setSideEnabled(side, enabled) {
-    [side.png, side.svgBtn, side.copy].forEach(function (btn) {
-      if (btn) btn.disabled = !enabled;
-    });
+    QRCore.setDisabled([side.png, side.svgBtn, side.copy], enabled);
     if (side.card) side.card.classList.toggle('is-empty', !enabled);
   }
 
@@ -275,14 +241,7 @@
     });
   }
 
-  function downloadDataUrl(dataUrl, filename) {
-    var a = document.createElement('a');
-    a.href = dataUrl;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  }
+  function downloadDataUrl(dataUrl, filename) { QRCore.downloadDataUrl(dataUrl, filename); }
 
   function bindSide(side) {
     if (side.png) {
@@ -294,10 +253,7 @@
     if (side.svgBtn) {
       side.svgBtn.addEventListener('click', function () {
         if (!side.svg) return;
-        var blob = new Blob([side.svg], { type: 'image/svg+xml;charset=utf-8' });
-        var url = URL.createObjectURL(blob);
-        downloadDataUrl(url, side.file + '.svg');
-        setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+        QRCore.downloadSvg(side.svg, side.file + '.svg');
       });
     }
     if (side.copy) {
