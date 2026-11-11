@@ -153,7 +153,7 @@
       </div>
     </div>
 
-    <div class="panel preview-wrap store-preview">
+    <div class="panel preview-wrap store-preview" data-share-canvases="qr-appstore qr-play">
       <h2 style="align-self:flex-start;width:100%;margin:0;">3. Preview &amp; download</h2>
       <div class="store-previews">
         <div class="store-card is-empty" id="card-appstore">
@@ -230,7 +230,7 @@
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <div>© 2026 QRNoExpire — free static QR code generator. Not affiliated with Apple or Google. No account required.</div>
+    <div>© 2026 QRStatic — free static QR code generator. Not affiliated with Apple or Google. No account required.</div>
     <div class="footer-links">
       <a href="index.html">Generator</a>
       <a href="wifi-qr-code-generator.html">WiFi QR</a>
@@ -262,7 +262,9 @@
 </footer>
 
 <script defer src="vendor/qrcode.min.js"></script>
+<script defer src="js/qr-core.js"></script>
 <script defer src="js/app-store-play-payload.js"></script>
 <script defer src="js/app-store-play-page.js"></script>
+<script defer src="js/share.js"></script>
 </body>
 </html>

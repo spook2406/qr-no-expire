@@ -12,48 +12,15 @@
   var lastSvg = '';
   var lastUrl = '';
 
-  function showError(msg) {
-    if (!errEl) return;
-    if (msg) {
-      errEl.textContent = msg;
-      errEl.classList.add('show');
-    } else {
-      errEl.textContent = '';
-      errEl.classList.remove('show');
-    }
-  }
+  function showError(msg) { QRCore.showError(errEl, msg); }
 
-  function showWarning(msg) {
-    if (!warnEl) return;
-    if (msg) {
-      warnEl.textContent = msg;
-      warnEl.hidden = false;
-    } else {
-      warnEl.textContent = '';
-      warnEl.hidden = true;
-    }
-  }
+  function showWarning(msg) { QRCore.showWarn(warnEl, msg); }
 
   function setButtons(enabled) {
-    [downloadPng, downloadSvg, copyUrl].forEach(function (btn) {
-      if (btn) btn.disabled = !enabled;
-    });
+    QRCore.setDisabled([downloadPng, downloadSvg, copyUrl], enabled);
   }
 
-  function getOptions() {
-    var size = parseInt((document.getElementById('opt-size') || {}).value, 10) || 320;
-    var level = (document.getElementById('opt-ecc') || {}).value || 'M';
-    var margin = parseInt((document.getElementById('opt-margin') || {}).value, 10);
-    if (isNaN(margin)) margin = 2;
-    var dark = (document.getElementById('opt-dark') || {}).value || '#000000';
-    var light = (document.getElementById('opt-light') || {}).value || '#ffffff';
-    return {
-      errorCorrectionLevel: level,
-      margin: margin,
-      width: size,
-      color: { dark: dark, light: light }
-    };
-  }
+  function getOptions() { return QRCore.getOptions(); }
 
   function generate() {
     showError('');
@@ -103,14 +70,7 @@
     });
   }
 
-  function downloadDataUrl(dataUrl, filename) {
-    var a = document.createElement('a');
-    a.href = dataUrl;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  }
+  function downloadDataUrl(dataUrl, filename) { QRCore.downloadDataUrl(dataUrl, filename); }
 
   var genBtn = document.getElementById('generate-btn');
   if (genBtn) genBtn.addEventListener('click', generate);
@@ -125,10 +85,7 @@
   if (downloadSvg) {
     downloadSvg.addEventListener('click', function () {
       if (!lastSvg) return;
-      var blob = new Blob([lastSvg], { type: 'image/svg+xml;charset=utf-8' });
-      var url = URL.createObjectURL(blob);
-      downloadDataUrl(url, 'google-review-qr-code.svg');
-      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      QRCore.downloadSvg(lastSvg, 'google-review-qr-code.svg');
     });
   }
 
