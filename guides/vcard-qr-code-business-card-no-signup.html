@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV95W19XS3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JV95W19XS3');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free vCard QR Code for Business Cards (No Signup)</title>
+<meta name="description" content="Make a free static vCard QR for business cards—name, phone, and email in the image, no signup, no short-link trial. Reprint if your details change.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/guides/vcard-qr-code-business-card-no-signup.html">
+<meta property="og:title" content="Free vCard QR Code for Business Cards (No Signup)">
+<meta property="og:description" content="Make a free static vCard QR for business cards—name, phone, and email in the image, no signup, no short-link trial. Reprint if your details change.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/guides/vcard-qr-code-business-card-no-signup.html">
+<link rel="stylesheet" href="../css/style.css">
+<meta name="google-adsense-account" content="ca-pub-8737820277849030">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8737820277849030"
+  crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does a vCard QR code expire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A static vCard QR does not expire because of a generator trial: the contact fields live in the image. What can go stale is the information (an old number) or the print (damage, glare, a cropped quiet zone). Codes that stop opening after a free trial were usually dynamic redirects."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an account to make a business card QR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A client-side vCard generator lets you fill fields and download PNG or SVG without signup. Accounts usually appear when a tool is selling hosted profiles and dashboards."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I change my phone number, email, or job title?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generate and print a new QR. Static codes cannot be updated remotely. Until you reprint, scanners still receive the old vCard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this a digital business card I can edit later from a dashboard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This workflow encodes a standard vCard in the image. It is not a hosted CRM or “digital card” you can rewrite after printing, and it has no built-in scan analytics. Those features belong to a different, usually paid, product."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will iPhone and Android save the contact when they scan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most modern system camera apps recognize a vCard payload and offer to add the contact. The exact prompt differs by OS version and app, so test both before a large order."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How large should a vCard QR be on a business card?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "More fields make a denser code. Start at about 2–2.5 cm (≈0.8–1 in) on the shortest side, keep a white margin, and do not shrink the mark to squeeze in a logo. Test a physical proof. For distance-based sizes, see QR print size by scan distance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my contact data uploaded to create the QR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On the vCard tool, generation runs in your browser; the fields are not uploaded to build the image. That is true of this client-side flow, not of every “QR business card” site—check before you paste a private number into a form that submits to a server."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="../index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="../index.html#generator">Generator</a>
+    <a href="./">Guides</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+<article class="prose">
+<h1>Free vCard QR codes for business cards (no signup)</h1>
+<p>A vCard QR on a business card, badge, or email signature lets someone save your name, phone, email, company, and website with one scan—instead of typing the fine print. The useful version for print is <strong>static</strong>: the contact fields are written <strong>into the image</strong> as a standard vCard. No account is required to keep the square working. No vendor landing page sits between the scan and the contact prompt.</p>
+<p>This is not a “dynamic CRM card.” Those products usually print a vendor short URL, then show your profile from their servers. That can be edited remotely—and it can stop resolving when a trial ends or a plan lapses. A static vCard trades remote edits for permanence: change a number or title, and you generate a new image and reprint.</p>
+<h2>What a static vCard QR actually stores</h2>
+<p>The image encodes a standard vCard text block (<code>BEGIN:VCARD</code> … <code>END:VCARD</code>)—typically vCard 3.0. Modern iPhone and Android camera apps that support contact QR scanning read that payload directly and offer to add the contact. There is no redirect server in the middle.</p>
+<p>Because the payload is <strong>in the image</strong>:</p>
+<ul>
+<li><strong>No signup</strong> is required to generate or to keep the download working.</li>
+<li><strong>No trial clock</strong> is attached to the printed card.</li>
+<li>Your fields are not uploaded to create the code when generation runs in the browser.</li>
+<li>The phone does not need a QR vendor online to parse the contact (it may still need a network later to open a website or email).</li>
+</ul>
+<p>Compare that with redirect-based cards in <a href="static-vs-dynamic-qr.html">Static vs dynamic QR codes</a>. The same idea is why <a href="qr-code-that-never-expires.html">static codes can outlast a trial redirect</a>.</p>
+<p>You cannot edit a card that already shipped. More fields also mean a <strong>denser</strong> QR: a full postal address plus phone, email, URL, and a logo needs more space than name + one phone + email. Most current system cameras offer “add contact”; some older phones may need a QR scanner app. Test iPhone and Android before a print run.</p>
+<h2>How to make one for a business card</h2>
+<ol>
+<li><strong>Decide which fields belong on the card.</strong> Name, one phone, email, and a website are enough for most networking cards. Extra address lines are fine on a badge or letterhead where the square can be larger.</li>
+<li><strong>Generate the code on your device.</strong> Soft CTA: use the <a href="../vcard-qr-code-generator.html">free vCard QR code generator</a>—no signup; the vCard string and QR image are built in your browser. Download <strong>SVG</strong> for print and <strong>PNG</strong> for screens, email, and proofs.</li>
+<li><strong>Size it for a handheld scan.</strong> On a standard business card, aim for at least about <strong>2 cm</strong> (~0.8 in) on the shortest side, with a clear white quiet zone. If the code looks very dense, drop unused fields or print slightly larger. Prefer matte stock; gloss glare is a common event-lighting failure.</li>
+<li><strong>Proof-scan before the print run.</strong> Confirm that a phone offers to save the contact and that every field is spelled correctly. Typos lock in with a static payload.</li>
+</ol>
+<p>The same file can go on a badge, one-pager, or letterhead. For event stationery that also needs RSVP or map <strong>URLs</strong> (not a vCard), a static URL code is the usual match; see the <a href="wedding-qr-code-static-no-signup.html">wedding QR guide</a>.</p>
+<h2>Static vCard vs a dynamic “digital card”</h2>
+<div class="table-scroll">
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Static vCard QR</strong></th>
+<th><strong>Dynamic / CRM-style card</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row"><strong>What is printed</strong></th>
+<td>The vCard text in the image</td>
+<td>A vendor short URL or profile link</td>
+</tr>
+<tr>
+<th scope="row"><strong>Edit after printing</strong></th>
+<td>No—reprint to change details</td>
+<td>Often yes, in a dashboard</td>
+</tr>
+<tr>
+<th scope="row"><strong>Account to stay “active”</strong></th>
+<td>Not required</td>
+<td>Often required; trials and plans can end</td>
+</tr>
+<tr>
+<th scope="row"><strong>Analytics</strong></th>
+<td>None built into the barcode</td>
+<td>Sometimes part of the product</td>
+</tr>
+<tr>
+<th scope="row"><strong>Best when</strong></th>
+<td>Cards and badges you reprint when details change</td>
+<td>You need remote edits or scan stats and will pay for a reliable plan</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Neither is “wrong.” The mismatch is using a <strong>free dynamic trial</strong> on cards you will hand out for a year. If you want a profile you can rewrite weekly, choose a paid product on purpose. If you want a contact square that does not depend on someone else’s redirect, use a static vCard and reprint when details change.</p>
+<p>Do not wrap the vCard in an extra short link “so you can update it later” unless you are deliberately buying that redirect. That would be a URL code with a middleman, not a vCard in the image.</p>
+<h2>Related guides</h2>
+<ul>
+<li><a href="static-vs-dynamic-qr.html">Static vs dynamic QR codes</a> — when a redirect product is worth paying for</li>
+<li><a href="qr-code-that-never-expires.html">QR codes that never expire</a> — why static payloads have no trial clock</li>
+<li><a href="wedding-qr-code-static-no-signup.html">Wedding QR codes without signup</a> — static URL codes for RSVP, maps, and event print</li>
+<li><a href="qr-code-print-size-scan-distance.html">QR code print size by scan distance</a> — handheld sizing and quiet zone</li>
+<li><a href="../vcard-qr-code-generator.html">Free vCard QR code generator</a></li>
+</ul>
+<h2>FAQ</h2>
+<h3>Does a vCard QR code expire?</h3>
+<p>A <strong>static</strong> vCard QR does not expire because of a generator trial: the contact fields live in the image. What can go stale is the <em>information</em> (an old number) or the <em>print</em> (damage, glare, a cropped quiet zone). Codes that stop opening after a free trial were usually dynamic redirects.</p>
+<h3>Do I need an account to make a business card QR?</h3>
+<p>No. A client-side <a href="../vcard-qr-code-generator.html">vCard generator</a> lets you fill fields and download PNG or SVG without signup. Accounts usually appear when a tool is selling hosted profiles and dashboards.</p>
+<h3>What if I change my phone number, email, or job title?</h3>
+<p>Generate and print a new QR. Static codes cannot be updated remotely. Until you reprint, scanners still receive the old vCard.</p>
+<h3>Is this a digital business card I can edit later from a dashboard?</h3>
+<p>No. This workflow encodes a standard vCard in the image. It is not a hosted CRM or “digital card” you can rewrite after printing, and it has no built-in scan analytics. Those features belong to a different, usually paid, product.</p>
+<h3>Will iPhone and Android save the contact when they scan?</h3>
+<p>Most modern system camera apps recognize a vCard payload and offer to add the contact. The exact prompt differs by OS version and app, so test both before a large order.</p>
+<h3>How large should a vCard QR be on a business card?</h3>
+<p>More fields make a denser code. Start at about <strong>2–2.5 cm</strong> (≈0.8–1 in) on the shortest side, keep a white margin, and do not shrink the mark to squeeze in a logo. Test a physical proof. For distance-based sizes, see <a href="qr-code-print-size-scan-distance.html">QR print size by scan distance</a>.</p>
+<h3>Is my contact data uploaded to create the QR?</h3>
+<p>On the <a href="../vcard-qr-code-generator.html">vCard tool</a>, generation runs in your browser; the fields are not uploaded to build the image. That is true of this client-side flow, not of every “QR business card” site—check before you paste a private number into a form that submits to a server.</p>
+</article>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRStatic</div>
+    <div class="footer-links">
+      <a href="../index.html">Generator</a>
+      <a href="./">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV95W19XS3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JV95W19XS3');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google Maps Location QR Code for Your Store</title>
+<meta name="description" content="Put a static Google Maps location QR on a storefront, table tent, or poster. Prefer a Maps URL for mixed devices; optional geo: is shorter. No signup, no trial short link.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/guides/google-maps-location-qr-code-store.html">
+<meta property="og:title" content="Google Maps Location QR Code for Your Store">
+<meta property="og:description" content="Put a static Google Maps location QR on a storefront, table tent, or poster. Prefer a Maps URL for mixed devices; optional geo: is shorter. No signup, no trial short link.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/guides/google-maps-location-qr-code-store.html">
+<link rel="stylesheet" href="../css/style.css">
+<meta name="google-adsense-account" content="ca-pub-8737820277849030">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8737820277849030"
+  crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should I use a Google Maps URL or a geo: QR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Prefer a Maps URL for most print jobs—it is the better cross-device default, including many iOS Camera scans. Use geo:lat,lon when you want a shorter coordinates-only payload and have tested the devices you care about. The place name is not stored in geo: mode."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does scanning start turn-by-turn navigation automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually no. The device opens a maps app or a browser so the guest can view the place. They confirm directions; the QR does not start navigation by itself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a store location QR expire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A static payload does not expire because of a generator trial—the Maps URL or geo: string lives in the image. If you move, reprint. Maps apps still control how those links open. If the square opens a third-party “expired / upgrade” page, someone likely encoded a dynamic short link instead of the location payload."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this an official Google Maps or Apple Maps tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. qrstatic.app is not affiliated with Google, Apple, or any maps provider. It only formats a Maps URL or geo: payload."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my coordinates or address uploaded?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Generation runs in your browser. Coordinates and addresses are not uploaded to create the image, and the site does not mint a short link that can die after a trial."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I enter invalid coordinates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The generator shows a clear error and does not silently build a QR. Whitespace is trimmed; fix the latitude and longitude (or switch to a Maps URL query) and try again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I put a map QR on the same table tent as menu and Wi‑Fi codes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if each square is clearly labeled and large enough to scan. Treat the map as an optional extra when guests need directions—not a replacement for guest Wi‑Fi or a menu URL. See the café table tent guide."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="../index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="../index.html#generator">Generator</a>
+    <a href="./">Guides</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+<article class="prose">
+<h1>Google Maps location QR codes for your store</h1>
+<p>A window decal, table tent, or event poster can carry a QR that opens your place in a maps app—so a guest does not have to type the address. The print-safe version is <strong>static</strong>: the location is written into the image as a <strong>Google Maps URL</strong> (the default) or, optionally, a compact <code>geo:</code> URI. There is no signup to keep the square working, and no short link in the middle that dies after a trial.</p>
+<p>Scanning usually opens a maps app or a browser. The person <strong>confirms navigation</strong>; the scan does <strong>not</strong> auto-start turn-by-turn directions. qrstatic.app is an independent static QR tool. It is <strong>not affiliated with Google, Apple, or any maps provider</strong>. Those names belong to their owners. The page only formats a URL or <code>geo:</code> payload those apps already know how to open.</p>
+<p>Use this for <strong>lawful</strong> sharing: your storefront, a public event, or another place you may disclose. Do not encode a private or sensitive location without consent.</p>
+<h2>Maps URL vs geo: — which should you print?</h2>
+<p><strong>Default: a Google Maps URL.</strong> It is the most portable choice for mixed-device print (table tents, posters, invitations), including many iOS Camera scans. A typical pattern looks like <code>https://maps.google.com/?q=40.7128,-74.0060</code>. Maps URL mode can use a <strong>place query alone</strong>, <strong>coordinates alone</strong>, or <strong>both</strong>. If you use a query alone, proof-scan and confirm the pin is <em>your</em> store—common business names can resolve to the wrong place.</p>
+<p><strong>Optional: a <code>geo:lat,lon</code> URI.</strong> This payload is shorter, so the QR can be less dense. The <strong>name is not encoded</strong> in <code>geo:</code> mode—you need coordinates only. On Android, <code>geo:</code> can hand off to a maps app especially cleanly. On <strong>iOS</strong>, Camera and link handling for <code>geo:</code> <strong>can differ</strong>, so prefer the Maps URL when you cannot control which phones will scan the print.</p>
+<p>Neither format starts driving by itself. The guest still reviews the pin or search result and chooses directions.</p>
+<p>A <strong>static</strong> payload has no generator trial clock: the URL or <code>geo:</code> string lives in the image, and coordinates or addresses stay in your <strong>browser</strong> (nothing is uploaded to create the code; no short link is minted). Maps apps still control how those links open after an OS or app update—retest if reports start to look like “the QR broke.” Invalid coordinates show a <strong>clear error</strong>; they are not silently turned into a QR.</p>
+<p>If you later move storefronts, the old print still points at the old place. Generate a new image and replace the sign.</p>
+<h2>How to make a store or event location QR</h2>
+<ol>
+<li><strong>Choose the payload for the devices you expect.</strong> For a shop window, table tent, or invitation that anyone might scan, start with a <strong>Maps URL</strong>. Use <code>geo:</code> only when you specifically want the compact coordinates URI and have tested the target phones. In Maps URL mode you can enter a query, coordinates, or both; <code>geo:</code> needs coordinates.</li>
+<li><strong>Generate the static image in the browser.</strong> Soft CTA: use the <a href="../location-qr-code-generator.html">location / maps QR code generator</a>—no signup; coordinates and addresses stay on your device. Download <strong>SVG</strong> for print and <strong>PNG</strong> for screens and proofs.</li>
+<li><strong>Label the square, size it, and proof-scan.</strong> Write “Find us,” “Directions,” or the store name so it is not mistaken for Wi‑Fi or a menu. Start around <strong>2–2.5 cm</strong> on a handheld card or invitation, and <strong>3–4 cm</strong> on a table tent or door sign, with a white quiet zone. Confirm that a phone opens the right place and that navigation starts only after the guest confirms. For distance-based sizes, see <a href="qr-code-print-size-scan-distance.html">QR code print size by scan distance</a>.</li>
+</ol>
+<p>Do not put a free shortener in front of the Maps URL “to track scans” unless you are deliberately paying for a redirect you trust. That reintroduces a middleman that can fail independently of the place.</p>
+<h2>Storefronts, table tents, and one-night events</h2>
+<p>A location QR works well as <strong>one labeled square</strong> next to the other jobs a café or shop already prints:</p>
+<ul>
+<li>Menu, Wi‑Fi, and review codes on the same tent—see <a href="cafe-table-tent-menu-wifi-review-qr.html">one café table tent, three static QR codes</a>. Add a map code only if guests actually need directions from the table (a food-hall stall or a hard-to-spot entrance). An unlabeled fourth square just adds clutter.</li>
+<li>Guest internet should stay a <strong>static Wi‑Fi</strong> payload on a guest SSID, not a map pin. Details: <a href="guest-wifi-qr-code-cafe-restaurant.html">guest Wi‑Fi QR codes for cafés and restaurants</a>.</li>
+<li>A window decal or sidewalk sign can carry the location QR alone: clear label, static Maps URL, proof-scanned in daylight and at night if the sign is lit.</li>
+</ul>
+<p>If the place is tied to a <strong>time</strong> (a popup, a tasting, a one-night event), you can also print a separate <a href="../calendar-event-qr-code-generator.html">calendar event QR</a> so guests save the slot. Keep each square labeled; the location code is still the map, not the calendar.</p>
+<h2>Related guides</h2>
+<ul>
+<li><a href="cafe-table-tent-menu-wifi-review-qr.html">Café table tent: menu, Wi‑Fi, and review QRs</a></li>
+<li><a href="qr-code-print-size-scan-distance.html">QR code print size by scan distance</a></li>
+<li><a href="guest-wifi-qr-code-cafe-restaurant.html">Guest Wi‑Fi QR codes for cafés and restaurants</a></li>
+<li><a href="../location-qr-code-generator.html">Location / maps QR code generator</a></li>
+</ul>
+<h2>FAQ</h2>
+<h3>Should I use a Google Maps URL or a geo: QR?</h3>
+<p>Prefer a <strong>Maps URL</strong> for most print jobs—it is the better cross-device default, including many iOS Camera scans. Use <code>geo:lat,lon</code> when you want a shorter coordinates-only payload and have tested the devices you care about. The place name is not stored in <code>geo:</code> mode.</p>
+<h3>Does scanning start turn-by-turn navigation automatically?</h3>
+<p>Usually no. The device opens a maps app or a browser so the guest can view the place. They <strong>confirm</strong> directions; the QR does not start navigation by itself.</p>
+<h3>Does a store location QR expire?</h3>
+<p>A <strong>static</strong> payload does not expire because of a generator trial—the Maps URL or <code>geo:</code> string lives in the image. If you move, reprint. Maps apps still control how those links open. If the square opens a third-party “expired / upgrade” page, someone likely encoded a <strong>dynamic short link</strong> instead of the location payload.</p>
+<h3>Is this an official Google Maps or Apple Maps tool?</h3>
+<p>No. qrstatic.app is not affiliated with Google, Apple, or any maps provider. It only formats a Maps URL or <code>geo:</code> payload.</p>
+<h3>Are my coordinates or address uploaded?</h3>
+<p>No. Generation runs in your browser. Coordinates and addresses are not uploaded to create the image, and the site does not mint a short link that can die after a trial.</p>
+<h3>What if I enter invalid coordinates?</h3>
+<p>The generator shows a <strong>clear error</strong> and does not silently build a QR. Whitespace is trimmed; fix the latitude and longitude (or switch to a Maps URL query) and try again.</p>
+<h3>Can I put a map QR on the same table tent as menu and Wi‑Fi codes?</h3>
+<p>Yes, if each square is clearly labeled and large enough to scan. Treat the map as an optional extra when guests need directions—not a replacement for guest Wi‑Fi or a menu URL. See the <a href="cafe-table-tent-menu-wifi-review-qr.html">café table tent guide</a>.</p>
+</article>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRStatic</div>
+    <div class="footer-links">
+      <a href="../index.html">Generator</a>
+      <a href="./">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV95W19XS3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JV95W19XS3');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google Form QR Code for Attendance or RSVP</title>
+<meta name="description" content="Encode a published Google Form responder link in a static QR for class attendance, event RSVP, or a worksheet—no signup. Closed or restricted forms can still fail at Google.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/guides/google-form-qr-code-attendance-rsvp.html">
+<meta property="og:title" content="Google Form QR Code for Attendance or RSVP">
+<meta property="og:description" content="Encode a published Google Form responder link in a static QR for class attendance, event RSVP, or a worksheet—no signup. Closed or restricted forms can still fail at Google.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/guides/google-form-qr-code-attendance-rsvp.html">
+<link rel="stylesheet" href="../css/style.css">
+<meta name="google-adsense-account" content="ca-pub-8737820277849030">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8737820277849030"
+  crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does a Google Form QR code expire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The static image does not expire because of a qrstatic.app trial or a short link this site hosts: it stores the responder URL you encoded. The form can still fail if it is closed, deleted, or not accepting responses. That failure is at Google, not a timer on the QR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Google Form link should I paste?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Copy the responder (answer) link from Send, Share, or Published: a docs.google.com/forms/…/viewform URL or a forms.gle short link. Leave out /edit, /preview, and any path ending in formResponse. Other domains are rejected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the generator show an error instead of making a QR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool only encodes published responder links. Empty input, a non-Forms domain, an edit or preview URL, or a path ending in formResponse returns a clear error and is never silently encoded—so you do not print an admin or submit endpoint by mistake."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do people see a Google sign-in prompt after they scan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That prompt comes from the form’s settings (organization restriction, one response per person, file upload, and similar), not from a broken QR. This workflow does not bypass school or organization login limits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I close or delete the form later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Scans will fail at Google until the form is published and accepting responses again. The QR still holds the same URL. If you replace the form and the responder link changes, reprint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is posting a Google Form QR the same as publishing the form?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, in practice. A public poster is a public response entry. Only share a form you have the right to share. Responses are collected by Google Forms, not by qrstatic.app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this an official Google product? Is my form link uploaded?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No on both counts. qrstatic.app is not affiliated with Google. Checking the link and drawing the QR run in your browser; the URL is not uploaded, and the site does not create a dynamic short link or collect form responses."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="../index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="../index.html#generator">Generator</a>
+    <a href="./">Guides</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+<article class="prose">
+<h1>Google Form QR codes for attendance or RSVP</h1>
+<p>A classroom door, worksheet, or event poster can carry a QR that opens a Google Form—attendance, RSVP, or a short survey—without anyone typing a long URL. The print-safe version is <strong>static</strong>: it stores the <strong>published responder link</strong> in the image. Scanning opens that form. There is no qrstatic.app account to keep the square “active,” and no short link of ours in the middle.</p>
+<p>This is <strong>not an official Google product</strong>, and qrstatic.app is <strong>not affiliated with Google</strong>. Google Forms and related marks belong to their owners. The generator only encodes a responder URL Google Forms already gives you. Whether someone can actually submit still depends on Google: the form must be <strong>Published and accepting responses</strong>. If you close or delete the form, scans fail at Google—not because a generator set a timer.</p>
+<h2>What the QR actually encodes</h2>
+<p>Paste the link respondents use, not the editor. Accepted shapes are:</p>
+<ul>
+<li>A full answer URL such as <code>https://docs.google.com/forms/…/viewform</code> (including common query suffixes like <code>?usp=sf_link</code>).</li>
+<li>A short <code>https://forms.gle/…</code> link.</li>
+</ul>
+<p>The tool normalizes the address to <strong>HTTPS</strong> and writes that URL into a static QR in your <strong>browser</strong>. Other domains are rejected. So are admin or submit paths: <code>/edit</code>, <code>/preview</code>, and any path that ends in <code>formResponse</code>. Those show a <strong>clear error</strong> and are <strong>never silently encoded</strong>—a common mistake is copying the address bar while editing.</p>
+<p>In Google Forms, copy the responder link from <strong>Send</strong>, <strong>Share</strong>, or the <strong>Published</strong> view. Optional <strong>Shorten URL</strong> in Forms produces a <code>forms.gle</code> link. That shorter string makes a <strong>less dense</strong> QR, which is easier to scan from a classroom door or a small worksheet.</p>
+<p>Because the payload is the URL itself:</p>
+<ul>
+<li>Generation does not require signup, and the image has no trial clock on qrstatic.app’s side.</li>
+<li>The form link stays in the browser; it is not uploaded, and the site does not mint a dynamic short link.</li>
+<li>The site does <strong>not collect form responses</strong>; submissions go to your Google Form.</li>
+</ul>
+<p>If you later change the <strong>responder link itself</strong> (for example, you replace the form and the new share URL is different), the old print still points at the old URL—generate a new image and reprint.</p>
+<h2>How to make an attendance or RSVP QR</h2>
+<ol>
+<li><strong>Publish the form and copy the responder link.</strong> Confirm it is accepting responses. Use Shorten URL when the print will be small. Do not copy <code>/edit</code>, <code>/preview</code>, or a <code>formResponse</code> path.</li>
+<li><strong>Generate a static QR in the browser.</strong> Soft CTA: use the <a href="../google-form-qr-code-generator.html">Google Form QR code generator</a>—no signup; the link stays on your device. Download <strong>SVG</strong> for print and <strong>PNG</strong> for screens, slides, and proofs.</li>
+<li><strong>Label the square and proof-scan it.</strong> Write “Attendance,” “RSVP,” or “Scan to submit” so it is not mistaken for Wi‑Fi or a map. Open the form on iPhone and Android, confirm it is the answer page, and print at a scannable size (about <strong>2–2.5 cm</strong> on a worksheet, <strong>3–4 cm</strong> on a door or foyer sign), with a white quiet zone.</li>
+</ol>
+<p>Do not wrap the responder URL in an extra free shortener “for tracking.” That puts a redirect back in front of a form you already control. If a printed code later opens an upgrade wall instead of the form, someone likely encoded a <strong>dynamic short link</strong>—see <a href="why-did-my-qr-code-stop-working.html">Why did my QR code stop working?</a> and <a href="qr-code-that-never-expires.html">QR codes that never expire</a>.</p>
+<h2>Classroom, RSVP, and public posting</h2>
+<p>Typical uses are <strong>classroom attendance</strong>, an <strong>event RSVP</strong>, and a <strong>worksheet</strong> or exit ticket. A wedding or party RSVP can use the same pattern: a published form URL in a static square. Keep the form live through the event plus a short buffer. For other static wedding URLs (maps, albums, registry), see <a href="wedding-qr-code-static-no-signup.html">wedding QR codes without signup</a>.</p>
+<p><strong>Posting the QR in public is a public response entry.</strong> Treat it like handing out the form link. Only encode a form you have the <strong>right to share</strong>. Do not print a form that was meant to stay inside a class or organization onto a poster anyone can scan.</p>
+<p>A <strong>sign-in prompt</strong> after scanning usually comes from the form’s own settings—an organization restriction, one response per person, a file-upload question, or a similar limit—not from a broken QR. Encoding the URL does <strong>not</strong> bypass school or organization login or response limits, and the generator will not help you turn those limits off. If guests should answer without a school login, change the form’s sharing settings in Google Forms <em>before</em> you print.</p>
+<p>If the form is <strong>closed or deleted</strong>, the QR still contains the same URL; Google refuses the response. Reopen or replace the form (and reprint if the new responder link is different). That is a destination failure, not a generator expiry.</p>
+<h2>Related guides</h2>
+<ul>
+<li><a href="wedding-qr-code-static-no-signup.html">Wedding QR codes without signup</a> — static URL codes for RSVP, maps, and event print</li>
+<li><a href="qr-code-that-never-expires.html">QR codes that never expire</a> — why a static payload has no trial clock</li>
+<li><a href="why-did-my-qr-code-stop-working.html">Why did my QR code stop working?</a> — triage when a scan opens a dead or unexpected page</li>
+<li><a href="../google-form-qr-code-generator.html">Google Form QR code generator</a></li>
+</ul>
+<h2>FAQ</h2>
+<h3>Does a Google Form QR code expire?</h3>
+<p>The <strong>static</strong> image does not expire because of a qrstatic.app trial or a short link this site hosts: it stores the responder URL you encoded. The form can still fail if it is closed, deleted, or not accepting responses. That failure is at Google, not a timer on the QR.</p>
+<h3>Which Google Form link should I paste?</h3>
+<p>Copy the <strong>responder</strong> (answer) link from Send, Share, or Published: a <code>docs.google.com/forms/…/viewform</code> URL or a <code>forms.gle</code> short link. Leave out <code>/edit</code>, <code>/preview</code>, and any path ending in <code>formResponse</code>. Other domains are rejected.</p>
+<h3>Why does the generator show an error instead of making a QR?</h3>
+<p>The tool only encodes published responder links. Empty input, a non-Forms domain, an edit or preview URL, or a path ending in <code>formResponse</code> returns a clear error and is never silently encoded—so you do not print an admin or submit endpoint by mistake.</p>
+<h3>Why do people see a Google sign-in prompt after they scan?</h3>
+<p>That prompt comes from the <strong>form’s settings</strong> (organization restriction, one response per person, file upload, and similar), not from a broken QR. This workflow does not bypass school or organization login limits.</p>
+<h3>What if I close or delete the form later?</h3>
+<p>Scans will fail at Google until the form is published and accepting responses again. The QR still holds the same URL. If you replace the form and the responder link changes, reprint.</p>
+<h3>Is posting a Google Form QR the same as publishing the form?</h3>
+<p>Yes, in practice. A public poster is a public response entry. Only share a form you have the right to share. Responses are collected by Google Forms, not by qrstatic.app.</p>
+<h3>Is this an official Google product? Is my form link uploaded?</h3>
+<p>No on both counts. qrstatic.app is not affiliated with Google. Checking the link and drawing the QR run in your browser; the URL is not uploaded, and the site does not create a dynamic short link or collect form responses.</p>
+</article>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRStatic</div>
+    <div class="footer-links">
+      <a href="../index.html">Generator</a>
+      <a href="./">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
