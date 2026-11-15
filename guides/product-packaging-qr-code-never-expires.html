@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV95W19XS3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JV95W19XS3');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product Packaging QR Code That Never Expires</title>
+<meta name="description" content="Packaging and manual QRs often fail years later when a vendor short link or trial dies. Encode a stable URL you control in a static QR—SVG for print, no signup.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qrstatic.app/guides/product-packaging-qr-code-never-expires.html">
+<meta property="og:title" content="Product Packaging QR Code That Never Expires">
+<meta property="og:description" content="Packaging and manual QRs often fail years later when a vendor short link or trial dies. Encode a stable URL you control in a static QR—SVG for print, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qrstatic.app/guides/product-packaging-qr-code-never-expires.html">
+<link rel="stylesheet" href="../css/style.css">
+<meta name="google-adsense-account" content="ca-pub-8737820277849030">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8737820277849030"
+  crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why did a product QR stop working years later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often a dynamic short link later stopped redirecting—trial end, lapsed plan, or a service change. Sometimes the support URL itself moved. Decode the square: a third-party host you do not control is the usual redirect story; a 404 on your own domain is a page problem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do packaging QR codes expire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The printed pattern has no built-in calendar. Static codes that embed your URL in the image have no vendor trial timer. What fails is usually a dynamic redirect or free-trial account, a moved URL, or damaged / low-contrast print."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I update the manual without reprinting boxes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if the QR points at a stable URL and you edit that page or file in place (or set a permanent redirect). The barcode stores the address, not the PDF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I put a shortener in front of my support URL?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avoid it for packaging. Another free shortener recreates the same dependency. Encode the real https URL you will keep."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "SVG or PNG for a carton or manual?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Prefer SVG when the mark may be resized for print. Use a sharp PNG for proofs and screens. Expiration risk comes from what you encode, not the file type. See print size and file-format tips."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How large should the QR be on a product box?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start from scan distance: roughly 2–2.5 cm for a handheld insert, 3–4 cm for a carton at arm’s length, and larger for warehouse or aisle distances. Leave a quiet zone, and proof-scan a real print before the production run."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if boxes already shipped with a dead vendor link?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You cannot unlock a third-party short URL from outside that vendor’s account and policy. For new production, print a static code to a URL you own. For product already in market, a sticker overlay is the usual fix. If you still have dashboard access, renewing may restore the old redirect—confirm in that vendor’s official support docs."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="../index.html">QR<span>NoExpire</span></a>
+  <div class="nav-links">
+    <a href="../index.html#generator">Generator</a>
+    <a href="./">Guides</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../privacy.html">Privacy</a>
+  </div>
+</nav>
+</header>
+<article class="prose">
+<h1>Product packaging QR codes that never expire</h1>
+<p>The box still looks fine. The manual still has a crisp square in the corner. A customer scans it two or three years later—and the phone opens an expired campaign, an upgrade wall, or a dead short link. Support hears “your QR expired.” What usually expired is not the barcode format. It is the <strong>vendor redirect</strong> (or free-trial account) sitting between the print and the real support page.</p>
+<p>The fix is to encode a <strong>stable URL you control</strong> in a <strong>static</strong> QR, print it at a scannable size (prefer <strong>SVG</strong>), and keep that URL alive. No QR vendor account is required after the boxes ship.</p>
+<h2>Why packaging QRs die years later</h2>
+<p>A QR code only stores data. Many packaging or “smart label” tools encode a <strong>vendor-owned short URL</strong> in the artwork and redirect scanners to your manual or product page while the trial or plan is active.</p>
+<p>Years later that short URL may stop resolving, show an upgrade wall, or die when the vendor rebrands or shuts the redirect down. The <strong>pattern can still scan</strong>; what failed is the redirect, not the ink.</p>
+<p>A dead packaging redirect is expensive: die lines, channel inventory, and manuals already in the box.</p>
+<p><strong>Static</strong> codes skip that layer. Encode <code>https://yourbrand.com/support/model-x</code> (or another path you will keep) and there is no generator trial clock on the carton. Expiration belongs with <strong>dynamic free trials and short-link failures</strong>, not the QR format itself. See <a href="static-vs-dynamic-qr.html">Static vs dynamic QR codes</a> and <a href="qr-code-that-never-expires.html">QR codes that never expire</a>.</p>
+<h2>The fix: a static QR to a URL you control</h2>
+<p>Point the printed code at a <strong>destination you own</strong> and can keep stable:</p>
+<ul>
+<li>A support or docs path you will not rename (<code>yourbrand.com/support</code>, <code>/manual</code>, <code>/warranty</code>).</li>
+<li>A page you can <strong>update in place</strong> when the PDF or how-to changes.</li>
+<li>A URL on <strong>your</strong> domain—not a third-party shortener in front of the real page.</li>
+</ul>
+<p><strong>Static does not mean the manual is frozen.</strong> It means the <em>payload in the image</em> is frozen. Change the HTML or file behind the same path as often as you need. Customers keep scanning the same carton.</p>
+<p>You cannot silently swap the encoded address after the print run—set a permanent redirect, or use a new barcode (and a sticker overlay for product already shipped). If you delete the page without a redirect, scanners open a 404: the QR did not expire; the page left. Proof the exact <code>https</code> URL before artwork freeze.</p>
+<p>If a code already in market failed, decode it and read the host. A vendor domain you do not control is the usual redirect story; you generally cannot revive that short link from the outside. See <a href="why-did-my-qr-code-stop-working.html">Why did my QR code stop working?</a>.</p>
+<h2>Print size, contrast, and SVG vs PNG</h2>
+<p>Packaging art is often shrunk late. A thumbnail QR on kraft or a photo panel is a common reason it scans on screen but not on the shelf. Starting widths (the code itself, not the whole panel):</p>
+<ul>
+<li><strong>Handheld</strong> (insert, hangtag, booklet): about <strong>2–2.5 cm</strong> (≈0.8–1 in). Prefer the higher end if the code includes a logo or many modules.</li>
+<li><strong>Retail carton / shelf talker</strong> (arm’s length in an aisle): about <strong>3–4 cm</strong> (≈1.2–1.6 in).</li>
+<li><strong>Case pack or warehouse label</strong> (farther away): follow the distance table in <a href="qr-code-print-size-scan-distance.html">QR code print size by scan distance</a>.</li>
+</ul>
+<p>Leave a <strong>quiet zone</strong> (a white margin around the square). Prefer <strong>dark modules on a light patch</strong>—gray-on-kraft fails more often than a white inset—and <strong>matte</strong> over the code if you can; gloss glare looks like damaged modules. Do not stretch the code into a non-square.</p>
+<p><strong>SVG vs PNG</strong> does not change expiration; both can be static. Use <strong>SVG</strong> for cartons and die-line resizes, and a sharp <strong>PNG</strong> for proofs and listings. Do not upscale a tiny PNG. Archive the SVG plus the exact encoded URL, send the printer the format they specify, and proof-scan on iPhone and Android under store-like lighting.</p>
+<h2>How to make the replacement (or the first production file)</h2>
+<ol>
+<li><strong>Freeze a stable URL you control.</strong> Update the page later; do not encode a trial short link.</li>
+<li><strong>Generate a static QR in the browser.</strong> Soft CTA: use the <a href="../index.html">free static QR generator (no signup)</a> on <a href="https://qrstatic.app/">qrstatic.app</a>—the payload is written into the image, with no trial redirect in the middle. Download <strong>SVG</strong> for print and a <strong>PNG</strong> proof.</li>
+<li><strong>Scan-test, then release artwork.</strong> Confirm the destination, quiet zone, and size. Document the encoded string for the next refresh.</li>
+</ol>
+<p>If marketing later needs edit-after-print and vendor analytics, buy a <strong>paid</strong> dynamic plan on purpose—with clear uptime and exit terms—rather than baking a trial into shipped cartons. For evergreen manuals, static plus a stable URL is usually enough.</p>
+<h2>Related guides</h2>
+<ul>
+<li><a href="qr-code-that-never-expires.html">QR codes that never expire</a> — how permanent static codes work</li>
+<li><a href="why-did-my-qr-code-stop-working.html">Why did my QR code stop working?</a> — triage for dead packaging and poster codes</li>
+<li><a href="qr-code-print-size-scan-distance.html">QR code print size by scan distance</a> — sizes, quiet zone, SVG vs PNG</li>
+<li><a href="static-vs-dynamic-qr.html">Static vs dynamic QR codes</a> — when a paid redirect is worth it</li>
+<li><a href="../index.html">Free static QR generator (no signup)</a></li>
+</ul>
+<h2>FAQ</h2>
+<h3>Why did a product QR stop working years later?</h3>
+<p>Often a <strong>dynamic short link</strong> later stopped redirecting—trial end, lapsed plan, or a service change. Sometimes the support URL itself moved. Decode the square: a third-party host you do not control is the usual redirect story; a 404 on your own domain is a page problem.</p>
+<h3>Do packaging QR codes expire?</h3>
+<p>The printed pattern has no built-in calendar. <strong>Static</strong> codes that embed your URL in the image have no vendor trial timer. What fails is usually a <strong>dynamic redirect or free-trial account</strong>, a moved URL, or damaged / low-contrast print.</p>
+<h3>Can I update the manual without reprinting boxes?</h3>
+<p>Yes, if the QR points at a stable URL and you edit that page or file in place (or set a permanent redirect). The barcode stores the address, not the PDF.</p>
+<h3>Should I put a shortener in front of my support URL?</h3>
+<p>Avoid it for packaging. Another free shortener recreates the same dependency. Encode the real <code>https</code> URL you will keep.</p>
+<h3>SVG or PNG for a carton or manual?</h3>
+<p>Prefer <strong>SVG</strong> when the mark may be resized for print. Use a sharp <strong>PNG</strong> for proofs and screens. Expiration risk comes from what you encode, not the file type. See <a href="qr-code-print-size-scan-distance.html">print size and file-format tips</a>.</p>
+<h3>How large should the QR be on a product box?</h3>
+<p>Start from scan distance: roughly <strong>2–2.5 cm</strong> for a handheld insert, <strong>3–4 cm</strong> for a carton at arm’s length, and larger for warehouse or aisle distances. Leave a quiet zone, and proof-scan a real print before the production run.</p>
+<h3>What if boxes already shipped with a dead vendor link?</h3>
+<p>You cannot unlock a third-party short URL from outside that vendor’s account and policy. For new production, print a static code to a URL you own. For product already in market, a sticker overlay is the usual fix. If you still have dashboard access, renewing <em>may</em> restore the old redirect—confirm in that vendor’s official support docs.</p>
+</article>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© 2026 QRStatic</div>
+    <div class="footer-links">
+      <a href="../index.html">Generator</a>
+      <a href="./">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
