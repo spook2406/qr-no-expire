@@ -183,6 +183,13 @@ img { max-width: 100%; height: auto; }
   border-top: 1px solid var(--border); margin-top: 2rem;
   padding: 1.5rem 1.25rem 2.5rem; color: var(--muted); font-size: .88rem;
 }
+.associate-disclosure { margin: 0 0 1rem; color: var(--text); font-size: .95rem; font-weight: 700; }
+.site-footer .associate-disclosure { max-width: 1100px; margin: 0 auto .85rem; }
+.prose p.associate-disclosure { color: var(--text); font-weight: 700; }
+.prose p.affiliate-slot {
+  margin: .35rem 0 1.15rem; padding: .55rem .75rem;
+  border-left: 3px solid var(--border); color: var(--muted); font-size: .92rem;
+}
 .footer-inner {
   max-width: 1100px; margin: 0 auto;
   display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;
