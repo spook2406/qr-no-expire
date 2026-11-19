@@ -296,7 +296,7 @@ test('page, sitemap, and homepage meet the LinkedIn tool contract', function () 
 
   assert.match(
     sitemap,
-    /<loc>https:\/\/qrstatic\.app\/calendly-qr-code-generator\.html<\/loc><lastmod>2026-11-10<\/lastmod><changefreq>weekly<\/changefreq><priority>0\.9<\/priority><\/url>\n {2}<url><loc>https:\/\/qrstatic\.app\/linkedin-qr-code-generator\.html<\/loc><lastmod>2026-11-16<\/lastmod><changefreq>weekly<\/changefreq><priority>0\.9<\/priority><\/url>\n {2}<url><loc>https:\/\/qrstatic\.app\/contact\.html<\/loc><lastmod>2026-11-07<\/lastmod>/
+    /<loc>https:\/\/qrstatic\.app\/calendly-qr-code-generator\.html<\/loc><lastmod>2026-11-10<\/lastmod><changefreq>weekly<\/changefreq><priority>0\.9<\/priority><\/url>\n {2}<url><loc>https:\/\/qrstatic\.app\/linkedin-qr-code-generator\.html<\/loc><lastmod>2026-11-16<\/lastmod><changefreq>weekly<\/changefreq><priority>0\.9<\/priority><\/url>\n {2}<url><loc>https:\/\/qrstatic\.app\/youtube-channel-qr-code-generator\.html<\/loc><lastmod>2026-11-19<\/lastmod><changefreq>weekly<\/changefreq><priority>0\.9<\/priority><\/url>\n {2}<url><loc>https:\/\/qrstatic\.app\/contact\.html<\/loc><lastmod>2026-11-07<\/lastmod>/
   );
   assert.equal(
     (sitemap.match(/<loc>https:\/\/qrstatic\.app\/linkedin-qr-code-generator\.html<\/loc>/g) || []).length,
@@ -314,7 +314,10 @@ test('existing sitemap entries keep their loc, lastmod, changefreq, and priority
   const blocks = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(function (m) { return m[1]; });
   const linkedin = blocks.filter(function (block) { return block.includes('linkedin-qr-code-generator.html'); });
   assert.equal(linkedin.length, 1);
-  const rest = blocks.filter(function (block) { return !block.includes('linkedin-qr-code-generator.html'); });
+  const rest = blocks.filter(function (block) {
+    return block.indexOf('linkedin-qr-code-generator.html') === -1 &&
+      block.indexOf('youtube-channel-qr-code-generator.html') === -1;
+  });
   const expected = [
     'https://qrstatic.app/|2026-11-07|weekly|1.0',
     'https://qrstatic.app/wifi-qr-code-generator.html|2026-11-05|weekly|0.9',

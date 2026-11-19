@@ -48,6 +48,7 @@ const PAGES = {
   'google-form-qr-code-generator.html': [['fill', '#gform-url', 'https://forms.gle/AbCdEf123']],
   'calendly-qr-code-generator.html': [['fill', '#calendly-url', 'https://calendly.com/example-user/30min']],
   'linkedin-qr-code-generator.html': [['fill', '#linkedin-url', 'https://www.linkedin.com/in/example-name']],
+  'youtube-channel-qr-code-generator.html': [['fill', '#youtube-url', 'https://www.youtube.com/@examplechannel']],
   'totp-qr-code-generator.html': [['fill', '#otp-account', 'ann@example.com'], ['fill', '#otp-secret', 'JBSWY3DPEHPK3PXP']],
   'app-store-google-play-qr-code-generator.html': [
     ['fill', '#appstore-url', 'https://apps.apple.com/us/app/example-app/id310633997'],
