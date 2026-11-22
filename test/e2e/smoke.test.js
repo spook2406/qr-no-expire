@@ -39,6 +39,7 @@ const PAGES = {
   'sms-qr-code-generator.html': [['fill', '#sms-phone', '+15551234567'], ['fill', '#sms-message', 'Hi']],
   'email-qr-code-generator.html': [['fill', '#email-to', 'hello@example.com']],
   'whatsapp-qr-code-generator.html': [['fill', '#wa-cc', '1'], ['fill', '#wa-phone', '5551234567']],
+  'whatsapp-channel-qr-code-generator.html': [['fill', '#whatsapp-channel-url', 'https://www.whatsapp.com/channel/0029VaAbCdEfGhIjKlMnOp']],
   'telegram-qr-code-generator.html': [['fill', '#telegram-url', '@durov']],
   'discord-qr-code-generator.html': [['fill', '#discord-url', 'https://discord.gg/abcDEF12']],
   'zoom-meeting-qr-code-generator.html': [['fill', '#zoom-url', 'https://us02web.zoom.us/j/85012345678']],

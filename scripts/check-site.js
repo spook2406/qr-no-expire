@@ -5,7 +5,8 @@
  * Static checks that are easy to forget when a new page is added:
  *  - every public HTML page is in sitemap.xml, and every sitemap URL exists
  *  - each page's canonical URL matches its sitemap URL
- *  - every generator page is linked from the homepage
+ *  - every generator page is linked from the homepage, except a preview
+ *    generator listed in NOT_LINKED_FROM_HOMEPAGE (no inbound link until release)
  *  - every generator page loads qrcode → qr-core → its scripts → share.js
  *  - local href/src links point at files that exist
  *
@@ -59,6 +60,13 @@ for (const url of new Set(dupes)) problems.push('sitemap.xml: duplicate entry ' 
 const index = read('index.html');
 const generators = pages.filter((p) => /-generator\.html$/.test(p));
 
+// Preview-only generators stay out of already-live pages, including the
+// homepage, so production does not link to a URL that is not released yet.
+// Remove a slug from this set when that page is linked from index.html.
+const NOT_LINKED_FROM_HOMEPAGE = new Set([
+  'whatsapp-channel-qr-code-generator.html'
+]);
+
 for (const rel of pages) {
   const html = read(rel);
 
@@ -80,7 +88,7 @@ for (const rel of pages) {
 
 for (const rel of generators.concat('index.html')) {
   const html = read(rel);
-  if (rel !== 'index.html' && !index.includes('href="' + rel + '"')) {
+  if (rel !== 'index.html' && !NOT_LINKED_FROM_HOMEPAGE.has(rel) && !index.includes('href="' + rel + '"')) {
     problems.push(rel + ': not linked from index.html');
   }
   const scripts = [...html.matchAll(/<script[^>]*\ssrc="([^"]+)"/g)].map((m) => m[1]).filter((s) => !/^https?:/.test(s));
