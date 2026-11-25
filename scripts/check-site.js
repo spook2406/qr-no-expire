@@ -64,7 +64,8 @@ const generators = pages.filter((p) => /-generator\.html$/.test(p));
 // homepage, so production does not link to a URL that is not released yet.
 // Remove a slug from this set when that page is linked from index.html.
 const NOT_LINKED_FROM_HOMEPAGE = new Set([
-  'whatsapp-channel-qr-code-generator.html'
+  'whatsapp-channel-qr-code-generator.html',
+  'apple-music-qr-code-generator.html'
 ]);
 
 for (const rel of pages) {

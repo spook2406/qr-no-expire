@@ -54,7 +54,8 @@ const PAGES = {
   'app-store-google-play-qr-code-generator.html': [
     ['fill', '#appstore-url', 'https://apps.apple.com/us/app/example-app/id310633997'],
     ['fill', '#play-url', 'https://play.google.com/store/apps/details?id=com.example.app']
-  ]
+  ],
+  'apple-music-qr-code-generator.html': [['fill', '#apple-music-url', 'https://music.apple.com/us/album/1524801260']]
 };
 
 // Pages whose preview is not the single #qr-canvas / #download-png / #download-svg set.

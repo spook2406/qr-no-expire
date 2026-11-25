@@ -477,7 +477,8 @@ test('existing sitemap entries keep their loc, lastmod, changefreq, priority, an
     'https://qrstatic.app/guides/whatsapp-click-to-chat-qr-code.html|2026-11-12|monthly|0.8',
     'https://qrstatic.app/guides/google-form-qr-code-attendance-rsvp.html|2026-11-12|monthly|0.8',
     'https://qrstatic.app/guides/google-maps-location-qr-code-store.html|2026-11-12|monthly|0.8',
-    'https://qrstatic.app/whatsapp-channel-qr-code-generator.html|2026-11-22|weekly|0.9'
+    'https://qrstatic.app/whatsapp-channel-qr-code-generator.html|2026-11-22|weekly|0.9',
+    'https://qrstatic.app/apple-music-qr-code-generator.html|2026-11-25|weekly|0.9'
   ];
   assert.deepEqual(rest.map(function (block) {
     const loc = (block.match(/<loc>([^<]+)<\/loc>/) || [])[1];
