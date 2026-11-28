@@ -330,16 +330,17 @@ test('page, sitemap, and already-live pages meet the WhatsApp Channel contract',
   assert.equal(ads, 'google.com, pub-8737820277849030, DIRECT, f08c47fec0942fa0\n');
 
   const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(function (m) { return m[1]; });
-  assert.equal(locs.length, 49);
-  assert.equal(locs[locs.length - 1], 'https://qrstatic.app/apple-music-qr-code-generator.html');
-  assert.equal(locs[locs.length - 2], 'https://qrstatic.app/whatsapp-channel-qr-code-generator.html');
+  assert.equal(locs.length, 50);
+  assert.equal(locs[locs.length - 1], 'https://qrstatic.app/linktree-qr-code-generator.html');
+  assert.equal(locs[locs.length - 2], 'https://qrstatic.app/apple-music-qr-code-generator.html');
+  assert.equal(locs[locs.length - 3], 'https://qrstatic.app/whatsapp-channel-qr-code-generator.html');
   assert.equal(
     (sitemap.match(/<loc>https:\/\/qrstatic\.app\/whatsapp-channel-qr-code-generator\.html<\/loc>/g) || []).length,
     1
   );
   assert.match(
     sitemap,
-    /<loc>https:\/\/qrstatic\.app\/guides\/google-maps-location-qr-code-store\.html<\/loc><lastmod>2026-11-12<\/lastmod><changefreq>monthly<\/changefreq><priority>0\.8<\/priority><\/url>\n {2}<url><loc>https:\/\/qrstatic\.app\/whatsapp-channel-qr-code-generator\.html<\/loc><lastmod>2026-11-22<\/lastmod><changefreq>weekly<\/changefreq><priority>0\.9<\/priority><\/url>\n {2}<url><loc>https:\/\/qrstatic\.app\/apple-music-qr-code-generator\.html<\/loc><lastmod>2026-11-25<\/lastmod><changefreq>weekly<\/changefreq><priority>0\.9<\/priority><\/url>\n<\/urlset>/
+    /<loc>https:\/\/qrstatic\.app\/guides\/google-maps-location-qr-code-store\.html<\/loc><lastmod>2026-11-12<\/lastmod><changefreq>monthly<\/changefreq><priority>0\.8<\/priority><\/url>\n {2}<url><loc>https:\/\/qrstatic\.app\/whatsapp-channel-qr-code-generator\.html<\/loc><lastmod>2026-11-22<\/lastmod><changefreq>weekly<\/changefreq><priority>0\.9<\/priority><\/url>\n {2}<url><loc>https:\/\/qrstatic\.app\/apple-music-qr-code-generator\.html<\/loc><lastmod>2026-11-25<\/lastmod><changefreq>weekly<\/changefreq><priority>0\.9<\/priority><\/url>\n {2}<url><loc>https:\/\/qrstatic\.app\/linktree-qr-code-generator\.html<\/loc><lastmod>2026-11-28<\/lastmod><changefreq>weekly<\/changefreq><priority>0\.9<\/priority><\/url>\n<\/urlset>/
   );
 });
 
@@ -401,7 +402,8 @@ test('sitemap appends only the channel page and keeps every older entry', functi
     'https://qrstatic.app/guides/whatsapp-click-to-chat-qr-code.html|2026-11-12|monthly|0.8',
     'https://qrstatic.app/guides/google-form-qr-code-attendance-rsvp.html|2026-11-12|monthly|0.8',
     'https://qrstatic.app/guides/google-maps-location-qr-code-store.html|2026-11-12|monthly|0.8',
-    'https://qrstatic.app/apple-music-qr-code-generator.html|2026-11-25|weekly|0.9'
+    'https://qrstatic.app/apple-music-qr-code-generator.html|2026-11-25|weekly|0.9',
+    'https://qrstatic.app/linktree-qr-code-generator.html|2026-11-28|weekly|0.9'
   ];
   assert.deepEqual(rest.map(function (block) {
     const loc = (block.match(/<loc>([^<]+)<\/loc>/) || [])[1];

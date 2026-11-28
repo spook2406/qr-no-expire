@@ -276,15 +276,16 @@ test('page, sitemap, and already-live pages meet the Apple Music preview contrac
   assert.equal(ads, 'google.com, pub-8737820277849030, DIRECT, f08c47fec0942fa0\n');
 
   const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(function (m) { return m[1]; });
-  assert.equal(locs[locs.length - 1], 'https://qrstatic.app/apple-music-qr-code-generator.html');
-  assert.equal(locs[locs.length - 2], 'https://qrstatic.app/whatsapp-channel-qr-code-generator.html');
+  assert.equal(locs[locs.length - 1], 'https://qrstatic.app/linktree-qr-code-generator.html');
+  assert.equal(locs[locs.length - 2], 'https://qrstatic.app/apple-music-qr-code-generator.html');
+  assert.equal(locs[locs.length - 3], 'https://qrstatic.app/whatsapp-channel-qr-code-generator.html');
   assert.equal(
     (sitemap.match(/<loc>https:\/\/qrstatic\.app\/apple-music-qr-code-generator\.html<\/loc>/g) || []).length,
     1
   );
   assert.match(
     sitemap,
-    /<loc>https:\/\/qrstatic\.app\/whatsapp-channel-qr-code-generator\.html<\/loc><lastmod>2026-11-22<\/lastmod><changefreq>weekly<\/changefreq><priority>0\.9<\/priority><\/url>\n {2}<url><loc>https:\/\/qrstatic\.app\/apple-music-qr-code-generator\.html<\/loc><lastmod>2026-11-25<\/lastmod><changefreq>weekly<\/changefreq><priority>0\.9<\/priority><\/url>\n<\/urlset>/
+    /<loc>https:\/\/qrstatic\.app\/whatsapp-channel-qr-code-generator\.html<\/loc><lastmod>2026-11-22<\/lastmod><changefreq>weekly<\/changefreq><priority>0\.9<\/priority><\/url>\n {2}<url><loc>https:\/\/qrstatic\.app\/apple-music-qr-code-generator\.html<\/loc><lastmod>2026-11-25<\/lastmod><changefreq>weekly<\/changefreq><priority>0\.9<\/priority><\/url>\n {2}<url><loc>https:\/\/qrstatic\.app\/linktree-qr-code-generator\.html<\/loc><lastmod>2026-11-28<\/lastmod><changefreq>weekly<\/changefreq><priority>0\.9<\/priority><\/url>\n<\/urlset>/
   );
 });
 
