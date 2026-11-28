@@ -65,7 +65,8 @@ const generators = pages.filter((p) => /-generator\.html$/.test(p));
 // Remove a slug from this set when that page is linked from index.html.
 const NOT_LINKED_FROM_HOMEPAGE = new Set([
   'whatsapp-channel-qr-code-generator.html',
-  'apple-music-qr-code-generator.html'
+  'apple-music-qr-code-generator.html',
+  'linktree-qr-code-generator.html'
 ]);
 
 for (const rel of pages) {
